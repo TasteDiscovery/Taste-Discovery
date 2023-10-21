@@ -3,7 +3,8 @@ extends CharacterBody2D
 var player_is_beside = false
 
 func npc_interaction():
-	print("NPC: gaaaaa")
+	RestauranteGlobal.current_dialog = "primer_dialogo_jefe"
+	RestauranteGlobal.show_dialog()
 
 
 func _physics_process(delta):

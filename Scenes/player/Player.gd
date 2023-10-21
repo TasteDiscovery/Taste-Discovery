@@ -32,7 +32,6 @@ func _physics_process(delta):
 
 func interaction_handle():
 	if Input.is_action_just_pressed("ui_accept") and can_interact:
-		print("Jugador: tirame tu ga")
 		RestauranteGlobal.player_current_try_interact = true
 
 func _on_interact_area_body_entered(body):
