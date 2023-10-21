@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var instance = get_node("/root/Restaurante/player/Camera2D/Dialog")
+#@onready var instance = get_node("/root/Restaurante/player/Camera2D/Dialog")
 
 var player_current_try_interact = false
 
@@ -9,13 +9,14 @@ var is_already_show_dialog = false
 var current_dialog = "primer_dialogo"
 var current_dialog_index = -1
 
+
 const dialogosPrimerRestaurant = {
 	"primer_dialogo": [
 		"Jugador: Bueno... ya estoy aquí, mi primer trabajo.",
 		"Jugador: Me dijeron que venga a hablar con el jefe, me pregunto donde estará... será mejor que lo busque"
 	]
 }
-
+'''
 func _ready():
 	show_dialog()
 
@@ -41,3 +42,5 @@ func hide_dialog():
 	is_already_show_dialog = false
 	current_dialog_index = -1
 	instance.visible = false
+
+'''
