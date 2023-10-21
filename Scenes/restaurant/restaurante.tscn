@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dkm7pulgeaur3"]
+[gd_scene load_steps=16 format=3 uid="uid://dkm7pulgeaur3"]
 
 [ext_resource type="Texture2D" uid="uid://wx731yukiiv0" path="res://Assets/Tiles/Restaurant/floor.png" id="1_0vttc"]
+[ext_resource type="Script" path="res://Scenes/restaurant/restaurante_global.gd" id="1_4fcmf"]
 [ext_resource type="Texture2D" uid="uid://cwiisel8nb3ol" path="res://Assets/Tiles/Restaurant/roguelikeIndoor_transparent.png" id="2_aalot"]
 [ext_resource type="Texture2D" uid="uid://b5x6efij1ylon" path="res://Assets/Tiles/Restaurant/utensilios.png" id="3_wdpi4"]
 [ext_resource type="PackedScene" uid="uid://b1v6b3soff8jv" path="res://Scenes/player/Player.tscn" id="4_dgoku"]
+[ext_resource type="Script" path="res://Scenes/restaurant/Jefe.gd" id="5_hb6cm"]
 [ext_resource type="Texture2D" uid="uid://bdx63un5b7t6b" path="res://Assets/NPCs/Jefe/BossSprite.png" id="5_w3q31"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ojfgj"]
@@ -7346,8 +7348,11 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_81gij"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrm87"]
+
 [node name="Restaurante" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_4fcmf")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -7372,11 +7377,12 @@ layer_2/tile_data = PackedInt32Array(2097192, 851971, 43, -196526, 393219, 32, -
 
 [node name="player" parent="." instance=ExtResource("4_dgoku")]
 z_index = 1
-position = Vector2(804, 608)
+position = Vector2(576, 656)
 scale = Vector2(0.366744, 0.352149)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2.675, 2.675)
+position = Vector2(2.72668, -90.8706)
+zoom = Vector2(3.22, 3.22)
 limit_left = 0
 limit_top = 0
 limit_right = 1408
@@ -7384,15 +7390,26 @@ limit_bottom = 736
 editor_draw_limits = true
 
 [node name="Jefe" type="CharacterBody2D" parent="."]
+script = ExtResource("5_hb6cm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Jefe"]
 position = Vector2(1392, 32)
 scale = Vector2(0.367, 0.367)
 sprite_frames = SubResource("SpriteFrames_ixhsf")
 animation = &"idle"
-frame_progress = 0.00675785
+frame_progress = 0.395623
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jefe"]
 position = Vector2(1392, 32)
 scale = Vector2(0.467, 0.515)
 shape = SubResource("CapsuleShape2D_81gij")
+
+[node name="AreaInteractJefe" type="Area2D" parent="Jefe"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jefe/AreaInteractJefe"]
+position = Vector2(1392, 32)
+scale = Vector2(1.895, 1.895)
+shape = SubResource("CircleShape2D_xrm87")
+
+[connection signal="body_entered" from="Jefe/AreaInteractJefe" to="Jefe" method="_on_area_interact_jefe_body_entered"]
+[connection signal="body_exited" from="Jefe/AreaInteractJefe" to="Jefe" method="_on_area_interact_jefe_body_exited"]
