@@ -32,7 +32,7 @@ func _physics_process(delta):
 
 func interaction_handle():
 	if Input.is_action_just_pressed("ui_accept") and can_interact:
-		RestauranteGlobal.player_current_try_interact = true
+		PRINCIPAL_GLOBAL.player_current_try_interact = true
 
 func _on_interact_area_body_entered(body):
 	if body.has_method("npc_interaction"):
@@ -46,6 +46,5 @@ func _on_interact_area_body_entered(body):
 func _on_interact_area_body_exited(body):
 	if body.has_method("npc_interaction"):
 		can_interact = false
-		print("Ya no ja")
 	if body.has_method("object_interaction"):
 		can_interact = false
