@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
-const speed = 100
+@export var speed = 100
 var can_interact = false
 var can_move = true
 
