@@ -1,0 +1,108 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhvo6s4mcmo2i"]
+
+[ext_resource type="Texture2D" uid="uid://c4xsgkdmr0vlh" path="res://Assets/NPCs/Cow/cow-sprite.png" id="1_jl75e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tff5r"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(0, 444, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ln6gm"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(111, 444, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cg32"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(222, 444, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynv42"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(333, 444, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxij6"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(0, 111, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv0ns"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(111, 111, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdh3m"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(222, 111, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jupx"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(333, 111, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fylaw"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(0, 333, 111, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlmkw"]
+atlas = ExtResource("1_jl75e")
+region = Rect2(111, 333, 111, 111)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ftdh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tff5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ln6gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cg32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynv42")
+}],
+"loop": true,
+"name": &"Eat",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxij6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv0ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdh3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jupx")
+}],
+"loop": true,
+"name": &"Happy",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fylaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlmkw")
+}],
+"loop": true,
+"name": &"Sleep",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_032rc"]
+radius = 33.0151
+
+[node name="Cow" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(0.750524, 0.726457)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_0ftdh")
+animation = &"Eat"
+frame_progress = 0.391161
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-2, 10)
+shape = SubResource("CircleShape2D_032rc")

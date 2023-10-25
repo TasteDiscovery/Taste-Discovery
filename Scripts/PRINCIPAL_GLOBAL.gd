@@ -1,5 +1,5 @@
 extends Node
-@onready var instance = get_node("/root/Restaurante/player/Camera2D/Dialog")
+#@onready var instance = get_node("/root/Restaurante/player/Camera2D/Dialog")
 
 var player_current_try_interact = false
 
@@ -26,7 +26,7 @@ func next_script():
 func hide_dialog():
 	is_already_show_dialog = false
 	current_dialog_index = -1
-	instance.visible = false
+#	instance.visible = false
 
 func _input(event):
 	if is_already_show_dialog == false:
