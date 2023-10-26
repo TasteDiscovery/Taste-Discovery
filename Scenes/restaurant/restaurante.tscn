@@ -8129,11 +8129,11 @@ layer_2/tile_data = PackedInt32Array(2097192, 851971, 43, -196526, 393219, 32, -
 
 [node name="player" parent="." instance=ExtResource("4_dgoku")]
 z_index = 1
-position = Vector2(576, 656)
+position = Vector2(581, 658)
 scale = Vector2(0.366744, 0.352149)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(2.72668, -90.8706)
+position = Vector2(-4.76837e-06, 2.83972)
 zoom = Vector2(3.22, 3.22)
 limit_left = 0
 limit_top = 0
