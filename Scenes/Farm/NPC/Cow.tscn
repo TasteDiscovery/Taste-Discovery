@@ -91,9 +91,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_032rc"]
-radius = 33.0151
+radius = 30.6453
 
 [node name="Cow" type="Node2D"]
+z_index = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(0.750524, 0.726457)
@@ -104,5 +105,5 @@ animation = &"Eat"
 frame_progress = 0.391161
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-2, 10)
+position = Vector2(-1.3324, 12.3889)
 shape = SubResource("CircleShape2D_032rc")
