@@ -29,13 +29,10 @@ var glasses = []
 var ball
 
 @onready var screen_size = get_viewport_rect().size
-var speed = 200
+var speed = 300
 
-var indice1 = 0
-var indice2 = 1
-
-var destination1 = 0
-var destination2 = 0
+var indices = Vector2(0,0) 
+var destinations = Vector2(0,0)
 
 func _ready():
 	load_glasses()
@@ -72,19 +69,19 @@ func load_ball():
 	ball.position = Vector2(-128,-128)
 
 func choose_glass_indices():
-	indice1 = randi() % glassNumber
-	indice2 = randi() % glassNumber
+	indices.x = randi() % glassNumber
+	indices.y = randi() % glassNumber
 
 func choose_glass_destinations():
-	destination1 = glasses[indice1].position.x
-	destination2 = glasses[indice2].position.x
+	destinations.x = glasses[indices.x].position.x
+	destinations.y = glasses[indices.y].position.x
 
 func mix_finished():
 	return mixCount >= mixNumber
 
 func choose_glasses():
 	choose_glass_indices()
-	if(indice1 != indice2):
+	if(indices.x != indices.y):
 		choose_glass_destinations()
 		return true
 	return false
@@ -183,10 +180,10 @@ func _process(delta):
 			pass
 
 func swap_glasses_positions(delta):
-	var glass1 = glasses[indice1]
-	var glass2 = glasses[indice2]
-	move_glass(delta, glass1, destination2)
-	move_glass(delta, glass2, destination1)
+	var glass1 = glasses[indices.x]
+	var glass2 = glasses[indices.y]
+	move_glass(delta, glass1, destinations.y)
+	move_glass(delta, glass2, destinations.x)
 
 func move_glass(delta, glass, destination):
 	if destination > glass.position.x:
