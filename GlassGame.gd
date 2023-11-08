@@ -12,7 +12,7 @@ enum {
 	UP,
 	DOWN
 }
-
+var currentState = SHUFFLE
 var currentAnimateStatus = UP
 
 var score = 0
@@ -23,16 +23,16 @@ var roundCount = 0
 var mixNumber = 5
 var mixCount = 0
 
-var currentState = SHUFFLE
 var glassNumber = 3
 var glasses = []
 var ball
+var speed = 300
 
 @onready var screen_size = get_viewport_rect().size
-var speed = 300
 
 var indices = Vector2(0,0) 
 var destinations = Vector2(0,0)
+var prev_indices = Vector2(0,0)
 
 func _ready():
 	load_glasses()
@@ -79,9 +79,23 @@ func choose_glass_destinations():
 func mix_finished():
 	return mixCount >= mixNumber
 
+func verify_reverse_indices():
+	var revert_indices = Vector2(indices.y, indices.x)
+	return equals(prev_indices, revert_indices)
+
+func verify_indices():
+	return (equals(indices, prev_indices) || verify_reverse_indices())
+	
+func equals(value1, value2):
+	return value1 == value2
+	
+func update_indices():
+	prev_indices = indices
+
 func choose_glasses():
 	choose_glass_indices()
-	if(indices.x != indices.y):
+	if(!equals(indices.x,indices.y) && !verify_indices()):
+		update_indices()
 		choose_glass_destinations()
 		return true
 	return false
@@ -163,10 +177,10 @@ func get_glass_postion_for_ball():
 func set_ball_position():
 	ball.position = get_glass_postion_for_ball()
 
-#func _draw():
-#	for glass in glasses:
-#		var rect = get_glass_rect(glass)
-#		draw_rect(rect, Color(1, 0, 0, 1),true)
+func _draw():
+	for glass in glasses:
+		var rect = get_glass_rect(glass)
+		draw_rect(rect, Color(1, 0, 0, 1),true)
 
 func _process(delta):
 	match currentState:
