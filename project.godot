@@ -24,9 +24,7 @@ PRINCIPAL_GLOBAL="*res://Scripts/PRINCIPAL_GLOBAL.gd"
 
 window/size/viewport_width=800
 window/size/viewport_height=480
-window/size/window_width_override=1280
-window/size/window_height_override=720
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [rendering]
 

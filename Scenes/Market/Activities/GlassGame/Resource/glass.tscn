@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt36jq78i47ms"]
+
+[ext_resource type="Texture2D" uid="uid://m8ypb3csuian" path="res://Assets/Tiles/Market/glass.png" id="1_0wejv"]
+[ext_resource type="Script" path="res://Scenes/Market/Activities/GlassGame/Resource/glass.gd" id="2_yxu4v"]
+
+[node name="Glass" type="Sprite2D"]
+texture = ExtResource("1_0wejv")
+script = ExtResource("2_yxu4v")
