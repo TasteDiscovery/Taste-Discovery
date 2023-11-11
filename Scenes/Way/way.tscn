@@ -1062,6 +1062,11 @@ sources/0 = SubResource("TileSetAtlasSource_rcta3")
 
 [node name="Way" type="Node2D"]
 
+[node name="PortalDown2" parent="." instance=ExtResource("3_y2eew")]
+position = Vector2(444, -78)
+sceneName = "market"
+sceneDirName = "Market"
+
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 texture_filter = 1
@@ -1089,6 +1094,6 @@ limit_right = 450
 limit_bottom = 250
 
 [node name="PortalDown" parent="." instance=ExtResource("3_y2eew")]
-position = Vector2(-593, -993)
+position = Vector2(-96, -392)
 sceneName = "restaurante"
 sceneDirName = "restaurant"
