@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c04modov0rphh"]
+[gd_scene load_steps=12 format=3 uid="uid://c04modov0rphh"]
 
 [ext_resource type="Texture2D" uid="uid://cbq5xbfqawjqn" path="res://Assets/Tiles/Market/tileset_vx_ace_street_market_by_ombrouge_d7jx3kf.png" id="1_luisa"]
 [ext_resource type="Script" path="res://Scenes/Market/market.gd" id="1_q7g2r"]
 [ext_resource type="Texture2D" uid="uid://bbh3e3807r875" path="res://Assets/Tiles/grass1_tileset.png" id="2_ww65n"]
 [ext_resource type="Texture2D" uid="uid://qjotscu8hnd5" path="res://Assets/Tiles/Forest/forest_tile.png" id="3_7nsc6"]
 [ext_resource type="PackedScene" uid="uid://b1v6b3soff8jv" path="res://Scenes/player/Player.tscn" id="3_pb75n"]
+[ext_resource type="PackedScene" uid="uid://cp4jmlumqqpbb" path="res://Scenes/Portals/portal_down.tscn" id="6_eb15m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_roqte"]
 texture = ExtResource("1_luisa")
@@ -1334,7 +1335,13 @@ shape = SubResource("RectangleShape2D_qsn1i")
 
 [node name="player" parent="." instance=ExtResource("3_pb75n")]
 z_index = 1
-position = Vector2(-811, -19)
+position = Vector2(-758, -1)
 speed = 250
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+limit_left = -800
+
+[node name="PortalDown" parent="." instance=ExtResource("6_eb15m")]
+position = Vector2(-953, -72)
+sceneName = "way"
+sceneDirName = "Way"
