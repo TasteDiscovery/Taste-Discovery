@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://f7wg0u0xl0j7"]
+
+[ext_resource type="Texture2D" uid="uid://bjnc3h5m6wak4" path="res://Assets/Items/manzana_item.png" id="1_yi3aa"]
+
+[node name="item_forest" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 5
+scale = Vector2(0.123612, 0.121625)
+texture = ExtResource("1_yi3aa")

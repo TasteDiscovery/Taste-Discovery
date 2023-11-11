@@ -423,8 +423,8 @@ terrain_set_0/terrain_0/name = "way"
 terrain_set_0/terrain_0/color = Color(0.576471, 0.223529, 0.513726, 1)
 sources/0 = SubResource("TileSetAtlasSource_7yymj")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct1tx"]
-size = Vector2(922, 618)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljgb7"]
+size = Vector2(9.92125, 390.699)
 
 [node name="ForestMap" type="Node2D"]
 script = ExtResource("1_kmj0h")
@@ -500,14 +500,13 @@ scale = Vector2(0.763744, 0.778453)
 speed = 200
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(0.175, 0.175)
+zoom = Vector2(0.13, 0.13)
 
 [node name="Area1" type="Area2D" parent="."]
 position = Vector2(592, 2352)
+scale = Vector2(19.773, 1.56184)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
-position = Vector2(451, 299)
-shape = SubResource("RectangleShape2D_ct1tx")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(544, 2336)
+position = Vector2(23.1062, 193.936)
+scale = Vector2(4.64, 1)
+shape = SubResource("RectangleShape2D_ljgb7")
