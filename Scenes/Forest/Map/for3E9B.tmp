@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dirapmf2g56gj"]
+[gd_scene load_steps=7 format=3 uid="uid://dirapmf2g56gj"]
 
 [ext_resource type="Texture2D" uid="uid://qjotscu8hnd5" path="res://Assets/Tiles/Forest/forest_tile.png" id="1_gwboa"]
 [ext_resource type="Script" path="res://Scenes/Forest/forest.gd" id="1_kmj0h"]
@@ -426,9 +426,6 @@ sources/0 = SubResource("TileSetAtlasSource_7yymj")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct1tx"]
 size = Vector2(922, 618)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_744ny"]
-size = Vector2(921, 616)
-
 [node name="ForestMap" type="Node2D"]
 script = ExtResource("1_kmj0h")
 
@@ -503,7 +500,7 @@ scale = Vector2(0.763744, 0.778453)
 speed = 200
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(0.12, 0.12)
 
 [node name="Area1" type="Area2D" parent="."]
 position = Vector2(592, 2352)
@@ -513,12 +510,5 @@ position = Vector2(455, 297)
 shape = SubResource("RectangleShape2D_ct1tx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(591, 2952)
+position = Vector2(600, 2360)
 scale = Vector2(9.00596, 0.973688)
-
-[node name="Area2" type="Area2D" parent="."]
-position = Vector2(577, 290)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
-position = Vector2(461.5, 308)
-shape = SubResource("RectangleShape2D_744ny")
