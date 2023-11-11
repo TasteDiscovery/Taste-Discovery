@@ -177,10 +177,10 @@ func get_glass_postion_for_ball():
 func set_ball_position():
 	ball.position = get_glass_postion_for_ball()
 
-func _draw():
-	for glass in glasses:
-		var rect = get_glass_rect(glass)
-		draw_rect(rect, Color(1, 0, 0, 1),true)
+#func _draw():
+#	for glass in glasses:
+#		var rect = get_glass_rect(glass)
+#		draw_rect(rect, Color(1, 0, 0, 1),true)
 
 func _process(delta):
 	match currentState:
