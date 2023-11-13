@@ -3,7 +3,13 @@ extends Node2D
 @onready var area1 = $Area1/CollisionShape2D
 
 @onready var array_areas = [
-	
+	$Area1/CollisionShape2D,
+	$Area2/CollisionShape2D,
+	$Area3/CollisionShape2D,
+	$Area4/CollisionShape2D,
+	$Area5/CollisionShape2D,
+	$Area6/CollisionShape2D,
+	$Area7/CollisionShape2D
 ]
 
 
@@ -16,7 +22,7 @@ func gen_random_pos(origin, spawnArea):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_items(area1)
+	spawn_all_section_items()
 	
 	
 
@@ -26,8 +32,11 @@ func _process(delta):
 	pass
 
 
+func spawn_all_section_items():
+	for area in array_areas:
+		spawn_item(area) 
 
-func spawn_items(area):
+func spawn_item(area):
 	var item = load("res://Scenes/Forest/Items/item_forest.tscn")
 	randomize()
 	var spawnArea = area.shape.extents
@@ -36,7 +45,7 @@ func spawn_items(area):
 	var final_point =  Vector2(origin.x + rect.size.x, origin.y + rect.size.y)
 	
 	
-	for i in range(5):
+	for i in range(10):
 		var instance = item.instantiate()
 		instance.position = gen_random_pos(origin, final_point)
 		add_child(instance)
