@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://b1v6b3soff8jv"]
+[gd_scene load_steps=44 format=3 uid="uid://b1v6b3soff8jv"]
 
 [ext_resource type="Script" path="res://Scenes/player/Player.gd" id="1_7y375"]
+[ext_resource type="PackedScene" uid="uid://bmx30yje1f16g" path="res://Scenes/player/controls.tscn" id="2_iu2rq"]
 [ext_resource type="Texture2D" uid="uid://c3ack80fqn1s0" path="res://Assets/Player/PlayerOriginal.png" id="2_lwewh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pr2tr"]
@@ -299,6 +300,8 @@ radius = 8.71666
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_7y375")
+
+[node name="Controls" parent="." instance=ExtResource("2_iu2rq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

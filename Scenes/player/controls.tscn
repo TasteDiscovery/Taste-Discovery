@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmx30yje1f16g"]
+
+[ext_resource type="Texture2D" uid="uid://710n8ixfdnii" path="res://icon.svg" id="1_rne2b"]
+
+[node name="Controls" type="CanvasLayer"]
+
+[node name="Up" type="TouchScreenButton" parent="."]
+position = Vector2(99, 266)
+scale = Vector2(0.460937, 0.4375)
+texture_normal = ExtResource("1_rne2b")
+passby_press = true
+action = "ui_up"
+
+[node name="Down" type="TouchScreenButton" parent="."]
+position = Vector2(101, 377)
+scale = Vector2(0.453125, 0.429688)
+texture_normal = ExtResource("1_rne2b")
+passby_press = true
+action = "ui_down"
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2(41, 324)
+scale = Vector2(0.453125, 0.429688)
+texture_normal = ExtResource("1_rne2b")
+passby_press = true
+action = "ui_left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2(159, 323)
+scale = Vector2(0.453125, 0.4375)
+texture_normal = ExtResource("1_rne2b")
+passby_press = true
+action = "ui_right"
