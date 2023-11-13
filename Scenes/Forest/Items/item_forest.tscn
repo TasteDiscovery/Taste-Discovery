@@ -5,6 +5,6 @@
 [node name="item_forest" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 5
+y_sort_enabled = true
 scale = Vector2(0.0452792, 0.0469373)
 texture = ExtResource("1_yi3aa")
