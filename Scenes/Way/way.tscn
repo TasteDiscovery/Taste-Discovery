@@ -1062,10 +1062,9 @@ sources/0 = SubResource("TileSetAtlasSource_rcta3")
 
 [node name="Way" type="Node2D"]
 
-[node name="PortalDown2" parent="." instance=ExtResource("3_y2eew")]
+[node name="Market" parent="." instance=ExtResource("3_y2eew")]
 position = Vector2(444, -78)
-sceneName = "market"
-sceneDirName = "Market"
+change_scene = "res://Scenes/Market/market.tscn"
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -1093,17 +1092,14 @@ limit_top = -250
 limit_right = 450
 limit_bottom = 250
 
-[node name="PortalDown" parent="." instance=ExtResource("3_y2eew")]
+[node name="Restaurant" parent="." instance=ExtResource("3_y2eew")]
 position = Vector2(-96, -392)
-sceneName = "restaurante"
-sceneDirName = "restaurant"
+change_scene = "res://Scenes/restaurant/restaurante.tscn"
 
-[node name="PortalDown3" parent="." instance=ExtResource("3_y2eew")]
+[node name="Farm" parent="." instance=ExtResource("3_y2eew")]
 position = Vector2(-613, -77)
-sceneName = "farm_map"
-sceneDirName = "Farm/Map"
+change_scene = "res://Scenes/Farm/Map/farm_map.tscn"
 
-[node name="PortalDown4" parent="." instance=ExtResource("3_y2eew")]
+[node name="Forest" parent="." instance=ExtResource("3_y2eew")]
 position = Vector2(-95, 263)
-sceneName = "forest_map"
-sceneDirName = "Forest/Map"
+change_scene = "res://Scenes/Forest/Map/forest_map.tscn"

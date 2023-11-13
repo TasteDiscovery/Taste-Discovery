@@ -1337,12 +1337,10 @@ limit_top = -700
 limit_right = 970
 limit_bottom = 675
 
-[node name="PortalDown" parent="." instance=ExtResource("6_eb15m")]
+[node name="Way" parent="." instance=ExtResource("6_eb15m")]
 position = Vector2(-953, -72)
-sceneName = "way"
-sceneDirName = "Way"
+change_scene = "res://Scenes/Way/way.tscn"
 
 [node name="StartActivity" parent="." instance=ExtResource("6_eb15m")]
 position = Vector2(333, -598)
-sceneName = "glass_game"
-sceneDirName = "Market/Activities/GlassGame"
+change_scene = "res://Scenes/Market/Iteraction/market_iteraction.tscn"

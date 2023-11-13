@@ -1060,7 +1060,6 @@ limit_top = -750
 limit_right = 1050
 limit_bottom = 800
 
-[node name="PortalDown" parent="." instance=ExtResource("8_6idrq")]
+[node name="Way" parent="." instance=ExtResource("8_6idrq")]
 position = Vector2(1062, 444)
-sceneName = "way"
-sceneDirName = "Way"
+change_scene = "res://Scenes/Way/way.tscn"
