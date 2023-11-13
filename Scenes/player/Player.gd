@@ -26,9 +26,6 @@ func _physics_process(delta):
 	move_and_slide()
 	updateAnimation()
 	interaction_handle()
-	
-
-
 
 func interaction_handle():
 	if Input.is_action_just_pressed("ui_accept") and can_interact:
