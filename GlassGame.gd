@@ -191,7 +191,10 @@ func _process(delta):
 		SHOW:
 			show_ball(delta)
 		FINISH:
-			pass
+			return_market_scene()
+
+func return_market_scene():
+	get_tree().change_scene_to_file("res://Scenes/Market/market.tscn")
 
 func swap_glasses_positions(delta):
 	var glass1 = glasses[indices.x]
