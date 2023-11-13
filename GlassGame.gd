@@ -118,10 +118,10 @@ func analize_selection(event):
 			handle_selected_glass(glass)
 
 func get_event_position(event):
-	return event.global_position
+	return event.position
 
 func event_is_glass_selection(event):
-	return currentState == SELECT and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
+	return currentState == SELECT and event is InputEventScreenTouch and event.pressed
 
 func handle_selected_glass(glass):
 	if glass.hasBall:
