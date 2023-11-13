@@ -1,11 +1,16 @@
 extends Node2D
 
+enum ingredients {
+	APPLE,
+	RISE,
+	CARROT,
+	POTATO,
+	ORANGE
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var Mision1 = [
+	ingredients.APPLE,
+	ingredients.RISE
+]
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+var inventary = []

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 RestauranteGlobal="*res://Scenes/restaurant/restaurante_global.gd"
 PRINCIPAL_GLOBAL="*res://Scripts/PRINCIPAL_GLOBAL.gd"
+Main="*res://Scenes/Main/main.gd"
 
 [display]
 

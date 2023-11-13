@@ -191,7 +191,16 @@ func _process(delta):
 		SHOW:
 			show_ball(delta)
 		FINISH:
-			return_market_scene()
+			finish_game()
+
+func is_won_game():
+	return score == maxRound * 30
+
+func finish_game():
+	if is_won_game():
+		Main.inventary.append(Main.ingredients.RISE)
+	print(Main.inventary)
+	return_market_scene()
 
 func return_market_scene():
 	get_tree().change_scene_to_file("res://Scenes/Market/market.tscn")
