@@ -448,6 +448,7 @@ size = Vector2(885, 597)
 
 [node name="ForestMap" type="Node2D"]
 script = ExtResource("1_kmj0h")
+metadata/_edit_horizontal_guides_ = [0.0]
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
@@ -545,7 +546,11 @@ position = Vector2(592, 2352)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
 position = Vector2(455, 297)
 shape = SubResource("RectangleShape2D_ct1tx")
-debug_color = Color(0.384314, 0.505882, 0.905882, 0.419608)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(591, 2952)
+scale = Vector2(9.00596, 0.973688)
+limit_top = 0
 
 [node name="Area2" type="Area2D" parent="."]
 position = Vector2(577, 290)
@@ -588,3 +593,7 @@ position = Vector2(4208, 2336)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area7"]
 position = Vector2(437.5, 309.5)
 shape = SubResource("RectangleShape2D_qjvbr")
+
+[node name="PortalDown" parent="." instance=ExtResource("4_75rva")]
+position = Vector2(2792, -127)
+change_scene = "res://Scenes/Way/way.tscn"
