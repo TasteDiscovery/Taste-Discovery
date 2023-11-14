@@ -31,6 +31,8 @@ func interaction_handle():
 	if Input.is_action_just_pressed("ui_accept") and can_interact:
 		PRINCIPAL_GLOBAL.player_current_try_interact = true
 
+
+
 func _on_interact_area_body_entered(body):
 	if body.has_method("npc_interaction"):
 		can_interact = true
@@ -45,3 +47,4 @@ func _on_interact_area_body_exited(body):
 		can_interact = false
 	if body.has_method("object_interaction"):
 		can_interact = false
+

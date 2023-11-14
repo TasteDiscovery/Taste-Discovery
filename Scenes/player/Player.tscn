@@ -305,8 +305,8 @@ script = ExtResource("1_7y375")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 15.015)
-scale = Vector2(0.59, 0.45)
+position = Vector2(0, 9)
+scale = Vector2(0.59, 0.65)
 shape = SubResource("CapsuleShape2D_pr2tr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
