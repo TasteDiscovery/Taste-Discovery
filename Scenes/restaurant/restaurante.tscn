@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkm7pulgeaur3"]
+[gd_scene load_steps=18 format=3 uid="uid://dkm7pulgeaur3"]
 
 [ext_resource type="Texture2D" uid="uid://wx731yukiiv0" path="res://Assets/Tiles/Restaurant/floor.png" id="1_0vttc"]
+[ext_resource type="Script" path="res://restaurante.gd" id="1_13qbj"]
 [ext_resource type="Texture2D" uid="uid://cwiisel8nb3ol" path="res://Assets/Tiles/Restaurant/roguelikeIndoor_transparent.png" id="2_aalot"]
 [ext_resource type="Texture2D" uid="uid://b5x6efij1ylon" path="res://Assets/Tiles/Restaurant/utensilios.png" id="3_wdpi4"]
 [ext_resource type="PackedScene" uid="uid://b1v6b3soff8jv" path="res://Scenes/player/Player.tscn" id="4_dgoku"]
@@ -8104,6 +8105,7 @@ animations = [{
 
 [node name="Restaurante" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_13qbj")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
