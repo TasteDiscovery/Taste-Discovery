@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://qjotscu8hnd5" path="res://Assets/Tiles/Forest/forest_tile.png" id="1_gwboa"]
 [ext_resource type="Script" path="res://Scenes/Forest/forest.gd" id="1_kmj0h"]
 [ext_resource type="PackedScene" uid="uid://b1v6b3soff8jv" path="res://Scenes/player/Player.tscn" id="2_2ptxy"]
-[ext_resource type="FontVariation" path="res://Assets/Fonts/PressStart.tres" id="4_otxjh"]
+[ext_resource type="FontVariation" uid="uid://b1r6w6ijcqgy8" path="res://Assets/Fonts/PressStart.tres" id="4_otxjh"]
 [ext_resource type="PackedScene" uid="uid://cp4jmlumqqpbb" path="res://Scenes/Portals/portal_down.tscn" id="5_huvjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7yymj"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
 @export var speed = 100
+@onready var controls = $Controls
 var can_interact = false
 var can_move = true
 
@@ -20,15 +21,19 @@ func updateAnimation():
 		elif velocity.y < 0 : direction = "front"
 		anim.play(direction+"_walk")
 
+func _ready():
+	controls.a_pressed.connect(interaction_handle)
 
 func _physics_process(delta):
 	handleInput()
 	move_and_slide()
 	updateAnimation()
-	interaction_handle()
+	#interaction_handle()
 
 func interaction_handle():
-	if Input.is_action_just_pressed("interact") and can_interact:
+	#if Input.is_action_just_pressed("interact") and can_interact:
+	#	PRINCIPAL_GLOBAL.player_current_try_interact = true
+	if can_interact:
 		PRINCIPAL_GLOBAL.player_current_try_interact = true
 
 
