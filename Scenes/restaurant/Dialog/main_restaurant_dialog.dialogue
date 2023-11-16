@@ -1,4 +1,22 @@
+~ primera_chamba
+set PRINCIPAL_GLOBAL.can_move = false
+if PRINCIPAL_GLOBAL.first_chamba == true:
+	Jugador: Bueno aqui estamos. Me dijeron que podía trabajar aquí
+	Jugador: Por ahora tengo que encontrar al jefe
+	OBJETIVO: Encontrar al jefe
+set PRINCIPAL_GLOBAL.can_move = true
+=> END
+
+~ no_exit_primera_chamba
+set PRINCIPAL_GLOBAL.can_move = false
+Jugador: No he llegado hasta aquí para irme así nomas, debo buscar a mi nuevo jefe
+OBJETIVO: Encontrar al jefe
+set PRINCIPAL_GLOBAL.can_move = true
+=> END
+
 ~ main_restaurant_dialog
+set PRINCIPAL_GLOBAL.can_move = false
+set PRINCIPAL_GLOBAL.first_chamba = false
 if PRINCIPAL_GLOBAL.has_mision==false:
 	Jefe: Hmmm? Quien eres? Esto muy ocupado preparando el restaurante para abrir hoy
 	Jugador: Soy quien le envio una solicitud de trabajo, me dijo que venga hoy
@@ -21,4 +39,5 @@ else:
 	Jefe: Excenlente, gracias por tu ayuda
 	set PRINCIPAL_GLOBAL.has_mision = true
 	set PRINCIPAL_GLOBAL.inventary = []
+set PRINCIPAL_GLOBAL.can_move = true
 => END
