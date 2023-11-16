@@ -30,9 +30,6 @@ func gen_random_pos(origin, spawnArea):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	spawn_all_section_items()
-	
-	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -44,8 +41,7 @@ func spawn_all_section_items():
 	print(total_items) 
 	player.can_interact = false
 	counter_label.text = format_string.format({"actual":items_recogidos, "total":total_items })
-	
-	
+
 
 func spawn_item(area):
 	var item = load("res://Scenes/Forest/Items/item_forest.tscn")
@@ -76,6 +72,11 @@ func get_searched_item():
 func set_items_recogidos():
 	items_recogidos = items_recogidos + 1
 	counter_label.text = format_string.format({"actual":items_recogidos, "total":total_items })
+	if items_recogidos == total_items:
+		complete_mision()
+
+func complete_mision():
+	PRINCIPAL_GLOBAL.inventary.append(PRINCIPAL_GLOBAL.ingredients.APPLE)
 
 func calculate_total_items(item_name):
 	if item_name == item_searched:

@@ -1,0 +1,21 @@
+~ main_restaurant_dialog
+if PRINCIPAL_GLOBAL.has_mision==false:
+	Jefe: Hmmm? Quien eres? Esto muy ocupado preparando el restaurante para abrir hoy
+	Jugador: Soy quien le envio una solicitud de trabajo, me dijo que venga hoy
+	Jefe: Ah cierto!, eres el nuevo ayudante
+	Jugador: Exactamente, es un gusto conocerlo señor
+	Jefe: Justo estaba revisando tu curriculum, pero lo deje en algún lado del restaurante
+	Jefe: Buscalo y traemelo
+	OBJETIVO: Busca tus documentos en el restaurante
+	set PRINCIPAL_GLOBAL.has_mision = true
+else if PRINCIPAL_GLOBAL.Mision1 != PRINCIPAL_GLOBAL.inventary:
+	Jefe: Aún no tienes todos los ingredientes?
+	Jefe: Date prisa que los clientes estan hambrientos
+	Jugador: Ahora vuelvo
+else:
+	Jefe: ¿Tienes los ingredientes?
+	Jugador: Sí
+	Jefe: Excenlente, gracias por tu ayuda
+	set PRINCIPAL_GLOBAL.has_mision = true
+	set PRINCIPAL_GLOBAL.inventary = []
+=> END

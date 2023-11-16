@@ -41,4 +41,4 @@ position = Vector2(624, 344)
 scale = Vector2(3.889, 3.889)
 texture_normal = ExtResource("5_bsbut")
 passby_press = true
-action = "ui_accept"
+action = "interact"

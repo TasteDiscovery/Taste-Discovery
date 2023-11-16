@@ -28,7 +28,7 @@ func _physics_process(delta):
 	interaction_handle()
 
 func interaction_handle():
-	if Input.is_action_just_pressed("ui_accept") and can_interact:
+	if Input.is_action_just_pressed("interact") and can_interact:
 		PRINCIPAL_GLOBAL.player_current_try_interact = true
 
 

@@ -1,5 +1,21 @@
 extends Node
-#@onready var instance = get_node("/root/Restaurante/player/Camera2D/Dialog")
+
+enum ingredients {
+	APPLE,
+	RISE,
+	CARROT,
+	POTATO,
+	ORANGE
+}
+
+var Mision1 = [
+	ingredients.APPLE,
+	ingredients.RISE
+]
+
+var inventary = []
+
+var has_mision = false
 
 var player_current_try_interact = false
 

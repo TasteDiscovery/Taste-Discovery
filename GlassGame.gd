@@ -198,8 +198,8 @@ func is_won_game():
 
 func finish_game():
 	if is_won_game():
-		Main.inventary.append(Main.ingredients.RISE)
-	print(Main.inventary)
+		PRINCIPAL_GLOBAL.inventary.append(PRINCIPAL_GLOBAL.ingredients.RISE)
+	print(PRINCIPAL_GLOBAL.inventary)
 	return_market_scene()
 
 func return_market_scene():
