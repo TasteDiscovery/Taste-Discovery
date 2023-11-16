@@ -4,9 +4,12 @@ if PRINCIPAL_GLOBAL.has_mision==false:
 	Jugador: Soy quien le envio una solicitud de trabajo, me dijo que venga hoy
 	Jefe: Ah cierto!, eres el nuevo ayudante
 	Jugador: Exactamente, es un gusto conocerlo señor
-	Jefe: Justo estaba revisando tu curriculum, pero lo deje en algún lado del restaurante
+	Jefe: Como es tu primer dia, solo te pedire 2 ingredientes
+	Jefe: Los cuales podras conseguir en el mercado y el bosque
 	Jefe: Buscalo y traemelo
-	OBJETIVO: Busca tus documentos en el restaurante
+	Pista: El mercado se encuentra en la sección derecha del mapa
+	Pista: El bosque se encuentra en la sección de abajo del Mapa
+	OBJETIVO: Consigue los ingrefientes
 	set PRINCIPAL_GLOBAL.has_mision = true
 else if PRINCIPAL_GLOBAL.Mision1 != PRINCIPAL_GLOBAL.inventary:
 	Jefe: Aún no tienes todos los ingredientes?
