@@ -12,7 +12,7 @@ enum {
 	UP,
 	DOWN
 }
-var currentState = SHUFFLE
+var currentState = SHOW
 var currentAnimateStatus = UP
 
 var score = 0
@@ -38,6 +38,7 @@ func _ready():
 	load_glasses()
 	load_ball()
 	set_glass_with_ball()
+	set_ball_position()
 
 func get_with_location(index):
 	return screen_size.x * (index + 1) / (glassNumber + 1)

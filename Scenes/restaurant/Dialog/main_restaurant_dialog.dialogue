@@ -30,7 +30,7 @@ if PRINCIPAL_GLOBAL.has_mision==false:
 	OBJETIVO: Consigue los ingrefientes
 	set PRINCIPAL_GLOBAL.has_mision = true
 	set PRINCIPAL_GLOBAL.can_exit_restaurante = true
-else if PRINCIPAL_GLOBAL.Mision1 != PRINCIPAL_GLOBAL.inventary:
+else if !PRINCIPAL_GLOBAL.mision_completed():
 	Jefe: Aún no tienes todos los ingredientes?
 	Jefe: Date prisa que los clientes estan hambrientos
 	Jugador: Ahora vuelvo

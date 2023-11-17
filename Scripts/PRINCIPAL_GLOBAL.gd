@@ -33,3 +33,22 @@ var can_exit_restaurante = false
 var first_interaction_with_lady = true
 var forest_quest_is_completed = false
 
+###Verificar si la mision se cumplio
+func mision_completed():
+	var set1 = array_unique(inventary)
+	var set2 = array_unique(Mision1)
+	return sets_are_equal(set1, set2)
+
+func array_unique(array: Array) -> Array:
+	var unique: Array = []
+	for item in array:
+		if not unique.has(item):
+			unique.append(item)
+	return unique
+
+
+func sets_are_equal(set1, set2):
+	set1.sort()
+	set2.sort()
+	return set1 == set2
+
