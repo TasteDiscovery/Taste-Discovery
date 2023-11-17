@@ -13,6 +13,7 @@ var Mision1 = [
 	ingredients.RISE
 ]
 
+####VARIABLES DEL JUGADOR
 var first_chamba = true
 
 var inventary = []
@@ -22,6 +23,10 @@ var has_mision = false
 var player_current_try_interact = false
 
 var can_move = true
+var already_interact = false
+
+#####VARIABLES RESTAURANTE
+var can_exit_restaurante = false
 
 
 #####VARIABLES PARA EL BOSQUE

@@ -38,7 +38,7 @@ func interaction_handle():
 		pass
 
 func _input(event):
-	if Input.is_action_pressed("ui_accept") and can_interact:
+	if Input.is_action_pressed("ui_accept") and can_interact == true:
 		PRINCIPAL_GLOBAL.player_current_try_interact = true
 
 

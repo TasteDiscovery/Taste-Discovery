@@ -12,7 +12,10 @@ func _on_area_2d_body_entered(body):
 	player_is_beside = true
 
 func charlar():
-	print("habla p chacalito")
+	if PRINCIPAL_GLOBAL.first_interaction_with_lady == true and PRINCIPAL_GLOBAL.can_move == true:
+		PRINCIPAL_GLOBAL.first_interaction_with_lady = false
+		DialogueManager.show_example_dialogue_balloon(load("res://Scenes/Forest/Dialogs/main_forest_dialogs.dialogue"),"first_talk_with_monica")
+		
 
 func dar_mision():
 	pass

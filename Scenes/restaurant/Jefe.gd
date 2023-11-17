@@ -3,7 +3,9 @@ extends CharacterBody2D
 var player_is_beside = false
 
 func charlar():
-	DialogueManager.show_example_dialogue_balloon(load("res://Scenes/restaurant/Dialog/main_restaurant_dialog.dialogue"),"main_restaurant_dialog")
+	if PRINCIPAL_GLOBAL.can_move == true:
+		DialogueManager.show_example_dialogue_balloon(load("res://Scenes/restaurant/Dialog/main_restaurant_dialog.dialogue"),"main_restaurant_dialog")
+		PRINCIPAL_GLOBAL.has_mision = true
 	
 
 func npc_interaction():
