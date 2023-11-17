@@ -19,3 +19,31 @@ Monica: Así que necesito que me traigas 10 manzanas doradas para ahorrarme el t
 Jugador: Ahora mismo...
 set PRINCIPAL_GLOBAL.can_move = true
 => END
+
+~ not_enought
+set PRINCIPAL_GLOBAL.can_move = false
+Monica: Oh, ya estas aquí. Aver aver si tienes todas las manzanas...
+Monica: Humm aquí no estan todas las manzanas que te pedí. Tenemos un trato, si quieres el ingrediente traeme todas las manzanas
+set PRINCIPAL_GLOBAL.can_move = true
+=> END
+
+~ end_quest_jugador
+set PRINCIPAL_GLOBAL.can_move = false
+Jugador: Y.. con esta son todas
+Jugador: Ahora sí deberia ir con Monica para que me de el ingrediente... si es que encuentro la salida
+set PRINCIPAL_GLOBAL.can_move = true
+=> END
+
+~ end_quest_monica
+set PRINCIPAL_GLOBAL.can_move = false
+Monica: Oh, ya estas aquí. Aver aver si tienes todas las manzanas...
+Monica: Veo que si están todas. ¡Excelente! Gracias por tu ayuda
+Monica: Un trato es un trato, aquí tienes el ingrediente del chef.
+Conseguiste un ingrediente para el chef
+set PRINCIPAL_GLOBAL.can_move = true
+=> END
+
+~ you_again
+Monica: ¿Eh? Que te trae por aquí denuevo. ¿El chef te pidio otro ingrediente?
+Jugador: No, lo siento.
+=> END

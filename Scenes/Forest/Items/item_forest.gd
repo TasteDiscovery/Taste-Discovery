@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var texture = get_node("Sprite2D")
+@onready var image_texture = get_node("Sprite2D")
 @onready var player = get_node("res://Scenes/player/Player.tscn")
 
 signal enter_signal
@@ -18,7 +18,8 @@ var id= 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	random_texture()
+	#random_texture()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -28,15 +29,31 @@ func _process(delta):
 		object_interaction()
 
 func random_texture():
+	
 	randomize()
-	var item_selected = array_items[randi() % array_items.size()]
-	$Sprite2D.texture = item_selected.image
+	#var index_selected =  randi_range(0,array_items.size() - 1)
+	var item_selected = array_items.pick_random()
+	image_texture = item_selected.image
 	name_item = item_selected.name
 	print(name_item)
 	get_parent().calculate_total_items(name_item)
 
+func defined_texture(nombre_item):
+	var item_selected = buscarPorNombre(nombre_item)
+	image_texture.texture = item_selected.image
+	name_item = item_selected.name
+	id = item_selected.id
+	#get_parent().calculate_total_items(name_item)
+
+func buscarPorNombre(nombre_a_buscar: String) -> Dictionary:
+	for item in array_items:
+		if item["name"] == nombre_a_buscar:
+			return item
+	return {}
+
 func object_interaction():
 	print(name_item)
+	print(image_texture.texture)
 	if name_item == get_parent().get_searched_item():
 		get_parent().set_items_recogidos()
 		self.queue_free()
