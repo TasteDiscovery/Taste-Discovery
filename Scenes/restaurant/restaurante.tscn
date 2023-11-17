@@ -8218,6 +8218,11 @@ position = Vector2(77, 8)
 scale = Vector2(1.12163, 0.86418)
 shape = SubResource("RectangleShape2D_0csw6")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(499, 736, 499, 875, 0, 875, -111, 875, -111, -1, -111, -110, 1411, -110, 1520, -110, 1520, 736, 1520, 875, 657, 875, 657, 736, 1408, 736, 1408, 0, 0, 0, 0, 736)
+
 [connection signal="body_entered" from="Jefe/AreaInteractJefe" to="Jefe" method="_on_area_interact_jefe_body_entered"]
 [connection signal="body_exited" from="Jefe/AreaInteractJefe" to="Jefe" method="_on_area_interact_jefe_body_exited"]
 [connection signal="body_entered" from="PreventExitArea/Area2D" to="PreventExitArea" method="_on_area_2d_body_entered"]
