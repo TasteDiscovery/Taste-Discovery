@@ -1,0 +1,7 @@
+~ first_step_in_forest
+set PRINCIPAL_GLOBAL.can_move = false
+Jugador: Este debe ser el bosque que me indico el chef
+Jugador: Pero no creo encontrar el ingrediente que me pidió por aquí...
+Jugador: Oh, le preguntaré a esa chica donde encontrar el ingrediente
+set PRINCIPAL_GLOBAL.can_move = true
+=> END

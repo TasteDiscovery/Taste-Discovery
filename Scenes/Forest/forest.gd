@@ -29,7 +29,9 @@ func gen_random_pos(origin, spawnArea):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	spawn_all_section_items()
+	#spawn_all_section_items()
+	if PRINCIPAL_GLOBAL.first_interaction_with_lady:
+		primera_charlar_bosque()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -81,3 +83,10 @@ func complete_mision():
 func calculate_total_items(item_name):
 	if item_name == item_searched:
 		total_items = total_items + 1
+
+
+####FUNCIONES DE CHARLAR
+
+func primera_charlar_bosque():
+	DialogueManager.show_example_dialogue_balloon(load("res://Scenes/Forest/Dialogs/main_forest_dialogs.dialogue"),"first_step_in_forest")
+

@@ -10,10 +10,9 @@ func npc_interaction():
 	charlar()
 
 func _process(delta):
-	if PRINCIPAL_GLOBAL.player_current_try_interact == true and player_is_beside == true and PRINCIPAL_GLOBAL.is_already_show_dialog == false:
+	if PRINCIPAL_GLOBAL.player_current_try_interact == true and player_is_beside == true:
 		PRINCIPAL_GLOBAL.player_current_try_interact = false
 		npc_interaction()
-		print(PRINCIPAL_GLOBAL.player_current_try_interact)
 
 
 func _on_area_interact_jefe_body_entered(body):

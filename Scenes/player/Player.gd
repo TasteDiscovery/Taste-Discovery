@@ -34,7 +34,13 @@ func _physics_process(delta):
 func interaction_handle():
 	#if Input.is_action_pressed("ui_accept") and can_interact:
 	if can_interact:
+		#PRINCIPAL_GLOBAL.player_current_try_interact = true
+		pass
+
+func _input(event):
+	if Input.is_action_pressed("ui_accept") and can_interact:
 		PRINCIPAL_GLOBAL.player_current_try_interact = true
+
 
 func _on_interact_area_body_entered(body):
 	if body.has_method("npc_interaction"):
