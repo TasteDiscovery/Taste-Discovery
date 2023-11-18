@@ -1,6 +1,7 @@
 extends Node2D
 
 enum {
+	START,
 	SHUFFLE,
 	MOVE,
 	SELECT,
@@ -12,7 +13,7 @@ enum {
 	UP,
 	DOWN
 }
-var currentState = SHOW
+var currentState = START
 var currentAnimateStatus = UP
 
 var score = 0
@@ -38,7 +39,12 @@ func _ready():
 	load_glasses()
 	load_ball()
 	set_glass_with_ball()
+	$Timer.start()
+
+func _on_timer_timeout():
 	set_ball_position()
+	currentState = SHOW
+
 
 func get_with_location(index):
 	return screen_size.x * (index + 1) / (glassNumber + 1)
@@ -284,3 +290,4 @@ func set_glass_position_x(glass, destination):
 
 func set_currentState(state):
 	currentState = state
+
