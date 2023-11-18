@@ -69,7 +69,7 @@ func spawn_item(area):
 		
 """
 func spawn_all_section_items():
-	var total_golden_apples = 10
+	var total_golden_apples = 20
 	var golden_apples_per_area = ceil(float(total_golden_apples) / array_areas.size())
 	
 	for area in array_areas:
