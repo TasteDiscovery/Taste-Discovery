@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgec2mjtkdcp8"]
+[gd_scene load_steps=11 format=3 uid="uid://bgec2mjtkdcp8"]
 
 [ext_resource type="Texture2D" uid="uid://qjotscu8hnd5" path="res://Assets/Tiles/Forest/forest_tile.png" id="1_jd73v"]
+[ext_resource type="Script" path="res://Scenes/Way/way.gd" id="1_kbbmu"]
 [ext_resource type="PackedScene" uid="uid://b1v6b3soff8jv" path="res://Scenes/player/Player.tscn" id="2_5eyii"]
 [ext_resource type="PackedScene" uid="uid://cp4jmlumqqpbb" path="res://Scenes/Portals/portal_down.tscn" id="3_y2eew"]
+[ext_resource type="Script" path="res://Scenes/Way/no_exit_way.gd" id="5_yy12y"]
+[ext_resource type="AudioStream" uid="uid://b3mwoykrprnkj" path="res://Assets/Musica/way_song.mp3" id="6_6nnnn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rcta3"]
 texture = ExtResource("1_jd73v")
@@ -1060,7 +1063,12 @@ texture = ExtResource("1_jd73v")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rcta3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjd2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm4l4"]
+
 [node name="Way" type="Node2D"]
+script = ExtResource("1_kbbmu")
 
 [node name="Market" parent="." instance=ExtResource("3_y2eew")]
 position = Vector2(444, -78)
@@ -1103,3 +1111,24 @@ change_scene = "res://Scenes/Farm/Map/farm_map.tscn"
 [node name="Forest" parent="." instance=ExtResource("3_y2eew")]
 position = Vector2(-95, 263)
 change_scene = "res://Scenes/Forest/Map/forest_map.tscn"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-272, -16)
+scale = Vector2(4.63904, 21.8136)
+script = ExtResource("5_yy12y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_cjd2c")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+scale = Vector2(1.86856, 1.44589)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_dm4l4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6nnnn")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_body_entered"]

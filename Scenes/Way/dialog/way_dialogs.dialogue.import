@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://jkb00r84enos"
+path="res://.godot/imported/way_dialogs.dialogue-c529f3c7f086bfa6e0c541a7d1af08da.tres"
+
+[deps]
+
+source_file="res://Scenes/Way/dialog/way_dialogs.dialogue"
+dest_files=["res://.godot/imported/way_dialogs.dialogue-c529f3c7f086bfa6e0c541a7d1af08da.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,5 @@
+~ no_exit_area
+set PRINCIPAL_GLOBAL.can_move = false
+Jugador: El chef no me indicó ir por ahí. Deberia concentrarme en lo que me pidió
+set PRINCIPAL_GLOBAL.can_move = true
+=> END

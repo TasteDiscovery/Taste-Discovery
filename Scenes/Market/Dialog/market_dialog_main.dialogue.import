@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://d1evy5adg3b0l"
+path="res://.godot/imported/market_dialog_main.dialogue-f7f78494db6b3195283516272c439421.tres"
+
+[deps]
+
+source_file="res://Scenes/Market/Dialog/market_dialog_main.dialogue"
+dest_files=["res://.godot/imported/market_dialog_main.dialogue-f7f78494db6b3195283516272c439421.tres"]
+
+[params]
+
+defaults=true

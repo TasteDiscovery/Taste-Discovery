@@ -1,0 +1,7 @@
+~ init_map
+set PRINCIPAL_GLOBAL.can_move = false
+Jugador: Este debe ser el mercado donde debo conseguir uno de los ingredientes que me encargó el chef.
+Jugador: Pero... ¿Donde lo consigo? Tendre que adentrarme en el mercado
+Objetivo: Adentrate en el mercado y busca el ingrediente necesario
+set PRINCIPAL_GLOBAL.can_move = true
+=> END
