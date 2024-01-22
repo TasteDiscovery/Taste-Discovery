@@ -1,109 +1,112 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhvo6s4mcmo2i"]
+[gd_scene load_steps=10 format=3 uid="uid://dhvo6s4mcmo2i"]
 
 [ext_resource type="Texture2D" uid="uid://c4xsgkdmr0vlh" path="res://Assets/NPCs/Cow/cow-sprite.png" id="1_jl75e"]
+[ext_resource type="Script" path="res://Scenes/Farm/NPC/Cow.gd" id="1_tesvl"]
+[ext_resource type="PackedScene" uid="uid://grbty13ijpgy" path="res://Scenes/Farm/NPC/feed_dialog.tscn" id="2_nn38b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tff5r"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(0, 444, 111, 111)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsmw4"]
+size = Vector2(86.6062, 64.6976)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ln6gm"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(111, 444, 111, 111)
+[sub_resource type="Animation" id="Animation_ux5ol"]
+resource_name = "sleep"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3cg32"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(222, 444, 111, 111)
+[sub_resource type="Animation" id="Animation_mc6ks"]
+resource_name = "eat"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [17, 18, 19]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ynv42"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(333, 444, 111, 111)
+[sub_resource type="Animation" id="Animation_dh4el"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxij6"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(0, 111, 111, 111)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyygn"]
+_data = {
+"RESET": SubResource("Animation_dh4el"),
+"eat": SubResource("Animation_mc6ks"),
+"sleep": SubResource("Animation_ux5ol")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cv0ns"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(111, 111, 111, 111)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_doify"]
+size = Vector2(72, 76)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdh3m"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(222, 111, 111, 111)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4jupx"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(333, 111, 111, 111)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fylaw"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(0, 333, 111, 111)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wlmkw"]
-atlas = ExtResource("1_jl75e")
-region = Rect2(111, 333, 111, 111)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0ftdh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tff5r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ln6gm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3cg32")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ynv42")
-}],
-"loop": true,
-"name": &"Eat",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxij6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cv0ns")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wdh3m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4jupx")
-}],
-"loop": true,
-"name": &"Happy",
-"speed": 3.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fylaw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wlmkw")
-}],
-"loop": true,
-"name": &"Sleep",
-"speed": 1.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_032rc"]
-radius = 30.6453
-
-[node name="Cow" type="Node2D"]
+[node name="Cow" type="CharacterBody2D"]
 z_index = 2
+script = ExtResource("1_tesvl")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12.5)
 scale = Vector2(0.750524, 0.726457)
+shape = SubResource("RectangleShape2D_jsmw4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_0ftdh")
-animation = &"Eat"
-frame_progress = 0.391161
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jl75e")
+hframes = 4
+vframes = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1.3324, 12.3889)
-shape = SubResource("CircleShape2D_032rc")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dyygn")
+}
+
+[node name="FeedDialog" parent="." instance=ExtResource("2_nn38b")]
+visible = false
+offset_left = 21.0
+offset_top = -63.0
+offset_right = 21.0
+offset_bottom = -63.0
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_doify")
+debug_color = Color(0.12549, 0.635294, 0.32549, 0.419608)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Waiting" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Waiting" to="." method="_on_waiting_timeout"]

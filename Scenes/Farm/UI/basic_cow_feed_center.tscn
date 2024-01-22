@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://csc6tpv8n7b5b"]
+
+[ext_resource type="Texture2D" uid="uid://87jc01gggc38" path="res://Assets/Items/feed.png" id="1_ynic6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhha5"]
+size = Vector2(66, 73)
+
+[node name="BasicCowFeedCenter" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ynic6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_fhha5")
