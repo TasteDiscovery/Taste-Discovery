@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://duma66x4mnygo"]
+[gd_scene load_steps=18 format=3 uid="uid://duma66x4mnygo"]
 
 [ext_resource type="Script" path="res://Scenes/Farm/Map/farm_map.gd" id="1_vxg5n"]
 [ext_resource type="Texture2D" uid="uid://bbh3e3807r875" path="res://Assets/Tiles/grass1_tileset.png" id="1_yuwta"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4jmlumqqpbb" path="res://Scenes/Portals/portal_down.tscn" id="8_6idrq"]
 [ext_resource type="PackedScene" uid="uid://c7xo8f0qtcyo1" path="res://Scenes/Farm/UI/score_board.tscn" id="9_4qy25"]
 [ext_resource type="PackedScene" uid="uid://csc6tpv8n7b5b" path="res://Scenes/Farm/UI/basic_cow_feed_center.tscn" id="10_57181"]
+[ext_resource type="PackedScene" uid="uid://c1lcebda54v2g" path="res://Scenes/Farm/NPC/famer.tscn" id="11_2dvjm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lapvb"]
 texture = ExtResource("1_yuwta")
@@ -1071,6 +1072,11 @@ z_index = 1
 position = Vector2(-437, -336)
 scale = Vector2(0.5, 0.5)
 
+[node name="Famer" parent="." instance=ExtResource("11_2dvjm")]
+z_index = 2
+position = Vector2(-278, 267)
+
 [connection signal="timeout" from="HungryTimer" to="." method="_on_hungry_timer_timeout"]
 [connection signal="timeout" from="TimerLimit" to="." method="_on_timer_limit_timeout"]
 [connection signal="body_entered" from="BasicCowFeedCenter" to="." method="_on_basic_cow_feed_center_body_entered"]
+[connection signal="start_game" from="Famer" to="." method="_on_famer_start_game"]

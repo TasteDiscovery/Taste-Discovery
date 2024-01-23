@@ -1,0 +1,32 @@
+~ start
+set PRINCIPAL_GLOBAL.can_move = false
+set PRINCIPAL_GLOBAL.already_interact = true
+if PRINCIPAL_GLOBAL.first_interaction_famer:
+	Granjero: Hola, me llamo José, soy dueño de esta granja
+	set PRINCIPAL_GLOBAL.first_interaction_famer = false
+else:
+	Jose: Hola, ¿Qué deseas en mi granja?
+
+if PRINCIPAL_GLOBAL.farm_mision_completed:
+	Jose: Gracias por ayudarme, lo aprecio mucho
+	Jose: Aqui tienes tu lechuga
+else if not PRINCIPAL_GLOBAL.farm_mision_completed and PRINCIPAL_GLOBAL.farm_mision_accepted:
+	Jose: Aun no terminas lo que te pedí
+	Jose: Vuelve cuando termines
+else:
+	Yo: Estoy buscando una lechuga, me podria ofrecer una
+	Jose: Claro, sin embargo necesito que me ayudes en la granja
+	Jose: si me ayudas te daré la lechuga con gusto
+	Jose: ayudame a alimentar a mis vacas por favor
+	- Claro:
+		Jose: Las vacas se ubican arriba a la derecha de mi granja
+		Jose: En el granero podras encontrar la comida de las vacas
+		Jose: Sin embargo, solo podras cargar 4 raciones debido al peso
+		Jose: Cuando termines ven por tu lechuga
+		set PRINCIPAL_GLOBAL.farm_mision_accepted = true
+	- Otro Dia:
+		Jose: Bueno, vuelve pronto
+		
+set PRINCIPAL_GLOBAL.can_move = true
+set PRINCIPAL_GLOBAL.already_interact = false
+=> END

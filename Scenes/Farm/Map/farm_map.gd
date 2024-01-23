@@ -14,6 +14,7 @@ var countFoodDelivered = 0
 var score = 0
 var time = 50
 var food = 4
+var inGame = false
 
 @onready var hungryTimer = $HungryTimer
 @onready var timerLimit = $TimerLimit
@@ -22,7 +23,6 @@ var food = 4
 func _ready():
 	create_cows()
 	randomize()
-	start_game()
 
 func start_game():
 	scoreboard.update_time(time)
@@ -69,7 +69,13 @@ func _on_timer_limit_timeout():
 	scoreboard.update_time(time)
 	if time <= 0:
 		stop_game()
+		PRINCIPAL_GLOBAL.farm_mision_completed = true
 
 func _on_basic_cow_feed_center_body_entered(body):
 	if body.get_name() == 'player':
 		food = 4
+
+
+func _on_famer_start_game():
+	if not inGame:
+		start_game()

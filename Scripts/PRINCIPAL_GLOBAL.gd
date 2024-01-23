@@ -33,6 +33,11 @@ var can_exit_restaurante = false
 var first_interaction_with_lady = true
 var forest_quest_is_completed = false
 
+#####VARIABLES PARA LA GRANJA
+var farm_mision_accepted = false
+var farm_mision_completed = false
+var first_interaction_famer = true
+
 ###Verificar si la mision se cumplio
 func mision_completed():
 	var set1 = array_unique(inventary)
