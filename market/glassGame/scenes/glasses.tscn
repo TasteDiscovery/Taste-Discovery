@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkgdhxy3breoj"]
+
+[ext_resource type="Script" path="res://market/glassGame/scripts/Glasses.gd" id="1_xse44"]
+
+[node name="Glasses" type="Node2D"]
+script = ExtResource("1_xse44")

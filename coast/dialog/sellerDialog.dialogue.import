@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://civ33uhp2tfsb"
+path="res://.godot/imported/sellerDialog.dialogue-01772f28a0509b792a187cf6a6a2631d.tres"
+
+[deps]
+
+source_file="res://coast/dialog/sellerDialog.dialogue"
+dest_files=["res://.godot/imported/sellerDialog.dialogue-01772f28a0509b792a187cf6a6a2631d.tres"]
+
+[params]
+
+defaults=true

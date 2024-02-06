@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtoykx4xmhchs"]
+
+[ext_resource type="Script" path="res://market/glassGame/scripts/glass_game_intro.gd" id="1_d3kgc"]
+[ext_resource type="Texture2D" uid="uid://dwct45alankuf" path="res://resource/assets/backgrounds/glass_game_intro_bg.png" id="1_nhuxu"]
+
+[node name="GlassGameIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d3kgc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_nhuxu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Title" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.5
+offset_top = -262.0
+offset_right = 517.5
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Instrucciónes"
+
+[node name="Body" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.0
+offset_top = -128.0
+offset_right = 516.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "En este juego debera encontrar la pelota escondida abajo de un vaso
+
+- Al inicio se le mostrará el vaso que contiene la pelota
+- Luego los vasos empezarán a cambiar de posicion
+- Finalmente tendra que seleccionar el vaso que contiene la elota
+- +1 punto si acierta
+- Debera acertar mas de la mitad de rondas para ganar
+"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.5
+offset_top = -144.0
+offset_right = 115.5
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Listo"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

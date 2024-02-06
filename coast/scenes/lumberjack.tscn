@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://bummn1n7e632l"]
+
+[ext_resource type="Texture2D" uid="uid://bds7ddjyf06i2" path="res://resource/assets/characters/lady.png" id="1_p4l2p"]
+[ext_resource type="Script" path="res://coast/scripts/lumberjack.gd" id="1_uxo2h"]
+[ext_resource type="PackedScene" uid="uid://bbf4nw3ywur7q" path="res://shared/scenes/dialog_balloon.tscn" id="2_k3iee"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7vcup"]
+radius = 29.0172
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq787"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(64, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdw87"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(128, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieut7"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(192, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35gni"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(256, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyn3q"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(320, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csrvu"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(384, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c28sd"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(448, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ylg0"]
+atlas = ExtResource("1_p4l2p")
+region = Rect2(512, 640, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0drgh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bq787")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdw87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieut7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35gni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyn3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csrvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c28sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ylg0")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2354a"]
+size = Vector2(20, 26)
+
+[node name="Lumberjack" type="CharacterBody2D"]
+script = ExtResource("1_uxo2h")
+
+[node name="DialogArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogArea"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_7vcup")
+debug_color = Color(0.0901961, 0.635294, 0.396078, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0drgh")
+animation = &"down"
+frame = 5
+frame_progress = 0.320494
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_2354a")
+
+[node name="DialogBalloon" parent="." instance=ExtResource("2_k3iee")]
+visible = false
+offset_left = 8.0
+offset_top = -33.0
+offset_right = 8.0
+offset_bottom = -33.0
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="DialogArea" to="." method="_on_dialog_area_body_entered"]
+[connection signal="body_exited" from="DialogArea" to="." method="_on_dialog_area_body_exited"]

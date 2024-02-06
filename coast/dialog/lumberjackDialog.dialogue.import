@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://buxwlv3atq5h1"
+path="res://.godot/imported/lumberjackDialog.dialogue-9071d4427584ddacd382fe605f09ffb8.tres"
+
+[deps]
+
+source_file="res://coast/dialog/lumberjackDialog.dialogue"
+dest_files=["res://.godot/imported/lumberjackDialog.dialogue-9071d4427584ddacd382fe605f09ffb8.tres"]
+
+[params]
+
+defaults=true

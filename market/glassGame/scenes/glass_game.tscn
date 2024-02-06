@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=3 uid="uid://o61tq7fdx5x1"]
+
+[ext_resource type="Script" path="res://market/glassGame/scripts/GlassGame.gd" id="1_bd4pl"]
+[ext_resource type="PackedScene" uid="uid://bkgdhxy3breoj" path="res://market/glassGame/scenes/glasses.tscn" id="2_tpnki"]
+[ext_resource type="Texture2D" uid="uid://dd0n511aru7on" path="res://resource/assets/backgrounds/Glass_game_bg.jpeg" id="3_oobv4"]
+[ext_resource type="Script" path="res://market/glassGame/scripts/Scoreboard.gd" id="3_xf0pu"]
+[ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_gcbbs"]
+[ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="4_pwue4"]
+
+[node name="GlassGame" type="Node2D"]
+script = ExtResource("1_bd4pl")
+metadata/_edit_vertical_guides_ = [1152.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(573, 128)
+scale = Vector2(2.78711, 1.02344)
+texture = ExtResource("3_oobv4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Scoreboard" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("3_xf0pu")
+
+[node name="ScoreControl" type="Control" parent="CanvasLayer/Scoreboard"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -151.0
+offset_bottom = 58.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Scoreboard/ScoreControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -22.5
+offset_right = 71.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -1.0
+offset_right = 111.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 32
+text = "Score:"
+
+[node name="Score" type="Label" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
+layout_mode = 0
+offset_left = 112.0
+offset_right = 130.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="RoundsControl" type="Control" parent="CanvasLayer/Scoreboard"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 162.0
+offset_bottom = 59.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Scoreboard/RoundsControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -22.5
+offset_right = 71.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Scoreboard/RoundsControl/Panel"]
+layout_mode = 0
+offset_left = 5.5
+offset_right = 114.5
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
+text = "Round:"
+
+[node name="Score" type="Label" parent="CanvasLayer/Scoreboard/RoundsControl/Panel"]
+layout_mode = 0
+offset_left = 117.5
+offset_top = 1.0
+offset_right = 135.5
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Counter" parent="CanvasLayer" instance=ExtResource("4_gcbbs")]
+
+[node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("4_pwue4")]
+visible = false
+
+[node name="Glasses" parent="." instance=ExtResource("2_tpnki")]
+z_index = 2
+
+[connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
+[connection signal="selection" from="Glasses" to="." method="_on_glasses_selection"]

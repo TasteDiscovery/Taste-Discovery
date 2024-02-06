@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://djyh2p17qgvml"]
+
+[ext_resource type="Script" path="res://farm/cowGame/scripts/hungry_cows_game_intro.gd" id="1_vjlqw"]
+[ext_resource type="Texture2D" uid="uid://c31uh7y7mq4kw" path="res://resource/assets/backgrounds/hungry_cows_game_bg.png" id="2_f3n1u"]
+
+[node name="HungryCowsGameIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vjlqw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_f3n1u")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Title" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.5
+offset_top = -262.0
+offset_right = 517.5
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Instrucciónes"
+
+[node name="Body" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.5
+offset_top = -192.0
+offset_right = 516.5
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "En este juego debera alimentar a las vacas hambrientas
+
+- Al inico tendra 4 bolsas de pienso para vacas
+- Cada vaca consume una bolsa de pienso
+- Las vacas solicitaran la comida en orden aleatorio
+- Las vacas que soliciten comida esperan 10 segundos antes de volver a dormir
+- Podra obtener mas pienso cerca del granero
+- Solo puede tener 4 bolsas de pienso como maximo por recarga
+- Debera atender a mas de la mitad de solicitudes de comida para ganar
+"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.5
+offset_top = -144.0
+offset_right = 115.5
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Listo"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]

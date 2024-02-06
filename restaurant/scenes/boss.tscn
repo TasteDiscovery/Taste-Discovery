@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://ds25hoc68n4pv"]
+
+[ext_resource type="Script" path="res://restaurant/scripts/boss.gd" id="1_uf4xy"]
+[ext_resource type="Texture2D" uid="uid://cp3x2grsv2cwe" path="res://resource/assets/characters/boss.png" id="2_4xqw8"]
+[ext_resource type="PackedScene" uid="uid://bbf4nw3ywur7q" path="res://shared/scenes/dialog_balloon.tscn" id="3_rcpyr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5qwa"]
+radius = 28.0179
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0sqm"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(64, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vasgs"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(128, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_davo7"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(192, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7oyv2"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(256, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnlb1"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(320, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ot1"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(384, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xotx5"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(448, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2pd4"]
+atlas = ExtResource("2_4xqw8")
+region = Rect2(512, 640, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ch0io"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0sqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vasgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_davo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7oyv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnlb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81ot1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xotx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2pd4")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m1x6"]
+size = Vector2(22, 27)
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_uf4xy")
+
+[node name="DialogArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogArea"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_s5qwa")
+debug_color = Color(0, 0.647059, 0.227451, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ch0io")
+animation = &"down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_2m1x6")
+
+[node name="DialogBalloon" parent="." instance=ExtResource("3_rcpyr")]
+visible = false
+offset_left = 7.0
+offset_top = -34.0
+offset_right = 7.0
+offset_bottom = -34.0
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="DialogArea" to="." method="_on_dialog_area_body_entered"]
+[connection signal="body_exited" from="DialogArea" to="." method="_on_dialog_area_body_exited"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ovxs81ql3wq"]
+
+[ext_resource type="Script" path="res://shared/scripts/player_spawner.gd" id="1_5hhm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ja6m"]
+size = Vector2(30, 50)
+
+[node name="PlayerSpawner" type="Area2D"]
+script = ExtResource("1_5hhm3")
+metadata/_edit_horizontal_guides_ = [-25.0, 25.0]
+metadata/_edit_vertical_guides_ = [-15.0, 15.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ja6m")

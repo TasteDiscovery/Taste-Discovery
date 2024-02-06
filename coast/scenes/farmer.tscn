@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://6u8adtixsotn"]
+
+[ext_resource type="Script" path="res://coast/scripts/farmer.gd" id="1_8et8p"]
+[ext_resource type="Texture2D" uid="uid://cst0kqj5dxyc8" path="res://resource/assets/characters/farmer.png" id="1_lwshe"]
+[ext_resource type="PackedScene" uid="uid://bbf4nw3ywur7q" path="res://shared/scenes/dialog_balloon.tscn" id="3_8gl2s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8u84"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(64, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r40uj"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(128, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0crn"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(192, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6dgl"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(256, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4nqs"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(320, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p6ep"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(384, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x66el"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(448, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5nqp"]
+atlas = ExtResource("1_lwshe")
+region = Rect2(512, 640, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkp0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8u84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r40uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0crn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6dgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4nqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p6ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x66el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5nqp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51thg"]
+radius = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwgmd"]
+size = Vector2(20, 27)
+
+[node name="Farmer" type="CharacterBody2D"]
+script = ExtResource("1_8et8p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kkp0r")
+
+[node name="DialogArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogArea"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_51thg")
+debug_color = Color(0.160784, 0.635294, 0.32549, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_kwgmd")
+
+[node name="DialogBalloon" parent="." instance=ExtResource("3_8gl2s")]
+visible = false
+offset_left = 7.0
+offset_top = -34.0
+offset_right = 7.0
+offset_bottom = -34.0
+scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="DialogArea" to="." method="_on_dialog_area_body_entered"]
+[connection signal="body_exited" from="DialogArea" to="." method="_on_dialog_area_body_exited"]

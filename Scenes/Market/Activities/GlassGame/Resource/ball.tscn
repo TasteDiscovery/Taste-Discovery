@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxrdv1yrdbdn8"]
-
-[ext_resource type="Texture2D" uid="uid://dwn8n6grual54" path="res://Assets/Tiles/Market/ball.png" id="1_p28px"]
-
-[node name="Ball" type="Sprite2D"]
-position = Vector2(0, 5.96046e-08)
-scale = Vector2(0.277, 0.276)
-texture = ExtResource("1_p28px")

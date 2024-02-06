@@ -1,0 +1,12 @@
+~ initial_dialog
+set GlobalPlayer.inDialog = true
+Narrador: Bienvenido {{GlobalPlayer.playerName}} a Taste Discovery
+Narrador: Eres el nuevo aventurero que ayudará a Max
+Narrador: Max es un chef, especialista en la preparación de comida nativa del Perú
+Narrador: Tú, te encargaras de encontrar y recoger los ingredientes necesarios para la preparación de su comida
+Narrador: Para ello tendras cumplir con varios desafios
+Narrador: Suerte Aventurero
+Mision 1: Habla con Max
+set GlobalPlayer.inDialog = false
+set GlobalDialog.firstDialog = false
+=> END

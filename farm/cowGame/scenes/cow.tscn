@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctgtob18mpsnb"]
+
+[ext_resource type="Script" path="res://farm/cowGame/scripts/Cow.gd" id="1_y2e6l"]
+[ext_resource type="Texture2D" uid="uid://c3poyvoikny4x" path="res://resource/assets/animals/cow-sprite.png" id="2_v1onh"]
+[ext_resource type="PackedScene" uid="uid://do4h3rvxft2go" path="res://farm/cowGame/scenes/image_dialog.tscn" id="3_p44er"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ixiv"]
+size = Vector2(67, 46)
+
+[sub_resource type="Animation" id="Animation_d42p3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_e06mn"]
+resource_name = "eat"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [17, 18, 19]
+}
+
+[sub_resource type="Animation" id="Animation_yatkw"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0j50w"]
+_data = {
+"RESET": SubResource("Animation_d42p3"),
+"eat": SubResource("Animation_e06mn"),
+"idle": SubResource("Animation_yatkw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gwluw"]
+radius = 44.1475
+
+[node name="Cow" type="CharacterBody2D"]
+script = ExtResource("1_y2e6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 14)
+shape = SubResource("RectangleShape2D_6ixiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v1onh")
+hframes = 4
+vframes = 5
+frame = 17
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0j50w")
+}
+
+[node name="ImageDialog" parent="." instance=ExtResource("3_p44er")]
+visible = false
+offset_left = 11.0
+offset_top = -53.0
+offset_right = 11.0
+offset_bottom = -53.0
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-2, 1)
+shape = SubResource("CircleShape2D_gwluw")
+debug_color = Color(0.262745, 0.631373, 0.184314, 0.419608)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Waiting" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Waiting" to="." method="_on_waiting_timeout"]

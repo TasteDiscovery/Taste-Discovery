@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dhine2stp1dbk"
+path="res://.godot/imported/initial_dialog.dialogue-673c2c7ef6716990c510bbe5f8dbbe00.tres"
+
+[deps]
+
+source_file="res://restaurant/dialog/initial_dialog.dialogue"
+dest_files=["res://.godot/imported/initial_dialog.dialogue-673c2c7ef6716990c510bbe5f8dbbe00.tres"]
+
+[params]
+
+defaults=true

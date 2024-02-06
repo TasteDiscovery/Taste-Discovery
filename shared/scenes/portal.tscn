@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3at6ntevqbbi"]
+
+[ext_resource type="Script" path="res://shared/scripts/Portal.gd" id="1_h8hyv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lk86l"]
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_h8hyv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lk86l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

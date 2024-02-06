@@ -1,0 +1,46 @@
+~ start
+set GlobalPlayer.inDialog = true 
+if GlobalDialog.firstSellerMetting
+	=> first_meeting
+else
+	=> greeting
+
+~ first_meeting
+Estefany: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
+{{GlobalPlayer.playerName}}: Si, soy el nuevo recolector de ingredientes de Max, me llamo {{GlobalPlayer.playerName}}
+Estefany: Mucho gusto {{GlobalPlayer.playerName}}
+Estefany: Aqui, en mi tienda, podras encontrar los siguientes ingredientes
+Estefany: {{GlobalMision.get_ingredients_by_place_dialog("Market")}}
+Estefany: Sin embargo deberas ganarlos participando en mis desafios
+set GlobalDialog.firstSellerMetting = false
+=> mision
+
+~ greeting
+Estefany: Hola {{GlobalPlayer.playerName}}, ¿Qué deseas?
+{{GlobalPlayer.playerName}}: Hola
+=> mision
+
+~ mision
+{{GlobalPlayer.playerName}}: Bueno, necesito algunos ingredientes de esta lista
+{{GlobalPlayer.playerName}}: {{GlobalMision.get_shoopinglist_dialog()}}
+if GlobalMision.already_need_ingredients("Market"):
+	=> start_game
+else
+	=> ingredients_not_found
+
+~ start_game
+Estefany: De acuerdo, recuerda que debes ganar mi desafio para obtener un ingrediente
+Estefany: Listo:
+- Si:
+	Estefany: Suerte
+	set GlobalPlayer.inDialog = false 
+	set GlobalGames.enableMarketGame = true
+- No:
+	Estefany: Entiendo, sera para proxima ocación, suerte en tu busqueda
+	set GlobalPlayer.inDialog = false 
+
+~ ingredients_not_found
+Estefany: Lamentablemente,no tengo los ingredientes que buscas
+Estefany: Seguro podras conseguirlos en otras zonas del mapa
+set GlobalPlayer.inDialog = false 
+=> END

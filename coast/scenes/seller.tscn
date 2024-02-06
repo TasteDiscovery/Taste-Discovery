@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://bwkn68v6lte74"]
+
+[ext_resource type="Script" path="res://coast/scripts/seller.gd" id="1_7t8gr"]
+[ext_resource type="Texture2D" uid="uid://cj2mt0bjgkwka" path="res://resource/assets/characters/lady2.png" id="1_mmiko"]
+[ext_resource type="PackedScene" uid="uid://bbf4nw3ywur7q" path="res://shared/scenes/dialog_balloon.tscn" id="2_wd360"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jq04"]
+size = Vector2(20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buskj"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(64, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mibo1"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(128, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42ivu"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(192, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqxlx"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(256, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moq2c"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(320, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyipt"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(384, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ddro"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(448, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkfp6"]
+atlas = ExtResource("1_mmiko")
+region = Rect2(512, 640, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igryi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buskj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mibo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42ivu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqxlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moq2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyipt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ddro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkfp6")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f0oeg"]
+radius = 29.0
+
+[node name="Seller" type="CharacterBody2D"]
+script = ExtResource("1_7t8gr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_4jq04")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_igryi")
+animation = &"down"
+frame = 4
+frame_progress = 0.930723
+
+[node name="DialogBalloon" parent="." instance=ExtResource("2_wd360")]
+visible = false
+offset_left = 8.0
+offset_top = -35.0
+offset_right = 8.0
+offset_bottom = -35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="DialogArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogArea"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_f0oeg")
+debug_color = Color(0.164706, 0.635294, 0.337255, 0.419608)
+
+[connection signal="body_entered" from="DialogArea" to="." method="_on_dialog_area_body_entered"]
+[connection signal="body_exited" from="DialogArea" to="." method="_on_dialog_area_body_exited"]

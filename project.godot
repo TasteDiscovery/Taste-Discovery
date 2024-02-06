@@ -10,20 +10,21 @@ config_version=5
 
 [application]
 
-config/name="TasteDiscovery"
-run/main_scene="res://Scenes/Menu/menu.tscn"
+config/name="TastesHunter"
+run/main_scene="res://shared/scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PRINCIPAL_GLOBAL="*res://Scripts/PRINCIPAL_GLOBAL.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GlobalDialog="*res://shared/globalScripts/global_dialog.gd"
+GlobalMision="*res://shared/globalScripts/global_mision.gd"
+GlobalPlayer="*res://shared/globalScripts/global_player.gd"
+GlobalGames="*res://shared/globalScripts/global_games.gd"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=480
 window/stretch/mode="viewport"
 
 [editor_plugins]
@@ -36,7 +37,13 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Scenes/restaurant/Dialog/main_restaurant_dialog.dialogue", "res://Scenes/Forest/Dialogs/main_forest_dialogs.dialogue", "res://Scenes/Way/dialog/way_dialogs.dialogue", "res://Scenes/Market/Dialog/market_dialog_main.dialogue", "res://Scenes/Farm/Dialog/farmer.dialogue")
+locale/translations_pot_files=PackedStringArray("res://restaurant/dialog/initial_dialog.dialogue", "res://restaurant/dialog/boss_dialog.dialogue", "res://coast/dialog/lumberjackDialog.dialogue", "res://coast/dialog/farmDialog.dialogue", "res://coast/dialog/sellerDialog.dialogue")
+
+[layer_names]
+
+2d_physics/layer_1="map"
+2d_physics/layer_2="dialog"
+2d_physics/layer_3="items"
 
 [rendering]
 

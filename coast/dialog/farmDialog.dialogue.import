@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dunahjbp236mw"
+path="res://.godot/imported/farmDialog.dialogue-1926fc2ccbb134f03eb0c4da5db9499c.tres"
+
+[deps]
+
+source_file="res://coast/dialog/farmDialog.dialogue"
+dest_files=["res://.godot/imported/farmDialog.dialogue-1926fc2ccbb134f03eb0c4da5db9499c.tres"]
+
+[params]
+
+defaults=true

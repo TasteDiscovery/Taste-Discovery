@@ -1,0 +1,46 @@
+~ start
+set GlobalPlayer.inDialog = true 
+if GlobalDialog.firstFarmerMetting
+	=> first_meeting
+else
+	=> greeting
+
+~ first_meeting
+Marco: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
+{{GlobalPlayer.playerName}}: Si, soy el nuevo recolector de ingredientes de Max, me llamo {{GlobalPlayer.playerName}}
+Marco: Mucho gusto {{GlobalPlayer.playerName}}
+Marco: Aqui, en mi granja, podras encontrar los siguientes ingredientes
+Marco: {{GlobalMision.get_ingredients_by_place_dialog("Farm")}}
+Marco: Sin embargo deberas ganarlos participando en mis desafios
+set GlobalDialog.firstFarmerMetting = false
+=> mision
+
+~ greeting
+Marco: Hola {{GlobalPlayer.playerName}}, ¿Qué deseas?
+{{GlobalPlayer.playerName}}: Hola
+=> mision
+
+~ mision
+{{GlobalPlayer.playerName}}: Bueno, necesito algunos ingredientes de esta lista
+{{GlobalPlayer.playerName}}: {{GlobalMision.get_shoopinglist_dialog()}}
+if GlobalMision.already_need_ingredients("Farm"):
+	=> start_game
+else
+	=> ingredients_not_found
+
+~ start_game
+Marco: De acuerdo, recuerda que debes ganar mi desafio para obtener un ingrediente
+Marco: Listo:
+- Si:
+	Marco: Suerte
+	set GlobalPlayer.inDialog = false 
+	set GlobalGames.enableFarmGame = true
+- No:
+	Marco: Entiendo, sera para proxima ocación, suerte en tu busqueda
+	set GlobalPlayer.inDialog = false 
+
+~ ingredients_not_found
+Marco: Lamentablemente,no tengo los ingredientes que buscas
+Marco: Seguro podras conseguirlos en otras zonas del mapa
+set GlobalPlayer.inDialog = false 
+=> END

@@ -1,0 +1,54 @@
+~ start
+set GlobalPlayer.inDialog = true 
+if GlobalDialog.firstBossMetting
+	=> first_meeting
+else
+	=> greeting
+
+~ first_meeting
+Max: Hola {{GlobalPlayer.playerName}}, Bienvenido a mi restaurante, es un gusto tenerte por aquí
+Max: Como ya sabras, necesito que me ayudes a encontrar los ingredientes necesarios para preprarar el menú de hoy
+set GlobalDialog.firstBossMetting = false
+=> mision_manager
+
+~ greeting
+Max: Hola {{GlobalPlayer.playerName}}
+=> mision_manager
+
+~ mision_manager
+if not GlobalPlayer.inMision
+	=> assing_mision
+else
+	=> mision_status
+	
+~ assing_mision
+Max: Necesito que recolectes lo siguiente:
+Max: {{GlobalMision.get_ingredients_dialog()}}, para preparar {{GlobalMision.get_dish_dialog()}}
+Max: Los podras encontrar en la granja, bosque o mercado
+Max: Entendiste:
+- Sí:
+	Max: Excelente, suerte
+	set GlobalMision.asing_shoping_list()
+	set GlobalPlayer.inDialog = false
+	=> END
+- Nó:
+	=> assing_mision
+
+~ mision_status
+if GlobalMision.shoppingList.is_empty()
+	Max: Increible, veo que trajiste todos los ingredientes
+	Max: Ahora te tengo otra mision
+	Max: ¿Listo?
+	- Sí:
+		Max: Excelente
+		set GlobalMision.next_level()
+		set GlobalPlayer.inMision = false
+		=> assing_mision
+	- No:
+		Max: Bueno, vuelve cuando estes listo
+		set GlobalPlayer.inDialog = false
+else
+	Max: ¿Aun no tienes todos los ingredientes?
+	Max: Date prisa, los clientes estan hambrientos
+	set GlobalPlayer.inDialog = false
+=> END!

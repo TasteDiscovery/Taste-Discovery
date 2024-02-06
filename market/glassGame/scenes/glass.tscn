@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://cguqfd41m46kx"]
+
+[ext_resource type="Script" path="res://market/glassGame/scripts/glass.gd" id="1_3xdqd"]
+[ext_resource type="Texture2D" uid="uid://ct0ao65ndbeel" path="res://resource/assets/object/vaso.png" id="1_j34f3"]
+[ext_resource type="Texture2D" uid="uid://d37tl6lmmmfkw" path="res://resource/assets/object/ball.png" id="2_y0kha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qog3w"]
+
+[sub_resource type="Animation" id="Animation_k4hrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_p01gw"]
+resource_name = "up"
+length = 1.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, -10), Vector2(0, -15), Vector2(0, -20), Vector2(0, -25), Vector2(0, -30), Vector2(0, -35), Vector2(0, -40), Vector2(0, -45), Vector2(0, -50), Vector2(0, -55), Vector2(0, -60), Vector2(0, -65), Vector2(0, -70), Vector2(0, -65), Vector2(0, -60), Vector2(0, -55), Vector2(0, -50), Vector2(0, -45), Vector2(0, -40), Vector2(0, -35), Vector2(0, -30), Vector2(0, -25), Vector2(0, -20), Vector2(0, -15), Vector2(0, -10), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3i24m"]
+_data = {
+"RESET": SubResource("Animation_k4hrt"),
+"up": SubResource("Animation_p01gw")
+}
+
+[node name="glass" type="CharacterBody2D"]
+script = ExtResource("1_3xdqd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-34, -70, -56, 73, 58, 72, 33, -70)
+
+[node name="Ball" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 42)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_y0kha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_j34f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qog3w")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3i24m")
+}
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

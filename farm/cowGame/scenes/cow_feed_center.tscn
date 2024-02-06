@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://meck3xwwld1p"]
+
+[ext_resource type="Texture2D" uid="uid://b1ea66igrsp8" path="res://resource/assets/object/cow_feed.png" id="1_vcw3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrio"]
+size = Vector2(61, 71)
+
+[node name="CowFeedCenter" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_vcw3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ogrio")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

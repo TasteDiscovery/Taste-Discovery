@@ -1,0 +1,46 @@
+~ start
+set GlobalPlayer.inDialog = true 
+if GlobalDialog.firstLumberJackMetting
+	=> first_meeting
+else
+	=> greeting
+
+~ first_meeting
+Alison: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
+{{GlobalPlayer.playerName}}: Si, soy el nuevo recolector de ingredientes de Max, me llamo {{GlobalPlayer.playerName}}
+Alison: Mucho gusto {{GlobalPlayer.playerName}}
+Alison: Aqui, en el bosque, podras encontrar los siguientes ingredientes
+Alison: {{GlobalMision.get_ingredients_by_place_dialog("Forest")}}
+Alison: Sin embargo deberas ganarlos participando en mis desafios
+set GlobalDialog.firstLumberJackMetting = false
+=> mision
+
+~ greeting
+Alison: Hola {{GlobalPlayer.playerName}}, ¿Qué deseas?
+{{GlobalPlayer.playerName}}: Hola
+=> mision
+
+~ mision
+{{GlobalPlayer.playerName}}: Bueno, necesito algunos ingredientes de esta lista
+{{GlobalPlayer.playerName}}: {{GlobalMision.get_shoopinglist_dialog()}}
+if GlobalMision.already_need_ingredients("Forest"):
+	=> start_game
+else
+	=> ingredients_not_found
+
+~ start_game
+Alison: De acuerdo, recuerda que debes ganar mi desafio para obtener un ingrediente
+Alison: Listo:
+- Si:
+	Alison: Suerte
+	set GlobalPlayer.inDialog = false 
+	set GlobalGames.enableForestGame = true
+- No:
+	Alison: Entiendo, sera para proxima ocación, suerte en tu busqueda
+	set GlobalPlayer.inDialog = false
+
+~ ingredients_not_found
+Alison: Lamentablemente,no tengo los ingredientes que buscas
+Alison: Seguro podras conseguirlos en otras zonas del mapa
+set GlobalPlayer.inDialog = false 
+=> END

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxa8vjgjgwr7"]
+
+[ext_resource type="Script" path="res://shared/scripts/ui.gd" id="1_ocnne"]
+[ext_resource type="PackedScene" uid="uid://u20ifo7eg82g" path="res://shared/scenes/joystick.tscn" id="1_yr2fb"]
+[ext_resource type="Texture2D" uid="uid://dwuwlkpvtie6b" path="res://resource/assets/ui/joyknobpng.png" id="2_14dua"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ocnne")
+metadata/_edit_horizontal_guides_ = [500.0]
+
+[node name="Joystick" parent="." instance=ExtResource("1_yr2fb")]
+position = Vector2(150, 500)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(950, 443)
+scale = Vector2(0.06, 0.06)
+texture_normal = ExtResource("2_14dua")
+action = "ui_accept"

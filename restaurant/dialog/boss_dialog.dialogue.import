@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bsy5v1f40s28c"
+path="res://.godot/imported/boss_dialog.dialogue-1c80829f46296ace59a6b7669f027e8d.tres"
+
+[deps]
+
+source_file="res://restaurant/dialog/boss_dialog.dialogue"
+dest_files=["res://.godot/imported/boss_dialog.dialogue-1c80829f46296ace59a6b7669f027e8d.tres"]
+
+[params]
+
+defaults=true
