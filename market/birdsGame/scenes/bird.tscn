@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqvy3s1l0u5od"]
+
+[ext_resource type="Script" path="res://market/birdsGame/scripts/Bird.gd" id="1_dyxha"]
+[ext_resource type="Texture2D" uid="uid://b5lbxbkjitdwv" path="res://resource/assets/animals/bird.png" id="2_unaky"]
+
+[sub_resource type="Animation" id="Animation_3mvky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rpn4p"]
+resource_name = "orange_bird"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_xixw4"]
+resource_name = "purpple_bird"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_vdplq"]
+resource_name = "red_bird"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_x154v"]
+resource_name = "yelow_bird"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lc2cg"]
+_data = {
+"RESET": SubResource("Animation_3mvky"),
+"orange_bird": SubResource("Animation_rpn4p"),
+"purpple_bird": SubResource("Animation_xixw4"),
+"red_bird": SubResource("Animation_vdplq"),
+"yelow_bird": SubResource("Animation_x154v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nu1h"]
+size = Vector2(20, 18)
+
+[node name="Bird" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+input_pickable = true
+script = ExtResource("1_dyxha")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_unaky")
+flip_h = true
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lc2cg")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_7nu1h")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

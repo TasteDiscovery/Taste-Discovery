@@ -1,0 +1,172 @@
+[gd_scene load_steps=14 format=3 uid="uid://cyux65aony4ws"]
+
+[ext_resource type="Script" path="res://market/birdsGame/scripts/birds_game.gd" id="1_k0ys3"]
+[ext_resource type="Texture2D" uid="uid://bufau7bi2s05q" path="res://resource/assets/deco/water_a_8frames.png" id="1_x61al"]
+[ext_resource type="Texture2D" uid="uid://bye2mty6hk3ls" path="res://resource/assets/deco/clouds.png" id="2_slslc"]
+[ext_resource type="Texture2D" uid="uid://c74gb0aksshc5" path="res://resource/assets/deco/sun.png" id="3_vcgdd"]
+[ext_resource type="PackedScene" uid="uid://dydmp6i25a3ai" path="res://market/birdsGame/scenes/spawner.tscn" id="4_hk6qs"]
+[ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="6_1yfah"]
+[ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="7_53o6o"]
+[ext_resource type="Script" path="res://market/birdsGame/scripts/ScoreBoard.gd" id="8_hjphs"]
+[ext_resource type="Texture2D" uid="uid://b5lbxbkjitdwv" path="res://resource/assets/animals/bird.png" id="9_dleoj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vtil"]
+texture = ExtResource("2_slslc")
+0:0/size_in_atlas = Vector2i(4, 1)
+0:0/0 = 0
+0:1/size_in_atlas = Vector2i(4, 1)
+0:1/0 = 0
+0:2/size_in_atlas = Vector2i(4, 1)
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bormm"]
+texture = ExtResource("3_vcgdd")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ys8mh"]
+sources/0 = SubResource("TileSetAtlasSource_4vtil")
+sources/1 = SubResource("TileSetAtlasSource_bormm")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck0gd"]
+size = Vector2(35, 648)
+
+[node name="BirdsGame" type="Node2D"]
+script = ExtResource("1_k0ys3")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(576, 161.5)
+scale = Vector2(4.5, 30.4063)
+texture = ExtResource("1_x61al")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_ys8mh")
+format = 2
+layer_0/tile_data = PackedInt32Array(327692, 0, 0, 655381, 0, 1, 327714, 0, 2, 720941, 0, 0, 393272, 0, 2, 2031668, 0, 1, 1376269, 0, 0, 2162709, 0, 2, 1966118, 0, 1, 1245217, 0, 0, 1310783, 0, 2, 2162696, 0, 2, 917510, 0, 1, 2293825, 0, 1, 65603, 655361, 0, 131139, 655361, 1, 65604, 720897, 0, 131140, 720897, 1)
+
+[node name="Spawner" parent="." instance=ExtResource("4_hk6qs")]
+position = Vector2(-40, 0)
+
+[node name="Stash" type="Area2D" parent="."]
+position = Vector2(1200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stash"]
+position = Vector2(17.5, 324)
+shape = SubResource("RectangleShape2D_ck0gd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Counter" parent="CanvasLayer" instance=ExtResource("6_1yfah")]
+
+[node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("7_53o6o")]
+visible = false
+
+[node name="ScoreBoard" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("8_hjphs")
+
+[node name="TimeScore" type="Control" parent="CanvasLayer/ScoreBoard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_right = 55.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ScoreBoard/TimeScore"]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBoard/TimeScore"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 71.0
+offset_bottom = 30.0
+text = "TIEMPO:"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/ScoreBoard/TimeScore"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 8.0
+offset_right = 105.0
+offset_bottom = 31.0
+text = "000"
+
+[node name="CorrectBirdControl" type="Control" parent="CanvasLayer/ScoreBoard"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 119.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ScoreBoard/CorrectBirdControl"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ScoreBoard/CorrectBirdControl"]
+position = Vector2(30, 19)
+scale = Vector2(2, 2)
+texture = ExtResource("9_dleoj")
+flip_h = true
+hframes = 4
+vframes = 4
+
+[node name="CorrecLabel" type="Label" parent="CanvasLayer/ScoreBoard/CorrectBirdControl"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 7.0
+offset_right = 81.0
+offset_bottom = 30.0
+text = "00"
+
+[node name="ObjetiveNumber" type="Label" parent="CanvasLayer/ScoreBoard/CorrectBirdControl"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 7.0
+offset_right = 111.0
+offset_bottom = 30.0
+text = "00"
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBoard/CorrectBirdControl"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 30.0
+text = "/"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Stash" to="." method="_on_stash_body_entered"]
+[connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
