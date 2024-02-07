@@ -25,7 +25,6 @@ GlobalGames="*res://shared/globalScripts/global_games.gd"
 
 [display]
 
-window/size/initial_position=Vector2i(720, 480)
 window/stretch/mode="viewport"
 
 [editor_plugins]

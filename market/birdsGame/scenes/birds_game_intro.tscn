@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b58bsbccdmbwe"]
+[gd_scene load_steps=3 format=3 uid="uid://7n764l80ffeh"]
 
-[ext_resource type="Script" path="res://forest/scripts/find_the_apple_game_intro.gd" id="1_7mqw8"]
-[ext_resource type="Texture2D" uid="uid://cdbfx3tveawou" path="res://resource/assets/backgrounds/find_the_apple_game_intro_bg.png" id="2_2qtaj"]
+[ext_resource type="Script" path="res://market/birdsGame/scripts/birds_game_intro.gd" id="1_ywon7"]
+[ext_resource type="Texture2D" uid="uid://2kx0pc2xus6p" path="res://resource/assets/backgrounds/birds_game_bg.png" id="2_vvt53"]
 
-[node name="FindTheAppleGameIntro" type="Control"]
+[node name="BirdsGameIntro" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_7mqw8")
+script = ExtResource("1_ywon7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_2qtaj")
+texture = ExtResource("2_vvt53")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -57,14 +57,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera recolectar las manzanas doradas
+text = "En este juego debera atrapar a las aves rojas de pico verde
 
-- Debera ir a las 4 zonas de aparicion de manzanas del mapa
-- Solo debera recolectar las manzanas doradas
-- En la esquina superior izquierda esta el contador de manzanas doradas
-- En la esquina superior derecha esta el contador de manzanas totales
-- Para ganar, mas de la mitad de manzanas recolectadas deberan 
-ser doradas
+- Apareceran aves de colores de izquierda a derecha
+- Solo debera atrapar a las aves rojas de pico verde
+- En la esquina superior izquierda esta el contador de aves correctas atrapadas
+- Podra atrapar a las aves presionando sobre ellas
+- Para ganar, más de la mitad de las aves seleccionadas deben ser correctas
 "
 
 [node name="Button" type="Button" parent="Panel"]
