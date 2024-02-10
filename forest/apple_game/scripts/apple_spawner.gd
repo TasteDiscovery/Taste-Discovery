@@ -1,9 +1,9 @@
 extends Area2D
 
-@export var fakeQuantity = 3
-@export var correctQuantity = 3
+@export var fakeQuantity: int = 3
+@export var correctQuantity:int = 3
 
-@onready var appleScene = load("res://forest/scenes/apple.tscn")
+@onready var appleScene = load("res://forest/apple_game/scenes/apple.tscn")
 
 func _ready():
 	randomize()

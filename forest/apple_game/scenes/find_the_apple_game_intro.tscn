@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b58bsbccdmbwe"]
 
-[ext_resource type="Script" path="res://forest/scripts/find_the_apple_game_intro.gd" id="1_7mqw8"]
+[ext_resource type="Script" path="res://forest/apple_game/scripts/find_the_apple_game_intro.gd" id="1_7mqw8"]
 [ext_resource type="Texture2D" uid="uid://cdbfx3tveawou" path="res://resource/assets/backgrounds/find_the_apple_game_intro_bg.png" id="2_2qtaj"]
 
 [node name="FindTheAppleGameIntro" type="Control"]

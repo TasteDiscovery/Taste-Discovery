@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu5h82wmnudns"]
+
+[ext_resource type="Script" path="res://forest/fruits_game/scripts/fruit_game_intro.gd" id="1_e858p"]
+[ext_resource type="Texture2D" uid="uid://e6pcakxmdk72" path="res://resource/assets/backgrounds/fruit_game_intro_bg.png" id="2_hk5mb"]
+
+[node name="FruitGameIntro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e858p")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hk5mb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+
+[node name="Title" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.5
+offset_top = -262.0
+offset_right = 517.5
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Title"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Instrucciónes"
+
+[node name="Body" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -515.5
+offset_top = -173.0
+offset_right = 516.5
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/Body"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "En este juego debera recolectar las frutas solicitadas
+
+- Debera ir a las 4 zonas de aparicion de frutas
+- Solo debera recolectar la fruta que se señala en el cuadro superior izquierdo
+- En la esquina superior izquierda esta el contador de frutas
+- Para ganar, mas de la mitad de las frutas recolectadas deberan 
+   ser correctas
+"
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.5
+offset_top = -144.0
+offset_right = 115.5
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Listo"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
