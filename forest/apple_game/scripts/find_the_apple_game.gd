@@ -58,7 +58,6 @@ func stop_game():
 	var percent = (correctApplesCollected * 100) / applesCollected
 	if percent >= 50:
 		GlobalMision.deliver_ingredient("Forest")
-	$CanvasLayer/ScoreScreen.visible = true
 	
 	$CanvasLayer/ScoreScreen.result(percent,time)
 	$CanvasLayer/ScoreScreen.visible = true

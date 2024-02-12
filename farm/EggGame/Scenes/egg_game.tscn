@@ -1,0 +1,206 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdppvdoevvtdw"]
+
+[ext_resource type="Script" path="res://farm/EggGame/scripts/egg_game.gd" id="1_3s28p"]
+[ext_resource type="Texture2D" uid="uid://cb7pvbl0flev3" path="res://resource/assets/backgrounds/egg_game_bg.jpeg" id="2_4ybn7"]
+[ext_resource type="Texture2D" uid="uid://crcaggcgucerb" path="res://resource/assets/ui/arrow.png" id="2_o44gb"]
+[ext_resource type="Script" path="res://farm/EggGame/scripts/Scoreboard.gd" id="2_xhilc"]
+[ext_resource type="Texture2D" uid="uid://ovpongyef1y5" path="res://resource/assets/object/egg.png" id="3_4x4st"]
+[ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_4tpe5"]
+[ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="5_n116x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyrfh"]
+size = Vector2(27, 657)
+
+[node name="EggGame" type="Node2D"]
+script = ExtResource("1_3s28p")
+metadata/_edit_vertical_guides_ = [40.0, 1112.0, 633.0]
+metadata/_edit_horizontal_guides_ = [126.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(585.5, 323.5)
+scale = Vector2(1.14551, 0.639648)
+texture = ExtResource("2_4ybn7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Buttons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -63.0
+offset_right = -41.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Discard" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+disabled = true
+text = "BOTAR"
+
+[node name="Save" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 31.0
+grow_horizontal = 0
+disabled = true
+text = "GUARDAR"
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -365.5
+offset_right = 529.0
+offset_bottom = -116.5
+grow_vertical = 2
+
+[node name="ScoreBoard" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("2_xhilc")
+
+[node name="TimeScore" type="Control" parent="CanvasLayer/ScoreBoard"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_right = 55.5
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ScoreBoard/TimeScore"]
+layout_mode = 0
+offset_right = 111.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBoard/TimeScore"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 71.0
+offset_bottom = 30.0
+text = "TIEMPO:"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/ScoreBoard/TimeScore"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 8.0
+offset_right = 105.0
+offset_bottom = 31.0
+text = "000"
+
+[node name="EggControl" type="Control" parent="CanvasLayer/ScoreBoard"]
+anchors_preset = 0
+offset_right = 93.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ScoreBoard/EggControl"]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ScoreBoard/EggControl"]
+position = Vector2(20, 19)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4x4st")
+hframes = 3
+
+[node name="EggCounterLabel" type="Label" parent="CanvasLayer/ScoreBoard/EggControl"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 31.0
+text = "00"
+
+[node name="ObjetiveNumber" type="Label" parent="CanvasLayer/ScoreBoard/EggControl"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 8.0
+offset_right = 86.0
+offset_bottom = 31.0
+text = "00"
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBoard/EggControl"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 8.0
+offset_right = 65.0
+offset_bottom = 31.0
+text = "/"
+
+[node name="ScoreControl" type="Control" parent="CanvasLayer/ScoreBoard"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -63.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ScoreBoard/ScoreControl"]
+layout_mode = 0
+offset_left = -48.0
+offset_right = 63.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ScoreBoard/ScoreControl"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 7.0
+offset_right = 23.0
+offset_bottom = 30.0
+text = "Puntaje:"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/ScoreBoard/ScoreControl"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 8.0
+offset_right = 57.0
+offset_bottom = 31.0
+text = "000"
+
+[node name="Counter" parent="CanvasLayer" instance=ExtResource("4_4tpe5")]
+
+[node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("5_n116x")]
+visible = false
+
+[node name="Stash" type="Area2D" parent="."]
+position = Vector2(1200, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stash"]
+position = Vector2(3.5, 318.5)
+shape = SubResource("RectangleShape2D_pyrfh")
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(669, 157)
+rotation = 1.5708
+scale = Vector2(5, 5)
+texture = ExtResource("2_o44gb")
+hframes = 4
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Buttons/Discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/Save" to="." method="_on_save_pressed"]
+[connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
+[connection signal="body_entered" from="Stash" to="." method="_on_stash_body_entered"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
