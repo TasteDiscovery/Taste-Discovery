@@ -8,6 +8,6 @@ func update_correct(counter):
 
 func set_objetive(number):
 	$CorrectAppleControl/ObjetiveNumber.text= "%02d" % number
-
-func set_objetive_sprite(indice):
+	
+func set_required(indice:int):
 	$CorrectAppleControl/Sprite2D.frame = indice

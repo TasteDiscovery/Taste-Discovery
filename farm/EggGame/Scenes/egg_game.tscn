@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdppvdoevvtdw"]
+[gd_scene load_steps=11 format=3 uid="uid://cdppvdoevvtdw"]
 
 [ext_resource type="Script" path="res://farm/EggGame/scripts/egg_game.gd" id="1_3s28p"]
 [ext_resource type="Texture2D" uid="uid://cb7pvbl0flev3" path="res://resource/assets/backgrounds/egg_game_bg.jpeg" id="2_4ybn7"]
 [ext_resource type="Texture2D" uid="uid://crcaggcgucerb" path="res://resource/assets/ui/arrow.png" id="2_o44gb"]
 [ext_resource type="Script" path="res://farm/EggGame/scripts/Scoreboard.gd" id="2_xhilc"]
 [ext_resource type="Texture2D" uid="uid://ovpongyef1y5" path="res://resource/assets/object/egg.png" id="3_4x4st"]
+[ext_resource type="Texture2D" uid="uid://16yyf5wh27oa" path="res://resource/assets/object/Stash.png" id="3_r1h6b"]
+[ext_resource type="Texture2D" uid="uid://cb2h0qmpcyyos" path="res://resource/assets/object/basket.png" id="3_wkv7g"]
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_4tpe5"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="5_n116x"]
 
@@ -14,7 +16,7 @@ size = Vector2(27, 657)
 [node name="EggGame" type="Node2D"]
 script = ExtResource("1_3s28p")
 metadata/_edit_vertical_guides_ = [40.0, 1112.0, 633.0]
-metadata/_edit_horizontal_guides_ = [126.0]
+metadata/_edit_horizontal_guides_ = [126.0, 622.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(585.5, 323.5)
@@ -38,21 +40,28 @@ grow_vertical = 0
 
 [node name="Discard" type="Button" parent="CanvasLayer/Buttons"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_top = -90.0
+offset_right = 508.0
+offset_bottom = 418.0
+scale = Vector2(0.25, 0.25)
 disabled = true
-text = "BOTAR"
+icon = ExtResource("3_r1h6b")
+flat = true
 
 [node name="Save" type="Button" parent="CanvasLayer/Buttons"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -44.0
-offset_bottom = 31.0
+offset_left = -127.0
+offset_top = -89.0
+offset_right = 381.0
+offset_bottom = 419.0
 grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
 disabled = true
-text = "GUARDAR"
+icon = ExtResource("3_wkv7g")
+flat = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Buttons"]
 layout_mode = 1

@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b58bsbccdmbwe"]
+[gd_scene load_steps=4 format=3 uid="uid://cpvnxhcnutrpa"]
 
-[ext_resource type="Script" path="res://forest/apple_game/scripts/find_the_apple_game_intro.gd" id="1_7mqw8"]
-[ext_resource type="Texture2D" uid="uid://cdbfx3tveawou" path="res://resource/assets/backgrounds/find_the_apple_game_intro_bg.png" id="2_2qtaj"]
-[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_qr2d4"]
+[ext_resource type="Script" path="res://farm/EggGame/scripts/egg_game_intro.gd" id="1_k1s5b"]
+[ext_resource type="Texture2D" uid="uid://misb5byb6yyy" path="res://resource/assets/backgrounds/egg_game_bg.png" id="2_xlu0w"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_ao7nv"]
 
-[node name="FindTheAppleGameIntro" type="Control"]
+[node name="EggGameIntroIntro" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_7mqw8")
+script = ExtResource("1_k1s5b")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_2qtaj")
+texture = ExtResource("2_xlu0w")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -48,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -515.5
-offset_top = -173.0
+offset_top = -192.0
 offset_right = 516.5
-offset_bottom = 159.0
+offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -58,14 +58,14 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera recolectar las manzanas  que se indiquen
+text = "En este juego debera seleccionar los huevos en buen estado
 
-- Debera ir a las 4 zonas de aparicion de manzanas del mapa
-- Solo debera recolectar las manzanas que se señalan en el cuadro
-  superior izquierdo
-- En la esquina superior izquierda esta el contador de manzanas
-- Para ganar debera recolectar las manzanas con mas del 50% de presición
-"
+- Los nidos avanzaran en orden en la pantalla
+- La flecha señala el huevo que debera guardar o desechar
+- Solo debera guardar los huevos de color piel
+- Debera desechar los huevos que esten rotos o de color verde
+- Para realizar la tarea debera utilizar los botones de la parte inferior
+- Para debera obtener mas del 50% de Precisión en el juego "
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 1
@@ -80,7 +80,7 @@ offset_right = 115.5
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("3_qr2d4")
+theme = ExtResource("3_ao7nv")
 theme_override_font_sizes/font_size = 24
 text = "Listo"
 

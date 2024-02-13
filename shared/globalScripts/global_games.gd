@@ -11,6 +11,7 @@ var marketGames = [
 
 var farmGames = [
 	"res://farm/cowGame/scenes/hungry_cows_game_intro.tscn",
+	"res://farm/EggGame/Scenes/egg_game_intro.tscn"
 ]
 
 var forestGames = [

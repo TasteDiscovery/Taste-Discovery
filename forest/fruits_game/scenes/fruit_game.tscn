@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://forest/fruits_game/scripts/fruit_game.gd" id="1_atvwd"]
 [ext_resource type="TileSet" uid="uid://dpy6x6d6yy1yo" path="res://resource/TileMaps/map.tres" id="2_vecck"]
 [ext_resource type="PackedScene" uid="uid://b7ovxs81ql3wq" path="res://shared/scenes/player_spawner.tscn" id="3_8120r"]
-[ext_resource type="Script" path="res://forest/apple_game/scripts/ScoreBoard.gd" id="4_y1qub"]
+[ext_resource type="Script" path="res://forest/fruits_game/scripts/ScoreBoard.gd" id="4_mov4b"]
 [ext_resource type="Texture2D" uid="uid://bx8sgciugn0nw" path="res://resource/assets/object/fruits.png" id="5_v0nty"]
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="6_skdek"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="7_efvd7"]
@@ -43,7 +43,7 @@ layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-script = ExtResource("4_y1qub")
+script = ExtResource("4_mov4b")
 
 [node name="TimeScore" type="Control" parent="CanvasLayer/ScoreBoard"]
 layout_mode = 1

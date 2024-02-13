@@ -3,12 +3,15 @@ extends Area2D
 var isCorrect: bool = false
 var enableselect: bool = false
 
-func create(correct:bool):
+func create(correct:bool, correctIndice: int):
 	isCorrect = correct
+	var indice = correctIndice
 	if isCorrect:
-		$Sprite2D.frame = 0
+		$Sprite2D.frame = correctIndice
 	else:
-		$Sprite2D.frame = randi_range(1,8)
+		while (indice == correctIndice):
+			indice = randi_range(0,8)
+		$Sprite2D.frame  = indice
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and enableselect:

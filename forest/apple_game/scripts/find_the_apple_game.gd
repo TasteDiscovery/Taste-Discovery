@@ -14,10 +14,13 @@ func _ready():
 
 func start():
 	set_difficulty()
-	$CanvasLayer/ScoreBoard.set_objetive_apples(applesObjetive)
-	generate_apples()
+	$CanvasLayer/ScoreBoard.set_objetive(applesObjetive)
+	var correct_indice = randf_range(0,8)
+	generate_apples(correct_indice)
+	$CanvasLayer/ScoreBoard.set_objetive_sprite(correct_indice)
 	$CanvasLayer/ScoreBoard.visible = true
 	$CanvasLayer/Counter.visible = false
+	$CanvasLayer/UI.visible = true
 	start_timer()
 
 func set_difficulty():
@@ -29,19 +32,19 @@ func start_timer():
 	$Timer.start()
 	$Timer.autostart = true
 	
-func generate_apples():
+func generate_apples(correctIndice):
 	var spawners = [$AppleSpawner,$AppleSpawner2,$AppleSpawner3,$AppleSpawner4]
 	for spawn in spawners:
+		spawn.correctIndice = correctIndice
 		spawn.fakeQuantity = fakeApples/spawners.size()
 		spawn.correctQuantity = correctApples/spawners.size()
-		spawn.generate_apples()
+		spawn.generate()
 
 func apple_collected(isCorrect:bool):
 	if isCorrect:
 		correctApplesCollected += 1
-		$CanvasLayer/ScoreBoard.update_correct_apple(correctApplesCollected)
+		$CanvasLayer/ScoreBoard.update_correct(correctApplesCollected)
 	applesCollected += 1
-	$CanvasLayer/ScoreBoard.update_total_apple(applesCollected)
 	
 	if correctApplesCollected >=applesObjetive: 
 		stop_game()
@@ -51,6 +54,7 @@ func _on_timer_timeout():
 	$CanvasLayer/ScoreBoard.update_time(time)
 	
 func stop_game():
+	$CanvasLayer/UI.visible = false
 	$Timer.autostart = false
 	$Timer.stop()
 	$CanvasLayer/ScoreBoard.visible = false
