@@ -6,6 +6,7 @@ func result(percent, time):
 	$Control/VBoxContainer/HBoxContainer/Complete.text = str(percent) + '%'
 	$Control/VBoxContainer/HBoxContainer2/Time.text = str(time) + 's'
 	give_stars(percent)	
+	give_moneys(percent)
 
 func give_stars(percent):
 	var starsNumber = 0
@@ -18,6 +19,13 @@ func give_stars(percent):
 	
 	if starsNumber != 0: print_stars(starsNumber)
 		
+
+func give_moneys(percent):
+	var moneys = 0
+	if percent >= 50:
+		moneys = (percent * 50) / 100
+		GlobalPlayer.moneys += moneys
+		$Control/Control/MoneyLabel.text = "%03d" % moneys
 
 func print_stars(starsNumber):
 	for i in starsNumber:

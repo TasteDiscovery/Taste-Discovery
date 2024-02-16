@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://vxmvqocuco0i"]
+
+[ext_resource type="Texture2D" uid="uid://brkdkfixklm1b" path="res://resource/assets/skins/PlayerOriginal.png" id="1_bsmyk"]
+[ext_resource type="Script" path="res://shared/scripts/skin_item.gd" id="1_p7gqo"]
+[ext_resource type="Texture2D" uid="uid://baklxryffxn0g" path="res://resource/assets/object/lock.png" id="2_uugfn"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_f2rqs"]
+[ext_resource type="Texture2D" uid="uid://dyyrg2vhl6qxd" path="res://resource/assets/object/coin_gold_icon.png" id="4_5w4m6"]
+
+[node name="Skin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1102.0
+offset_bottom = -530.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7gqo")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 80.0
+
+[node name="Skin" type="Sprite2D" parent="."]
+position = Vector2(25, 33)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_bsmyk")
+hframes = 13
+vframes = 21
+frame = 130
+
+[node name="LokedControl" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="LokedControl"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 80.0
+
+[node name="Sprite2D" type="Sprite2D" parent="LokedControl/Panel"]
+position = Vector2(25, 40)
+texture = ExtResource("2_uugfn")
+hframes = 7
+
+[node name="Button2" type="Button" parent="LokedControl"]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 50.0
+offset_bottom = 128.0
+theme = ExtResource("3_f2rqs")
+text = "100"
+icon = ExtResource("4_5w4m6")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="LokedControl/Button2" to="." method="_on_button_2_pressed"]

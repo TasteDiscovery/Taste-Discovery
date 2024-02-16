@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dotmjryxe3m12"]
+[gd_scene load_steps=21 format=3 uid="uid://dotmjryxe3m12"]
 
 [ext_resource type="Script" path="res://coast/scripts/coast.gd" id="1_demc8"]
 [ext_resource type="Texture2D" uid="uid://cwuw4p87uaiv0" path="res://resource/assets/tiles/forest.png" id="1_en5cm"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bwkn68v6lte74" path="res://coast/scenes/seller.tscn" id="10_86ig6"]
 [ext_resource type="PackedScene" uid="uid://b3at6ntevqbbi" path="res://shared/scenes/portal.tscn" id="11_nv6tk"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="13_yr3xn"]
+[ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="14_vwwdm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbyfu"]
 texture = ExtResource("1_en5cm")
@@ -1276,3 +1277,13 @@ change_scene = "res://restaurant/scenes/restaurant.tscn"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("13_yr3xn")]
+
+[node name="MoneyControl" parent="CanvasLayer" instance=ExtResource("14_vwwdm")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 35.0
+offset_right = -60.0
+offset_bottom = 75.0
+grow_horizontal = 0

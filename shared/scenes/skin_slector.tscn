@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://efds0pe5dnsq" path="res://resource/assets/backgrounds/skin_selector_bg.jpeg" id="1_fqcaj"]
 [ext_resource type="Script" path="res://shared/scripts/skin_slector.gd" id="1_q2tim"]
-[ext_resource type="Texture2D" uid="uid://brkdkfixklm1b" path="res://resource/assets/skins/PlayerOriginal.png" id="3_upabq"]
-[ext_resource type="Texture2D" uid="uid://b68lahd4jn13c" path="res://resource/assets/skins/FemalePlayerOriginal.png" id="4_typcb"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="5_mycul"]
+[ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="6_2d82e"]
+[ext_resource type="PackedScene" uid="uid://vxmvqocuco0i" path="res://shared/scenes/skin_item.tscn" id="7_h1nfu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ux5t"]
 bg_color = Color(0.168627, 0.168627, 0.168627, 1)
@@ -53,8 +53,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2tim")
-metadata/_edit_vertical_guides_ = [384.0]
-metadata/_edit_horizontal_guides_ = [550.0, 98.0, 254.0]
+metadata/_edit_vertical_guides_ = [384.0, 1092.0]
+metadata/_edit_horizontal_guides_ = [550.0, 98.0, 35.0, 323.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -129,67 +129,64 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -292.5
+offset_left = -275.0
 offset_top = -151.5
-offset_right = 292.5
-offset_bottom = 151.5
+offset_right = 275.0
+offset_bottom = 148.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SkinRow" type="Panel" parent="SkinSelector/Rows"]
 layout_mode = 1
-offset_right = 584.0
-offset_bottom = 88.0
+offset_right = 550.0
+offset_bottom = 100.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ekjak")
 
 [node name="SkinRow2" type="Panel" parent="SkinSelector/Rows"]
 layout_mode = 1
-offset_top = 107.0
-offset_right = 584.0
-offset_bottom = 195.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -150.0
+offset_right = 275.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ekjak")
 
-[node name="SkinRow3" type="Panel" parent="SkinSelector/Rows"]
+[node name="Skins" type="Control" parent="SkinSelector/Rows"]
 layout_mode = 1
-offset_top = 214.0
-offset_right = 584.0
-offset_bottom = 302.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ekjak")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Skins" type="Control" parent="SkinSelector"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="skin1" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 10.0
+offset_right = -500.0
+offset_bottom = -290.0
 
-[node name="SkinButton1" type="Button" parent="SkinSelector/Skins"]
-layout_mode = 0
-offset_left = 139.0
-offset_top = 79.0
-offset_right = 188.0
-offset_bottom = 156.0
+[node name="skin2" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 150.0
+offset_top = 10.0
+offset_right = -400.0
+offset_bottom = -290.0
+skinIndice = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="SkinSelector/Skins/SkinButton1"]
-position = Vector2(24, 31)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_upabq")
-hframes = 13
-vframes = 21
-frame = 130
-
-[node name="SkinButton2" type="Button" parent="SkinSelector/Skins"]
-layout_mode = 0
-offset_left = 235.0
-offset_top = 79.0
-offset_right = 284.0
-offset_bottom = 156.0
-
-[node name="Sprite2D" type="Sprite2D" parent="SkinSelector/Skins/SkinButton2"]
-position = Vector2(24, 31)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_typcb")
-hframes = 13
-vframes = 21
-frame = 130
+[node name="skin3" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 250.0
+offset_top = 10.0
+offset_right = -300.0
+offset_bottom = -290.0
+skinIndice = 2
 
 [node name="ButtonContainer" type="Control" parent="."]
 layout_mode = 1
@@ -236,6 +233,18 @@ text = "PERSONAJES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="SkinSelector/Skins/SkinButton1" to="." method="_on_skin_button_1_pressed"]
-[connection signal="pressed" from="SkinSelector/Skins/SkinButton2" to="." method="_on_skin_button_2_pressed"]
+[node name="MoneyControl" parent="." instance=ExtResource("6_2d82e")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -138.0
+offset_top = 35.0
+offset_right = -60.0
+offset_bottom = 75.0
+grow_horizontal = 0
+
+[connection signal="selected" from="SkinSelector/Rows/Skins/skin1" to="." method="_on_skin_1_selected"]
+[connection signal="selected" from="SkinSelector/Rows/Skins/skin2" to="." method="_on_skin_2_selected"]
+[connection signal="selected" from="SkinSelector/Rows/Skins/skin3" to="." method="_on_skin_3_selected"]
 [connection signal="pressed" from="ButtonContainer/Button" to="." method="_on_button_pressed"]
