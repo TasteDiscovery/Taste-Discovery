@@ -18,5 +18,6 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	if GlobalPlayer.moneys >= 100:
+		GlobalPlayer.moneys -= 100
 		GlobalPlayer.skins[skinIndice]["locked"] = false
 		update_locked()

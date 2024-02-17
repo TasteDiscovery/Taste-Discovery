@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://o61tq7fdx5x1"]
+[gd_scene load_steps=8 format=3 uid="uid://o61tq7fdx5x1"]
 
 [ext_resource type="Script" path="res://market/glassGame/scripts/GlassGame.gd" id="1_bd4pl"]
 [ext_resource type="PackedScene" uid="uid://bkgdhxy3breoj" path="res://market/glassGame/scenes/glasses.tscn" id="2_tpnki"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://market/glassGame/scripts/Scoreboard.gd" id="3_xf0pu"]
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_gcbbs"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="4_pwue4"]
+[ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="6_sppf5"]
 
 [node name="GlassGame" type="Node2D"]
 script = ExtResource("1_bd4pl")
@@ -107,6 +108,8 @@ text = "0"
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("4_pwue4")]
 visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_sppf5")]
 
 [node name="Glasses" parent="." instance=ExtResource("2_tpnki")]
 z_index = 2

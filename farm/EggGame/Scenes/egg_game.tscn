@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdppvdoevvtdw"]
+[gd_scene load_steps=12 format=3 uid="uid://cdppvdoevvtdw"]
 
 [ext_resource type="Script" path="res://farm/EggGame/scripts/egg_game.gd" id="1_3s28p"]
 [ext_resource type="Texture2D" uid="uid://cb7pvbl0flev3" path="res://resource/assets/backgrounds/egg_game_bg.jpeg" id="2_4ybn7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cb2h0qmpcyyos" path="res://resource/assets/object/basket.png" id="3_wkv7g"]
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_4tpe5"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="5_n116x"]
+[ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="9_1cp3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyrfh"]
 size = Vector2(27, 657)
@@ -24,55 +25,6 @@ scale = Vector2(1.14551, 0.639648)
 texture = ExtResource("2_4ybn7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Buttons" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -63.0
-offset_right = -41.0
-offset_bottom = -22.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Discard" type="Button" parent="CanvasLayer/Buttons"]
-layout_mode = 0
-offset_top = -90.0
-offset_right = 508.0
-offset_bottom = 418.0
-scale = Vector2(0.25, 0.25)
-disabled = true
-icon = ExtResource("3_r1h6b")
-flat = true
-
-[node name="Save" type="Button" parent="CanvasLayer/Buttons"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -127.0
-offset_top = -89.0
-offset_right = 381.0
-offset_bottom = 419.0
-grow_horizontal = 0
-scale = Vector2(0.25, 0.25)
-disabled = true
-icon = ExtResource("3_wkv7g")
-flat = true
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Buttons"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -365.5
-offset_right = 529.0
-offset_bottom = -116.5
-grow_vertical = 2
 
 [node name="ScoreBoard" type="Control" parent="CanvasLayer"]
 visible = false
@@ -189,6 +141,57 @@ text = "000"
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("5_n116x")]
 visible = false
 
+[node name="Buttons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -63.0
+offset_right = -41.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Discard" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 0
+offset_top = -90.0
+offset_right = 508.0
+offset_bottom = 418.0
+scale = Vector2(0.25, 0.25)
+disabled = true
+icon = ExtResource("3_r1h6b")
+flat = true
+
+[node name="Save" type="Button" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -127.0
+offset_top = -89.0
+offset_right = 381.0
+offset_bottom = 419.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+disabled = true
+icon = ExtResource("3_wkv7g")
+flat = true
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Buttons"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -365.5
+offset_right = 529.0
+offset_bottom = -116.5
+grow_vertical = 2
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_1cp3i")]
+
 [node name="Stash" type="Area2D" parent="."]
 position = Vector2(1200, 0)
 
@@ -207,9 +210,9 @@ hframes = 4
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Discard" to="." method="_on_discard_pressed"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Save" to="." method="_on_save_pressed"]
-[connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
 [connection signal="body_entered" from="Stash" to="." method="_on_stash_body_entered"]
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

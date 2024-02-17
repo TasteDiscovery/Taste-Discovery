@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhaapsvkdrh8r"]
+[gd_scene load_steps=15 format=3 uid="uid://bhaapsvkdrh8r"]
 
 [ext_resource type="Script" path="res://farm/cowGame/scripts/hungry_cows_game.gd" id="1_1hv5f"]
 [ext_resource type="Script" path="res://farm/cowGame/scripts/Scoreboard.gd" id="2_6q7ls"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="6_whjiq"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="7_35ibm"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="8_1idjh"]
+[ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="9_2oqyf"]
 [ext_resource type="PackedScene" uid="uid://b7ovxs81ql3wq" path="res://shared/scenes/player_spawner.tscn" id="10_ip7a8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tupfj"]
@@ -1355,6 +1356,8 @@ vertical_alignment = 1
 visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("8_1idjh")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_2oqyf")]
 
 [node name="CowFeedCenter" parent="." instance=ExtResource("2_u1opx")]
 z_index = 1

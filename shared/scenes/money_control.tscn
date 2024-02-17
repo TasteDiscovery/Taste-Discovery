@@ -42,6 +42,7 @@ _data = {
 }
 
 [node name="MoneyControl" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 84.0

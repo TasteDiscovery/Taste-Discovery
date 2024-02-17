@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0j38ushdtlw0"]
+[gd_scene load_steps=11 format=3 uid="uid://d0j38ushdtlw0"]
 
 [ext_resource type="Script" path="res://forest/apple_game/scripts/find_the_apple_game.gd" id="1_v8nwc"]
 [ext_resource type="TileSet" uid="uid://dpy6x6d6yy1yo" path="res://resource/TileMaps/map.tres" id="2_2unwg"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="7_ibfry"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="8_wu5ej"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="9_aymbt"]
+[ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="9_ibnx5"]
 
 [node name="FindTheAppleGame" type="Node2D"]
 y_sort_enabled = true
@@ -124,6 +125,8 @@ visible = false
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("9_aymbt")]
 visible = false
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_ibnx5")]
 
 [node name="Timer" type="Timer" parent="."]
 

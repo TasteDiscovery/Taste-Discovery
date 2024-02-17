@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dotmjryxe3m12"]
+[gd_scene load_steps=22 format=3 uid="uid://dotmjryxe3m12"]
 
 [ext_resource type="Script" path="res://coast/scripts/coast.gd" id="1_demc8"]
 [ext_resource type="Texture2D" uid="uid://cwuw4p87uaiv0" path="res://resource/assets/tiles/forest.png" id="1_en5cm"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b3at6ntevqbbi" path="res://shared/scenes/portal.tscn" id="11_nv6tk"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="13_yr3xn"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="14_vwwdm"]
+[ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="15_faw17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbyfu"]
 texture = ExtResource("1_en5cm")
@@ -1287,3 +1288,5 @@ offset_top = 35.0
 offset_right = -60.0
 offset_bottom = 75.0
 grow_horizontal = 0
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_faw17")]

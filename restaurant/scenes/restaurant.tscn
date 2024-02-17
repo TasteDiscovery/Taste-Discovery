@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bntaurbtyj3tc"]
+[gd_scene load_steps=16 format=3 uid="uid://bntaurbtyj3tc"]
 
 [ext_resource type="Script" path="res://restaurant/scripts/restaurant.gd" id="1_k0l3m"]
 [ext_resource type="Texture2D" uid="uid://behwcq28ks57m" path="res://resource/assets/tiles/floor.png" id="2_p1yt8"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://ctuo35tlh261" path="res://resource/media/music/POL-star-way-short.wav" id="7_swrvp"]
 [ext_resource type="PackedScene" uid="uid://b3at6ntevqbbi" path="res://shared/scenes/portal.tscn" id="8_hqh5p"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="9_qtexw"]
+[ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="10_ff6q0"]
+[ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="11_bymum"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2i8s"]
 texture = ExtResource("2_p1yt8")
@@ -7579,3 +7581,11 @@ change_scene = "res://coast/scenes/coast.tscn"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("9_qtexw")]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_ff6q0")]
+
+[node name="MoneyControl" parent="CanvasLayer" instance=ExtResource("11_bymum")]
+offset_left = 1014.0
+offset_top = 35.0
+offset_right = 1098.0
+offset_bottom = 75.0
