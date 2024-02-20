@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu5h82wmnudns"]
+[gd_scene load_steps=4 format=3 uid="uid://cu5h82wmnudns"]
 
 [ext_resource type="Script" path="res://forest/fruits_game/scripts/fruit_game_intro.gd" id="1_e858p"]
 [ext_resource type="Texture2D" uid="uid://e6pcakxmdk72" path="res://resource/assets/backgrounds/fruit_game_intro_bg.png" id="2_hk5mb"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_a3g1l"]
 
 [node name="FruitGameIntro" type="Control"]
 layout_mode = 3
@@ -79,6 +80,7 @@ offset_right = 115.5
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_a3g1l")
 theme_override_font_sizes/font_size = 24
 text = "Listo"
 

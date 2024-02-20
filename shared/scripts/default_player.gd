@@ -5,7 +5,7 @@ class_name PlayerBase
 @export var horizontal_camera_limits = Vector2(-10000000,10000000)
 @export var vertical_camera_limits = Vector2(-10000000,10000000)
 
-const SPEED = 400.0
+const SPEED = 300.0
 
 var joystick: Joystick
 

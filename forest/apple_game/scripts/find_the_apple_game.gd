@@ -18,15 +18,16 @@ func start():
 	var correct_indice = randf_range(0,8)
 	generate_apples(correct_indice)
 	$CanvasLayer/ScoreBoard.set_objetive_sprite(correct_indice)
+	$CanvasLayer/PauseMenu.visible = false
 	$CanvasLayer/ScoreBoard.visible = true
 	$CanvasLayer/Counter.visible = false
 	$CanvasLayer/UI.visible = true
 	start_timer()
 
 func set_difficulty():
-	correctApples = 12
-	fakeApples = 12
-	applesObjetive = 10	
+	correctApples = 8
+	fakeApples = 20
+	applesObjetive = 8
 
 func start_timer():
 	$Timer.start()
@@ -42,9 +43,13 @@ func generate_apples(correctIndice):
 
 func apple_collected(isCorrect:bool):
 	if isCorrect:
+		$PositiveSoundEffect.play_sound()
 		correctApplesCollected += 1
 		$CanvasLayer/ScoreBoard.update_correct(correctApplesCollected)
-	applesCollected += 1
+		applesCollected += 1
+	else:
+		$NegativeSoundEffect.play_sound()
+		applesCollected += 3
 	
 	if correctApplesCollected >=applesObjetive: 
 		stop_game()
@@ -58,6 +63,8 @@ func stop_game():
 	$Timer.autostart = false
 	$Timer.stop()
 	$CanvasLayer/ScoreBoard.visible = false
+	$CanvasLayer/UI.visible = false
+	$CanvasLayer/PauseMenu.visible = false
 	GlobalGames.enableForestGame = false
 	var percent = (correctApplesCollected * 100) / applesCollected
 	if percent >= 50:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://o61tq7fdx5x1"]
+[gd_scene load_steps=11 format=3 uid="uid://o61tq7fdx5x1"]
 
 [ext_resource type="Script" path="res://market/glassGame/scripts/GlassGame.gd" id="1_bd4pl"]
 [ext_resource type="PackedScene" uid="uid://bkgdhxy3breoj" path="res://market/glassGame/scenes/glasses.tscn" id="2_tpnki"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_gcbbs"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="4_pwue4"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="6_sppf5"]
+[ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="8_2qf2k"]
+[ext_resource type="PackedScene" uid="uid://djm7mvk00g3xv" path="res://shared/effects/positive_sound_effect.tscn" id="9_tep0e"]
+[ext_resource type="PackedScene" uid="uid://cvmjnkf3rks4o" path="res://shared/effects/negative_sound_effect.tscn" id="10_yucse"]
 
 [node name="GlassGame" type="Node2D"]
 script = ExtResource("1_bd4pl")
@@ -32,87 +35,101 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -151.0
-offset_bottom = 58.0
+offset_left = -147.0
+offset_right = -43.0
+offset_bottom = 23.0
 grow_horizontal = 0
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Scoreboard/ScoreControl"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.5
-offset_top = -22.5
-offset_right = 71.5
-offset_bottom = 22.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = -1.0
-offset_right = 111.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 32
-text = "Score:"
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.0
+offset_right = 80.0
+offset_bottom = 12.0
+grow_vertical = 2
+text = "PUNTAJE:"
+horizontal_alignment = 2
 
 [node name="Score" type="Label" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
-layout_mode = 0
-offset_left = 112.0
-offset_right = 130.0
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 32
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
 text = "0"
 
 [node name="RoundsControl" type="Control" parent="CanvasLayer/Scoreboard"]
 layout_mode = 1
 anchors_preset = 0
-offset_right = 162.0
-offset_bottom = 59.0
+offset_right = 85.0
+offset_bottom = 25.0
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Scoreboard/RoundsControl"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.5
-offset_top = -22.5
-offset_right = 71.5
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 92.0
+offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Scoreboard/RoundsControl/Panel"]
-layout_mode = 0
-offset_left = 5.5
-offset_right = 114.5
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 32
-text = "Round:"
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.0
+offset_right = 68.0
+offset_bottom = 12.0
+grow_vertical = 2
+text = "RONDA:"
+horizontal_alignment = 2
 
 [node name="Score" type="Label" parent="CanvasLayer/Scoreboard/RoundsControl/Panel"]
-layout_mode = 0
-offset_left = 117.5
-offset_top = 1.0
-offset_right = 135.5
-offset_bottom = 46.0
-theme_override_font_sizes/font_size = 32
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
 text = "0"
 
 [node name="Counter" parent="CanvasLayer" instance=ExtResource("4_gcbbs")]
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_sppf5")]
+offset_top = 0.0
+offset_bottom = -567.0
+
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("4_pwue4")]
 visible = false
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_sppf5")]
+reload_scene = "res://market/glassGame/scenes/glass_game_intro.tscn"
 
 [node name="Glasses" parent="." instance=ExtResource("2_tpnki")]
 z_index = 2
+
+[node name="MapMusic" parent="." instance=ExtResource("8_2qf2k")]
+
+[node name="PositiveSoundEffect" parent="." instance=ExtResource("9_tep0e")]
+
+[node name="NegativeSoundEffect" parent="." instance=ExtResource("10_yucse")]
 
 [connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
 [connection signal="selection" from="Glasses" to="." method="_on_glasses_selection"]

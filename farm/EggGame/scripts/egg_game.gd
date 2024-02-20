@@ -54,10 +54,12 @@ func _on_cooldown_timeout():
 
 func _on_save_pressed():
 	if eggs[index].get_isCorrect():
+		$PositiveSoundEffect.play_sound()
 		points += 10
 		eggCounter += 1
 		$CanvasLayer/ScoreBoard.update_correct(eggCounter)
 	else:
+		$NegativeSoundEffect.play_sound()
 		points -= 10
 	$CanvasLayer/ScoreBoard.update_score(points)
 	nest_handler()
@@ -80,8 +82,11 @@ func generate_score():
 
 func _on_discard_pressed():
 	if eggs[index].get_isCorrect():
+		$NegativeSoundEffect.play_sound()
 		points -= 10
 		$CanvasLayer/ScoreBoard.update_score(points)
+	else:
+		$PositiveSoundEffect.play_sound()
 	nest_handler()
 
 func nest_handler():

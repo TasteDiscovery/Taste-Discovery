@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://djyh2p17qgvml"]
+[gd_scene load_steps=4 format=3 uid="uid://djyh2p17qgvml"]
 
 [ext_resource type="Script" path="res://farm/cowGame/scripts/hungry_cows_game_intro.gd" id="1_vjlqw"]
 [ext_resource type="Texture2D" uid="uid://c31uh7y7mq4kw" path="res://resource/assets/backgrounds/hungry_cows_game_bg.png" id="2_f3n1u"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_c2lcl"]
 
 [node name="HungryCowsGameIntro" type="Control"]
 layout_mode = 3
@@ -81,6 +82,7 @@ offset_right = 115.5
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_c2lcl")
 theme_override_font_sizes/font_size = 24
 text = "Listo"
 

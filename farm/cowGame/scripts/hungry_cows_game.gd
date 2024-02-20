@@ -13,23 +13,15 @@ var time = 50
 var initial_time = 50
 var food = 4
 
-@onready var playerSpawner = $PlayerSpawner
-@onready var ui = $CanvasLayer/UI
-
-@onready  var scoreBoard = $CanvasLayer/Scoreboard
-@onready var counter = $CanvasLayer/Counter
-@onready var scoreScreen = $CanvasLayer/ScoreScreen
-@onready var timer = $Timer
-
 func _ready():
-	playerSpawner.create_player(ui.get_joystick())
-	randomize()
+	$PlayerSpawner.create_player($CanvasLayer/UI.get_joystick())
 
 func start():
-	scoreBoard.update_time(time)
+	$CanvasLayer/UI.visible = true
+	$CanvasLayer/Scoreboard.update_time(time)
 	create_cows()
-	timer.start()
-	timer.autostart = true
+	$Timer.start()
+	$Timer.autostart = true
 
 func create_cows():
 	for i in range(8):
@@ -43,22 +35,27 @@ func create_cows():
 
 func _on_cow_food_delivered(delivered):
 	if delivered:
+		$PositiveSoundEffect.play_sound()
 		countFoodDelivered += 1
 		food -= 1
-		scoreBoard.update_deliver(countFoodDelivered)
-		scoreBoard.update_cow_feed(food)
+		$CanvasLayer/Scoreboard.update_deliver(countFoodDelivered)
+		$CanvasLayer/Scoreboard.update_cow_feed(food)
+	else:
+		$NegativeSoundEffect.play_sound()
 	
 
 func stop_game():
-	timer.autostart = false
-	timer.stop()
-	scoreBoard.visible = false
+	$Timer.autostart = false
+	$Timer.stop()
+	$CanvasLayer/Scoreboard.visible = false
+	$CanvasLayer/UI.visible = false
+	$CanvasLayer/PauseMenu.visible = false
 	GlobalGames.enableFarmGame = false
 	var percent = (countFoodDelivered * 100)/countFoodOrdered
-	scoreScreen.result(percent, initial_time)
+	$CanvasLayer/ScoreScreen.result(percent, initial_time)
 	if percent >= 50:
 		GlobalMision.deliver_ingredient("Farm")
-	scoreScreen.visible = true
+	$CanvasLayer/ScoreScreen.visible = true
 
 func _on_timer_timeout():
 	assign_cow_order()
@@ -67,23 +64,24 @@ func _on_timer_timeout():
 func assign_cow_order():
 	var number = randi_range(0,1)
 	var cow = cows[randi_range(0,cows.size()-1)]
-	if number and cow.done:
+	if number and cow.done and time > 5:
 		countFoodOrdered += 1
 		cow.order_food()
-		scoreBoard.update_request(countFoodOrdered)
+		$CanvasLayer/Scoreboard.update_request(countFoodOrdered)
 
 func update_time():
 	time -= 1
-	scoreBoard.update_time(time)
+	$CanvasLayer/Scoreboard.update_time(time)
 	if time <= 0:
 		stop_game()
 
 func _on_cow_feed_center_body_entered(body):
-	if body.get_name().contains("Player"):
+	if body.get_name().contains("Player") and food < 4:
+		$NeutralSoundEffect.play_sound()
 		food = 4
-		scoreBoard.update_cow_feed(food)
+		$CanvasLayer/Scoreboard.update_cow_feed(food)
 
 func _on_counter_start_game():
-	scoreBoard.visible = true
-	counter.visible = false
+	$CanvasLayer/Scoreboard.visible = true
+	$CanvasLayer/Counter.visible = false
 	start()

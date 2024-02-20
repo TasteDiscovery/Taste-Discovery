@@ -1,6 +1,8 @@
 extends Control
 
 func _ready():
+	if GlobalSettings.enableMusic:
+		$AudioStreamPlayer.play()
 	$Skin/Sprite2D.texture = load(GlobalPlayer.skinPreview)
 
 func _on_start_pressed():

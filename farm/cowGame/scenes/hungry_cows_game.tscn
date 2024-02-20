@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhaapsvkdrh8r"]
+[gd_scene load_steps=20 format=3 uid="uid://bhaapsvkdrh8r"]
 
 [ext_resource type="Script" path="res://farm/cowGame/scripts/hungry_cows_game.gd" id="1_1hv5f"]
 [ext_resource type="Script" path="res://farm/cowGame/scripts/Scoreboard.gd" id="2_6q7ls"]
@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="8_1idjh"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="9_2oqyf"]
 [ext_resource type="PackedScene" uid="uid://b7ovxs81ql3wq" path="res://shared/scenes/player_spawner.tscn" id="10_ip7a8"]
+[ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="12_21eqw"]
+[ext_resource type="PackedScene" uid="uid://djm7mvk00g3xv" path="res://shared/effects/positive_sound_effect.tscn" id="13_vj1co"]
+[ext_resource type="PackedScene" uid="uid://cvmjnkf3rks4o" path="res://shared/effects/negative_sound_effect.tscn" id="14_soi5u"]
+[ext_resource type="PackedScene" uid="uid://cctanuyo27f2h" path="res://shared/effects/neutral_sound_effect.tscn" id="15_l2mhk"]
+[ext_resource type="Script" path="res://shared/scripts/sound_effect.gd" id="16_7mqwe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tupfj"]
 texture = ExtResource("2_qfkfc")
@@ -1354,8 +1359,10 @@ vertical_alignment = 1
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("7_35ibm")]
 visible = false
+reload_scene = "res://farm/cowGame/scenes/hungry_cows_game_intro.tscn"
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("8_1idjh")]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_2oqyf")]
 
@@ -1373,6 +1380,15 @@ vertical_camera_limits = Vector2(0, 648)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(0, 0, 0, -30, 1203, -31, 1203, 710, -36, 710, -36, 0, 0, 0, 0, 672, 1152, 672, 1152, 0)
+
+[node name="MapMusic" parent="." instance=ExtResource("12_21eqw")]
+
+[node name="PositiveSoundEffect" parent="." instance=ExtResource("13_vj1co")]
+
+[node name="NegativeSoundEffect" parent="." instance=ExtResource("14_soi5u")]
+
+[node name="NeutralSoundEffect" parent="." instance=ExtResource("15_l2mhk")]
+script = ExtResource("16_7mqwe")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]

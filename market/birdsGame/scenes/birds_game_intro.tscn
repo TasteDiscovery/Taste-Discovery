@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://7n764l80ffeh"]
+[gd_scene load_steps=4 format=3 uid="uid://7n764l80ffeh"]
 
 [ext_resource type="Script" path="res://market/birdsGame/scripts/birds_game_intro.gd" id="1_ywon7"]
 [ext_resource type="Texture2D" uid="uid://2kx0pc2xus6p" path="res://resource/assets/backgrounds/birds_game_bg.png" id="2_vvt53"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_0y1ae"]
 
 [node name="BirdsGameIntro" type="Control"]
 layout_mode = 3
@@ -79,6 +80,7 @@ offset_right = 115.5
 offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_0y1ae")
 theme_override_font_sizes/font_size = 24
 text = "Listo"
 

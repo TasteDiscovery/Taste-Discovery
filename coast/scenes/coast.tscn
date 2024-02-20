@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dotmjryxe3m12"]
+[gd_scene load_steps=23 format=3 uid="uid://dotmjryxe3m12"]
 
 [ext_resource type="Script" path="res://coast/scripts/coast.gd" id="1_demc8"]
 [ext_resource type="Texture2D" uid="uid://cwuw4p87uaiv0" path="res://resource/assets/tiles/forest.png" id="1_en5cm"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="13_yr3xn"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="14_vwwdm"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="15_faw17"]
+[ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="16_jo686"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sbyfu"]
 texture = ExtResource("1_en5cm")
@@ -1283,10 +1284,16 @@ change_scene = "res://restaurant/scenes/restaurant.tscn"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -138.0
-offset_top = 35.0
-offset_right = -60.0
-offset_bottom = 75.0
+offset_left = -132.0
+offset_right = -54.0
 grow_horizontal = 0
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("15_faw17")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(1, -20)
+polygon = PackedVector2Array(1199, 20, 3455, 20, 3456, 1968, -1152, 1968, -1153, 20, -1158, 20, -1163, 1990, 3514, 1990, 3514, -111, -1153, -77, -1153, 20, 1088, 20, 1088, 0, 1199, 0)
+
+[node name="MapMusic" parent="." instance=ExtResource("16_jo686")]

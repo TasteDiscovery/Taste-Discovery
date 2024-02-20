@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhnushyfpj2pj"]
+[gd_scene load_steps=7 format=3 uid="uid://dhnushyfpj2pj"]
 
 [ext_resource type="Script" path="res://shared/scripts/control.gd" id="1_okofb"]
 [ext_resource type="Texture2D" uid="uid://ctxybsf0lvkvf" path="res://resource/assets/backgrounds/menu_bg.jpeg" id="2_j2wub"]
 [ext_resource type="Texture2D" uid="uid://brkdkfixklm1b" path="res://resource/assets/skins/PlayerOriginal.png" id="3_ffx1c"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_n062c"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="5_04aih"]
+[ext_resource type="AudioStream" uid="uid://cst4jqbow5fxc" path="res://resource/media/music/POL-king-of-coins-short.wav" id="6_ofkqq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -102,11 +103,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -138.0
-offset_top = 35.0
-offset_right = -60.0
-offset_bottom = 75.0
+offset_left = -132.0
+offset_right = -54.0
 grow_horizontal = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ofkqq")
+volume_db = -10.0
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Skin" to="." method="_on_skin_pressed"]

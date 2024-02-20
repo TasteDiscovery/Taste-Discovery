@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cctanuyo27f2h"]
+
+[ext_resource type="AudioStream" uid="uid://bfbvq37lo1jgb" path="res://resource/media/sounds/confirmation_002.ogg" id="1_ymyjp"]
+
+[node name="NeutralSoundEffect" type="AudioStreamPlayer"]
+stream = ExtResource("1_ymyjp")

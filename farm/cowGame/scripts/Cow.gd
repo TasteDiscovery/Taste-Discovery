@@ -6,31 +6,34 @@ var hungry = false
 var hasFood = false
 
 var done = true
-
-@onready var animation = $AnimationPlayer
-@onready var dialog = $ImageDialog
-@onready var cooldown = $Cooldown
-@onready var waiting = $Waiting
+var enableselect: bool = false
 
 func _ready():
-	animation.play("idle")
+	$AnimationPlayer.play("idle")
 
 func order_food():
 	hungry = true
-	animation.play("RESET")
-	dialog.visible = true
+	$AnimationPlayer.play("RESET")
+	$ImageDialog.visible = true
 	done = false
-	waiting.start()
+	$Waiting.start()
+
+func _input(event):
+	if event.is_action_pressed("ui_accept") and enableselect:
+		hungry = false
+		$AnimationPlayer.play("eat")
+		$ImageDialog.visible = false
+		$Cooldown.start()
+		foodDelivered.emit(true)
+		$Waiting.stop()
 
 func _on_player_detector_body_entered(body):
 	var food = get_parent().food
 	if body.get_name().contains("Player") and hungry and food > 0:
-		hungry = false
-		animation.play("eat")
-		dialog.visible = false
-		cooldown.start()
-		foodDelivered.emit(true)
-		waiting.stop()
+		enableselect = true
+
+func _on_player_detector_body_exited(body):
+	enableselect = false
 
 func _on_cooldown_timeout():
 	reset_status()
@@ -38,10 +41,10 @@ func _on_cooldown_timeout():
 
 func _on_waiting_timeout():
 	reset_status()
-	cooldown.start()
+	$Cooldown.start()
 	foodDelivered.emit(false)
 
 func reset_status():
 	hungry = false
-	animation.play("idle")
-	dialog.visible = false
+	$AnimationPlayer.play("idle")
+	$ImageDialog.visible = false

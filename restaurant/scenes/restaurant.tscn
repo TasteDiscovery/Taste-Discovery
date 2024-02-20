@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bsjr44yjdmfrm" path="res://resource/assets/tiles/utensilios.png" id="4_g2cjy"]
 [ext_resource type="PackedScene" uid="uid://b7ovxs81ql3wq" path="res://shared/scenes/player_spawner.tscn" id="5_hax1e"]
 [ext_resource type="PackedScene" uid="uid://ds25hoc68n4pv" path="res://restaurant/scenes/boss.tscn" id="6_ouj6c"]
-[ext_resource type="AudioStream" uid="uid://ctuo35tlh261" path="res://resource/media/music/POL-star-way-short.wav" id="7_swrvp"]
 [ext_resource type="PackedScene" uid="uid://b3at6ntevqbbi" path="res://shared/scenes/portal.tscn" id="8_hqh5p"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="9_qtexw"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="10_ff6q0"]
+[ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="11_8dg1d"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="11_bymum"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2i8s"]
@@ -7569,10 +7569,6 @@ polygon = PackedVector2Array(-1, 16, 1153, 16, 1153, 648, 513, 648, 513, 672, 12
 z_index = 1
 position = Vector2(940, 34)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_swrvp")
-volume_db = -25.0
-
 [node name="Portal" parent="." instance=ExtResource("8_hqh5p")]
 position = Vector2(468, 659)
 scale = Vector2(6.28, 1)
@@ -7585,7 +7581,7 @@ change_scene = "res://coast/scenes/coast.tscn"
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_ff6q0")]
 
 [node name="MoneyControl" parent="CanvasLayer" instance=ExtResource("11_bymum")]
-offset_left = 1014.0
-offset_top = 35.0
-offset_right = 1098.0
-offset_bottom = 75.0
+offset_left = 1020.0
+offset_right = 1104.0
+
+[node name="MapMusic" parent="." instance=ExtResource("11_8dg1d")]

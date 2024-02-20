@@ -22,6 +22,7 @@ GlobalDialog="*res://shared/globalScripts/global_dialog.gd"
 GlobalMision="*res://shared/globalScripts/global_mision.gd"
 GlobalPlayer="*res://shared/globalScripts/global_player.gd"
 GlobalGames="*res://shared/globalScripts/global_games.gd"
+GlobalSettings="*res://shared/globalScripts/global_settings.gd"
 
 [display]
 

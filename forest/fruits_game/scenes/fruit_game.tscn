@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmlqsqgksmhkc"]
+[gd_scene load_steps=14 format=3 uid="uid://dmlqsqgksmhkc"]
 
 [ext_resource type="Script" path="res://forest/fruits_game/scripts/fruit_game.gd" id="1_atvwd"]
 [ext_resource type="TileSet" uid="uid://dpy6x6d6yy1yo" path="res://resource/TileMaps/map.tres" id="2_vecck"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cjte1rhrd653m" path="res://forest/fruits_game/scenes/fruit_spawner.tscn" id="8_a0y5v"]
 [ext_resource type="PackedScene" uid="uid://dxa8vjgjgwr7" path="res://shared/scenes/ui.tscn" id="8_lj2ha"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="9_nnb1b"]
+[ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="11_mxt2e"]
+[ext_resource type="PackedScene" uid="uid://djm7mvk00g3xv" path="res://shared/effects/positive_sound_effect.tscn" id="12_kem0f"]
+[ext_resource type="PackedScene" uid="uid://cvmjnkf3rks4o" path="res://shared/effects/negative_sound_effect.tscn" id="13_77q0j"]
 
 [node name="FruitGame" type="Node2D"]
 y_sort_enabled = true
@@ -122,10 +125,13 @@ text = "/"
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("7_efvd7")]
 visible = false
+reload_scene = "res://forest/fruits_game/scenes/fruit_game_intro.tscn"
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("8_lj2ha")]
+visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_nnb1b")]
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -149,6 +155,12 @@ position = Vector2(1611, 109)
 [node name="FruitSpawner4" parent="." instance=ExtResource("8_a0y5v")]
 z_index = 1
 position = Vector2(1603, 795)
+
+[node name="MapMusic" parent="." instance=ExtResource("11_mxt2e")]
+
+[node name="PositiveSoundEffect" parent="." instance=ExtResource("12_kem0f")]
+
+[node name="NegativeSoundEffect" parent="." instance=ExtResource("13_77q0j")]
 
 [connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

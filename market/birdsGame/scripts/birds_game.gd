@@ -14,6 +14,7 @@ func start():
 
 func stop():
 	$CanvasLayer/ScoreBoard.visible = false
+	$CanvasLayer/PauseMenu.visible = false
 	$Spawner.stop()	
 	stop_time()
 	GlobalGames.enableMarketGame = false
@@ -40,12 +41,14 @@ func _on_counter_start_game():
 
 func on_bird_capture(isCorrect):
 	if isCorrect:
+		$PositiveSoundEffect.play_sound()
 		birdsCounter +=1
 		correctBirdsCounter += 1
 		$CanvasLayer/ScoreBoard.update_correct_bird(correctBirdsCounter)
 		if correctBirdsCounter >= objective:
 			stop()
 	else:
+		$NegativeSoundEffect.play_sound()
 		birdsCounter += 1
 
 func _on_timer_timeout():

@@ -4,6 +4,8 @@ var localSkin = GlobalPlayer.skin
 var skinIndice:int = 0
 
 func _ready():
+	if GlobalSettings.enableMusic:
+		$AudioStreamPlayer.play()
 	GlobalPlayer.inDialog = true
 	$SkinPreview/Sprite2D.texture = load(GlobalPlayer.skinPreview)
 

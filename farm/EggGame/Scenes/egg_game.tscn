@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdppvdoevvtdw"]
+[gd_scene load_steps=15 format=3 uid="uid://cdppvdoevvtdw"]
 
 [ext_resource type="Script" path="res://farm/EggGame/scripts/egg_game.gd" id="1_3s28p"]
 [ext_resource type="Texture2D" uid="uid://cb7pvbl0flev3" path="res://resource/assets/backgrounds/egg_game_bg.jpeg" id="2_4ybn7"]
@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_4tpe5"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="5_n116x"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="9_1cp3i"]
+[ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="11_tj2n0"]
+[ext_resource type="PackedScene" uid="uid://djm7mvk00g3xv" path="res://shared/effects/positive_sound_effect.tscn" id="12_mprgl"]
+[ext_resource type="PackedScene" uid="uid://cvmjnkf3rks4o" path="res://shared/effects/negative_sound_effect.tscn" id="13_xe38v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyrfh"]
 size = Vector2(27, 657)
@@ -110,7 +113,7 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -63.0
+offset_left = -108.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
@@ -140,6 +143,7 @@ text = "000"
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("5_n116x")]
 visible = false
+reload_scene = "res://farm/EggGame/Scenes/egg_game_intro.tscn"
 
 [node name="Buttons" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -209,6 +213,12 @@ texture = ExtResource("2_o44gb")
 hframes = 4
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="MapMusic" parent="." instance=ExtResource("11_tj2n0")]
+
+[node name="PositiveSoundEffect" parent="." instance=ExtResource("12_mprgl")]
+
+[node name="NegativeSoundEffect" parent="." instance=ExtResource("13_xe38v")]
 
 [connection signal="start_game" from="CanvasLayer/Counter" to="." method="_on_counter_start_game"]
 [connection signal="pressed" from="CanvasLayer/Buttons/Discard" to="." method="_on_discard_pressed"]

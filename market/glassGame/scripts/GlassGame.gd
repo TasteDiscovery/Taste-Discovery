@@ -18,6 +18,7 @@ var counter = 3
 @onready var glasses = $Glasses
 
 func start():
+	$CanvasLayer/PauseMenu.visible = true
 	select_dificulty()
 	glasses.load_glasses()
 	glasses.set_glass_with_ball()
@@ -65,9 +66,12 @@ func _on_glasses_selection(hasBall):
 	next_or_finish()
 
 func calculate_score(hasBall):
-	if hasBall: 
+	if hasBall:
+		$PositiveSoundEffect.play_sound()
 		score += 1
 		$CanvasLayer/Scoreboard.update_score(score)
+	else:
+		$NegativeSoundEffect.play_sound()
 
 func next_or_finish():
 	roundCount += 1
@@ -82,6 +86,7 @@ func next_or_finish():
 func finish():
 	GlobalGames.enableMarketGame = false
 	$CanvasLayer/Scoreboard.visible = false
+	$CanvasLayer/PauseMenu.visible = false
 	var percent = (score * 100)/roundCount
 	$CanvasLayer/ScoreScreen.result(percent, 0)
 	if percent >= 50:
