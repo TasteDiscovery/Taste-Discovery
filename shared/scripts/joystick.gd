@@ -20,7 +20,7 @@ func touch_handler(event):
 		if distance < radius:
 			index = event.index
 			lever.global_position = event.position
-			direction = (global_position.direction_to(lever.position) * distance) / radius
+			direction = (global_position.direction_to(lever.global_position) * distance) / radius
 	elif event.index == index:
 		index = -1
 		lever.position = Vector2.ZERO
