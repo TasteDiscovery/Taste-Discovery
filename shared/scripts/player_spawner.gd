@@ -8,10 +8,14 @@ var player: PlayerBase
 
 func create_player(joystick:Joystick):
 	player = playerScene.instantiate()
+	player.position = global_position
 	player.z_index = z_index
 	player.receive_joystick(joystick)
 	set_limit_player_camera()
-	add_child(player)
+	if get_parent() != null:
+		get_parent().add_child(player)
+	else:
+		add_child(player)
 
 func set_limit_player_camera():
 	player.horizontal_camera_limits = horizontal_camera_limits

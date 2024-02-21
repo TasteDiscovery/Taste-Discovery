@@ -7556,6 +7556,7 @@ layer_3/tile_data = PackedInt32Array(131074, 524293, 17, 131081, 720901, 17, 131
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("5_hax1e")]
 z_index = 1
+y_sort_enabled = true
 position = Vector2(464, 616)
 horizontal_camera_limits = Vector2(0, 1152)
 vertical_camera_limits = Vector2(0, 648)
