@@ -117,6 +117,7 @@ text = "0"
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_sppf5")]
 offset_top = 0.0
 offset_bottom = -567.0
+inMinigame = true
 
 [node name="ScoreScreen" parent="CanvasLayer" instance=ExtResource("4_pwue4")]
 visible = false

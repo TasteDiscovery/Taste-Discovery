@@ -70,6 +70,7 @@ func _on_save_pressed():
 func stop():
 	$CanvasLayer/Buttons.visible = false
 	$CanvasLayer/ScoreBoard.visible = false
+	$CanvasLayer/PauseMenu.visible = false
 	GlobalGames.enableFarmGame = false
 	generate_score()
 	

@@ -1,8 +1,8 @@
 extends Control
 
-signal selected()
-
 @export var skinIndice: int
+
+var dataService = DataService.new()
 
 func _ready():
 	$Skin.texture = load(GlobalPlayer.skins[skinIndice]["sprite"])
@@ -14,10 +14,11 @@ func update_locked():
 	$Button.disabled = islocked
 
 func _on_button_pressed():
-	selected.emit()
+	owner.on_skin_selected(skinIndice)
 
 func _on_button_2_pressed():
 	if GlobalPlayer.moneys >= 100:
 		GlobalPlayer.moneys -= 100
 		GlobalPlayer.skins[skinIndice]["locked"] = false
-		update_locked()
+		await update_locked()
+		dataService.save_game_data()

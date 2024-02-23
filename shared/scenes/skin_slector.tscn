@@ -247,7 +247,4 @@ grow_horizontal = 0
 stream = ExtResource("6_ojq6d")
 volume_db = -10.0
 
-[connection signal="selected" from="SkinSelector/Rows/Skins/skin1" to="." method="_on_skin_1_selected"]
-[connection signal="selected" from="SkinSelector/Rows/Skins/skin2" to="." method="_on_skin_2_selected"]
-[connection signal="selected" from="SkinSelector/Rows/Skins/skin3" to="." method="_on_skin_3_selected"]
 [connection signal="pressed" from="ButtonContainer/Button" to="." method="_on_button_pressed"]

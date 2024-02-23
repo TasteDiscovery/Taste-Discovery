@@ -87,6 +87,17 @@ theme = ExtResource("1_u7bcs")
 theme_override_font_sizes/font_size = 32
 text = " CONTINUAR "
 
+[node name="Save" type="MarginContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SaveButton" type="Button" parent="Menu/VBoxContainer/Save"]
+layout_mode = 2
+theme = ExtResource("1_u7bcs")
+theme_override_font_sizes/font_size = 32
+text = " GUARDAR "
+
 [node name="Menu" type="MarginContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 5
@@ -111,5 +122,6 @@ text = " SALIR "
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Continue/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Save/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Menu/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit/Button4" to="." method="_on_button_4_pressed"]

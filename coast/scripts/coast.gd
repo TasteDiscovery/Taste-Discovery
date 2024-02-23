@@ -3,7 +3,10 @@ extends Node2D
 @onready var playerSpawner = $PlayerSpawner
 @onready var ui = $CanvasLayer/UI
 
+var dataService = DataService.new()
+
 func _ready():
+	dataService.save_game_data()
 	playerSpawner.create_player(ui.get_joystick())
 
 func _process(delta):

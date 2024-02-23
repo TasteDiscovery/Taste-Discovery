@@ -1365,6 +1365,7 @@ reload_scene = "res://farm/cowGame/scenes/hungry_cows_game_intro.tscn"
 visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_2oqyf")]
+inMinigame = true
 
 [node name="CowFeedCenter" parent="." instance=ExtResource("2_u1opx")]
 z_index = 1

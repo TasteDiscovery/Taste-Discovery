@@ -1,19 +1,18 @@
 extends Node
 
-var dishes = []
 var currentDish = 0
 var finishGame = false
 var shoppingList = []
+
+var dishes = []
 var ingredientService = IngredientService.new()
 var dishService = DishService.new()	
 
 var difficulties = ["Facíl", "Normal", "Dificil"]
-
 var difficulty = difficulties[0]
 
 func _ready():
 	randomize()
-	var ingredients = await ingredientService.get_all()
 	dishes = await dishService.get_all()
 
 """Obtiene los ingrediente de cada misión"""

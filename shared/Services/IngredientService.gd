@@ -2,27 +2,27 @@ extends Node
 class_name IngredientService
 
 var ingredients = [
-	Ingredient.new("limon", "Costa", "Forest"),
-	Ingredient.new("pescado", "Costa", "Market"),
-	Ingredient.new("lechuga", "Costa", "Farm"),
-	Ingredient.new("papa", "Costa", "Farm"),
-	Ingredient.new("aji amarillo", "Costa", "Forest"),
-	Ingredient.new("aceite", "Costa", "Market"),
-	Ingredient.new("sal", "Costa", "Market"),
-	Ingredient.new("pollo", "Costa", "Farm"),
-	Ingredient.new("maiz morado", "Costa", "Forest"),
-	Ingredient.new("azucar", "Costa", "Market"),
-	Ingredient.new("piña", "Costa", "Forest"),
-	Ingredient.new("canela", "Costa", "Farm"),
-	Ingredient.new("clavo de olor", "Costa", "Market"),
-	Ingredient.new("olluco", "Costa", "Forest"),
-	Ingredient.new("charqui", "Costa", "Farm"),
-	Ingredient.new("ajo", "Costa", "Farm"),
-	Ingredient.new("cebolla", "Costa", "Forest"),
-	Ingredient.new("arroz", "Costa", "Market"),
-	Ingredient.new("leche", "Costa", "Farm"),
-	Ingredient.new("huevo", "Costa", "Farm"),
-	Ingredient.new("escencia de vainilla", "Costa", "Market")
+	Ingredient.new(0,"limon", "Costa", "Forest"),
+	Ingredient.new(1,"pescado", "Costa", "Market"),
+	Ingredient.new(2,"lechuga", "Costa", "Farm"),
+	Ingredient.new(3,"papa", "Costa", "Farm"),
+	Ingredient.new(4,"aji amarillo", "Costa", "Forest"),
+	Ingredient.new(5,"aceite", "Costa", "Market"),
+	Ingredient.new(6,"sal", "Costa", "Market"),
+	Ingredient.new(7,"pollo", "Costa", "Farm"),
+	Ingredient.new(8,"maiz morado", "Costa","Forest"),
+	Ingredient.new(9,"azucar", "Costa", "Market"),
+	Ingredient.new(10,"piña", "Costa", "Forest"),
+	Ingredient.new(11,"canela", "Costa", "Farm"),
+	Ingredient.new(12,"clavo de olor", "Costa", "Market"),
+	Ingredient.new(13,"olluco", "Costa", "Forest"),
+	Ingredient.new(14,"charqui", "Costa", "Farm"),
+	Ingredient.new(15,"ajo", "Costa", "Farm"),
+	Ingredient.new(16,"cebolla", "Costa", "Forest"),
+	Ingredient.new(17,"arroz", "Costa", "Market"),
+	Ingredient.new(18,"leche", "Costa", "Farm"),
+	Ingredient.new(19,"huevo", "Costa", "Farm"),
+	Ingredient.new(20,"escencia de vainilla", "Costa", "Market")
 ]
 
 func get_all():
@@ -34,5 +34,11 @@ func get_by_place(place: String) -> Array:
 func get_by_name(name:String)->Ingredient:
 	for ingredient in ingredients:
 		if ingredient.Name == name:
+			return ingredient
+	return null
+
+func get_by_id(id)->Ingredient:
+	for ingredient in ingredients:
+		if ingredient.Id == id:
 			return ingredient
 	return null

@@ -2,7 +2,10 @@ extends Control
 
 @export_file('*.tscn') var reload_scene
 
+var dataService = DataService.new()
+
 func result(percent, time):
+	dataService.save_game_data()
 	$Control/VBoxContainer/HBoxContainer/Complete.text = str(percent) + '%'
 	$Control/VBoxContainer/HBoxContainer2/Time.text = str(time) + 's'
 	if percent >= 50:

@@ -171,6 +171,7 @@ offset_bottom = 30.0
 text = "/"
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_53a0y")]
+inMinigame = true
 
 [node name="Timer" type="Timer" parent="."]
 

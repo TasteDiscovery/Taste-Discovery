@@ -195,6 +195,7 @@ offset_bottom = -116.5
 grow_vertical = 2
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_1cp3i")]
+inMinigame = true
 
 [node name="Stash" type="Area2D" parent="."]
 position = Vector2(1200, 0)

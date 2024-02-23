@@ -1,5 +1,12 @@
 extends Control
 
+var dataService = DataService.new()
+
+@export var inMinigame:bool = false
+
+func _ready():
+	if inMinigame: $Menu/VBoxContainer/Save.visible = false
+
 func set_config():
 	$PauseButton.visible = not $PauseButton.visible
 	$Menu.visible = not $Menu.visible
@@ -23,3 +30,7 @@ func _on_button_2_pressed():
 func _on_button_4_pressed():
 	set_config()
 	get_tree().quit()
+
+func _on_save_button_pressed():
+	set_config()
+	dataService.save_game_data()
