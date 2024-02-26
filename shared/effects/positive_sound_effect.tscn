@@ -4,5 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bapn25jnbu5hm" path="res://resource/media/sounds/confirmation_001.ogg" id="1_syuqw"]
 
 [node name="PositiveSoundEffect" type="AudioStreamPlayer"]
+process_mode = 3
 stream = ExtResource("1_syuqw")
+bus = &"Sfx"
 script = ExtResource("1_f7h8t")

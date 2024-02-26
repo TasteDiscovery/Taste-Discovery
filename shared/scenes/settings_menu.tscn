@@ -1,26 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8oa1upccw513"]
+[gd_scene load_steps=6 format=3 uid="uid://b8oa1upccw513"]
 
 [ext_resource type="Script" path="res://shared/scripts/SettingsMenu.gd" id="1_vipy6"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="2_xwbwh"]
+[ext_resource type="PackedScene" uid="uid://dicirh5wpesdn" path="res://shared/scenes/volume_slider.tscn" id="3_2mvy6"]
+[ext_resource type="PackedScene" uid="uid://s17hiol25qrt" path="res://shared/scenes/mute.tscn" id="3_4p8ce"]
+[ext_resource type="PackedScene" uid="uid://djm7mvk00g3xv" path="res://shared/effects/positive_sound_effect.tscn" id="5_tdj8s"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -915.0
-offset_bottom = -463.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vipy6")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "CONFIGURACION"
+horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -29,10 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.5
-offset_top = -75.5
-offset_right = 101.5
-offset_bottom = 76.5
+offset_left = -187.0
+offset_top = -98.0
+offset_right = 187.0
+offset_bottom = 98.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -45,10 +60,11 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 theme = ExtResource("2_xwbwh")
 
-[node name="MusicCheckButton" type="CheckButton" parent="VBoxContainer/MusicContainer/PanelConatiner"]
+[node name="Mute" parent="VBoxContainer/MusicContainer/PanelConatiner" instance=ExtResource("3_4p8ce")]
 layout_mode = 2
-button_pressed = true
-text = "MUSICA"
+theme_override_font_sizes/font_size = 32
+text = "Musica"
+bus_name = "Music"
 
 [node name="VolumeVolumeConatiner" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -59,10 +75,9 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 theme = ExtResource("2_xwbwh")
 
-[node name="MusicHSlider" type="HSlider" parent="VBoxContainer/VolumeVolumeConatiner/PanelConatiner"]
+[node name="Volume_slider" parent="VBoxContainer/VolumeVolumeConatiner/PanelConatiner" instance=ExtResource("3_2mvy6")]
 layout_mode = 2
-min_value = -80.0
-max_value = 20.0
+bus_name = "Music"
 
 [node name="EffectsConatiner" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -73,10 +88,11 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 theme = ExtResource("2_xwbwh")
 
-[node name="EffectsCheckButton" type="CheckButton" parent="VBoxContainer/EffectsConatiner/PanelConatiner"]
+[node name="Mute" parent="VBoxContainer/EffectsConatiner/PanelConatiner" instance=ExtResource("3_4p8ce")]
 layout_mode = 2
-button_pressed = true
-text = "EFECTOS"
+theme_override_font_sizes/font_size = 32
+text = "Efectos"
+bus_name = "Sfx"
 
 [node name="EffectsVolumeConatiner" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -85,10 +101,9 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("2_xwbwh")
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/EffectsVolumeConatiner/PanelConatiner"]
+[node name="Volume_slider" parent="VBoxContainer/EffectsVolumeConatiner/PanelConatiner" instance=ExtResource("3_2mvy6")]
 layout_mode = 2
-min_value = -80.0
-max_value = 20.0
+bus_name = "Sfx"
 
 [node name="Button" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -103,12 +118,13 @@ layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="Cancel" type="Button" parent="VBoxContainer/Button/HBoxContainer/MarginContainer2"]
+[node name="Save" type="Button" parent="VBoxContainer/Button/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme = ExtResource("2_xwbwh")
+theme_override_font_sizes/font_size = 32
 text = "GUARDAR"
 
-[connection signal="toggled" from="VBoxContainer/MusicContainer/PanelConatiner/MusicCheckButton" to="." method="_on_music_check_button_toggled"]
-[connection signal="value_changed" from="VBoxContainer/VolumeVolumeConatiner/PanelConatiner/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
-[connection signal="toggled" from="VBoxContainer/EffectsConatiner/PanelConatiner/EffectsCheckButton" to="." method="_on_effects_check_button_toggled"]
-[connection signal="value_changed" from="VBoxContainer/EffectsVolumeConatiner/PanelConatiner/HSlider" to="." method="_on_h_slider_value_changed"]
+[node name="PositiveSoundEffect" parent="." instance=ExtResource("5_tdj8s")]
+
+[connection signal="value_changed" from="VBoxContainer/EffectsVolumeConatiner/PanelConatiner/Volume_slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Button/HBoxContainer/MarginContainer2/Save" to="." method="_on_save_pressed"]

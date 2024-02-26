@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1vbi6b01jidb"]
+[gd_scene load_steps=4 format=3 uid="uid://c1vbi6b01jidb"]
 
 [ext_resource type="Script" path="res://shared/scripts/pause_menu.gd" id="1_qgdg2"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="1_u7bcs"]
+[ext_resource type="PackedScene" uid="uid://b8oa1upccw513" path="res://shared/scenes/settings_menu.tscn" id="3_a6naj"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -109,6 +110,17 @@ theme = ExtResource("1_u7bcs")
 theme_override_font_sizes/font_size = 32
 text = "MENU"
 
+[node name="Settings" type="MarginContainer" parent="Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SettingButton" type="Button" parent="Menu/VBoxContainer/Settings"]
+layout_mode = 2
+theme = ExtResource("1_u7bcs")
+theme_override_font_sizes/font_size = 32
+text = "CONFIGURACION"
+
 [node name="Quit" type="MarginContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 5
@@ -120,8 +132,18 @@ theme = ExtResource("1_u7bcs")
 theme_override_font_sizes/font_size = 32
 text = " SALIR "
 
+[node name="SettingsMenu" parent="." instance=ExtResource("3_a6naj")]
+visible = false
+layout_mode = 1
+offset_left = -1104.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 566.0
+
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Continue/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Save/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Menu/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Settings/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="closed" from="SettingsMenu" to="." method="_on_settings_menu_closed"]

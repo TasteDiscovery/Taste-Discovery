@@ -34,3 +34,10 @@ func _on_button_4_pressed():
 func _on_save_button_pressed():
 	set_config()
 	dataService.save_game_data()
+
+func _on_setting_button_pressed():
+	$Menu.visible = false
+	$SettingsMenu.visible = true
+
+func _on_settings_menu_closed():
+	$Menu.visible = true

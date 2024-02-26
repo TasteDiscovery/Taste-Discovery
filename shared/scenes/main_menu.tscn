@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhnushyfpj2pj"]
+[gd_scene load_steps=9 format=3 uid="uid://dhnushyfpj2pj"]
 
 [ext_resource type="Script" path="res://shared/scripts/control.gd" id="1_okofb"]
 [ext_resource type="Texture2D" uid="uid://ctxybsf0lvkvf" path="res://resource/assets/backgrounds/menu_bg.jpeg" id="2_j2wub"]
 [ext_resource type="Texture2D" uid="uid://brkdkfixklm1b" path="res://resource/assets/skins/PlayerOriginal.png" id="3_ffx1c"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_n062c"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="5_04aih"]
+[ext_resource type="Texture2D" uid="uid://ccvywkm13x3bx" path="res://resource/assets/ui/setting_icon.png" id="5_c1l1o"]
 [ext_resource type="AudioStream" uid="uid://cst4jqbow5fxc" path="res://resource/media/music/POL-king-of-coins-short.wav" id="6_ofkqq"]
+[ext_resource type="PackedScene" uid="uid://b8oa1upccw513" path="res://shared/scenes/settings_menu.tscn" id="7_6tcvn"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -98,6 +100,20 @@ theme = ExtResource("3_n062c")
 theme_override_font_sizes/font_size = 32
 text = "Salir"
 
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 75.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_n062c")
+theme_override_font_sizes/font_size = 32
+icon = ExtResource("5_c1l1o")
+icon_alignment = 1
+
 [node name="MoneyControl" parent="." instance=ExtResource("5_04aih")]
 layout_mode = 1
 anchors_preset = 1
@@ -110,7 +126,13 @@ grow_horizontal = 0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ofkqq")
 volume_db = -10.0
+bus = &"Music"
+
+[node name="SettingsMenu" parent="." instance=ExtResource("7_6tcvn")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Skin" to="." method="_on_skin_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

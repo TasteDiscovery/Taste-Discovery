@@ -8,7 +8,10 @@ func save_data():
 	var settingData = SettingData.new()
 	settingData.enableMusic = GlobalSettings.enableMusic
 	settingData.enableSoundEffects = GlobalSettings.enableSoundEffects
-	settingData.volume = GlobalSettings.volume
+	settingData.volumeMusic = GlobalSettings.volumeMusic
+	settingData.volumeSfx = GlobalSettings.volumeSfx
+	
+	ResourceSaver.save(settingData,FILE_NAME)
 
 func load_data():
 	var settingData = ResourceLoader.load(FILE_NAME)
@@ -18,4 +21,5 @@ func load_data():
 	
 	GlobalSettings.enableMusic = settingData.enableMusic
 	GlobalSettings.enableSoundEffects = settingData.enableSoundEffects
-	GlobalSettings.volume = settingData.volume
+	GlobalSettings.volumeMusic = settingData.volumeMusic
+	GlobalSettings.volumeSfx = settingData.volumeSfx

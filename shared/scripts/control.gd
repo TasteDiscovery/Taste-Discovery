@@ -14,3 +14,6 @@ func _on_quit_pressed():
 
 func _on_skin_pressed():
 	get_tree().change_scene_to_file("res://shared/scenes/skin_slector.tscn")
+
+func _on_settings_pressed():
+	$SettingsMenu.visible = true

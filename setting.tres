@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SettingData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://shared/model/settings_data.gd" id="1_s10j2"]
+
+[resource]
+script = ExtResource("1_s10j2")
+volumeMusic = 0.0
+volumeSfx = 5.0
+enableMusic = true
+enableSoundEffects = true

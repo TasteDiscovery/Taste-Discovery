@@ -251,6 +251,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_l6kek")
 icon = ExtResource("7_qlgj7")
+icon_alignment = 1
 
 [node name="Stars" type="Control" parent="."]
 layout_mode = 1

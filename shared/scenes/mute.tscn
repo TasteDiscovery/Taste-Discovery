@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://s17hiol25qrt"]
+
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="1_latgw"]
+[ext_resource type="Script" path="res://shared/scripts/mute.gd" id="1_wlyne"]
+
+[node name="Mute" type="CheckButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_latgw")
+button_pressed = true
+script = ExtResource("1_wlyne")
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]

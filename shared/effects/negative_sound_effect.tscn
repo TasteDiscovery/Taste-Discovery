@@ -5,4 +5,5 @@
 
 [node name="NegativeSoundEffect" type="AudioStreamPlayer"]
 stream = ExtResource("1_lbagd")
+bus = &"Sfx"
 script = ExtResource("2_2k7k0")

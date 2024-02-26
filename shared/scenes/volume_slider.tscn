@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dicirh5wpesdn"]
+
+[ext_resource type="Script" path="res://shared/scripts/volume_slider.gd" id="1_lprs3"]
+
+[node name="Volume_slider" type="HSlider"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -20.0
+max_value = 20.0
+script = ExtResource("1_lprs3")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

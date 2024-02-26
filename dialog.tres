@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://shared/model/dialog_data.gd" id="1_y8g48"]
+
+[resource]
+script = ExtResource("1_y8g48")
+firstDialog = false
+firstBossMetting = false
+firstLumberJackMetting = false
+firstFarmerMetting = false
+firstSellerMetting = false

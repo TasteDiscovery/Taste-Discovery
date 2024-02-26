@@ -1,13 +1,18 @@
 extends Control
 
-func _on_music_check_button_toggled(toggled_on):
-	pass # Replace with function body.
+signal closed()
 
-func _on_effects_check_button_toggled(toggled_on):
-	pass # Replace with function body.
+var settingService = SettingService.new()
 
-func _on_music_h_slider_value_changed(value):
-	pass # Replace with function body.
+func _on_save_pressed():
+	GlobalSettings.enableMusic = $VBoxContainer/MusicContainer/PanelConatiner/Mute.button_pressed
+	GlobalSettings.enableSoundEffects = $VBoxContainer/EffectsConatiner/PanelConatiner/Mute.button_pressed
+	GlobalSettings.volumeMusic = $VBoxContainer/VolumeVolumeConatiner/PanelConatiner/Volume_slider.value
+	GlobalSettings.volumeSfx = $VBoxContainer/EffectsVolumeConatiner/PanelConatiner/Volume_slider.value
+	await settingService.save_data()
+	visible = false
+	closed.emit()
 
-func _on_h_slider_value_changed(value):
-	pass # Replace with function body.
+func _on_volume_slider_value_changed(value):
+	if visible:
+		$PositiveSoundEffect.play()

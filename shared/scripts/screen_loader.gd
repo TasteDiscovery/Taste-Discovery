@@ -3,15 +3,26 @@ extends Control
 var playerService = PlayerService.new()
 var dialogService = DialogService.new()
 var misionService = MisionService.new()
+var settingService = SettingService.new()
 var progress = 0
 
 func _ready():
 	await playerService.load_data()
-	increment(33)
+	increment(25)
 	await dialogService.load_data()
-	increment(33)
+	increment(25)
 	await misionService.load_data()
-	increment(34)
+	increment(25)
+	await settingService.load_data()
+	await  set_settings()
+	increment(25)
+
+func set_settings():
+	AudioServer.set_bus_mute(1,not GlobalSettings.enableMusic)
+	AudioServer.set_bus_volume_db(1,GlobalSettings.volumeMusic)
+	
+	AudioServer.set_bus_mute(2,not GlobalSettings.enableSoundEffects)
+	AudioServer.set_bus_volume_db(2,GlobalSettings.volumeSfx)
 
 func increment(value):
 	progress += value
