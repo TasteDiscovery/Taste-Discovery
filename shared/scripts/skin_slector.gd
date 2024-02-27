@@ -1,6 +1,7 @@
 extends Control
 
 var localSkin = GlobalPlayer.skin
+var playerService = PlayerService.new()
 
 func _ready():
 	if GlobalSettings.enableMusic:
@@ -11,6 +12,7 @@ func _ready():
 func _on_button_pressed():
 	GlobalPlayer.inDialog = false
 	GlobalPlayer.skin = localSkin
+	playerService.save_data()
 	get_tree().change_scene_to_file("res://shared/scenes/main_menu.tscn")
 
 func on_skin_selected(skinIndice):

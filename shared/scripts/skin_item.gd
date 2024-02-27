@@ -21,4 +21,4 @@ func _on_button_2_pressed():
 		GlobalPlayer.moneys -= 100
 		GlobalPlayer.skins[skinIndice]["locked"] = false
 		await update_locked()
-		playerService.save_game_data()
+		playerService.save_data()
