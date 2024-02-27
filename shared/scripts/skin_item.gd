@@ -2,7 +2,7 @@ extends Control
 
 @export var skinIndice: int
 
-var dataService = DataService.new()
+var playerService = PlayerService.new()
 
 func _ready():
 	$Skin.texture = load(GlobalPlayer.skins[skinIndice]["sprite"])
@@ -21,4 +21,4 @@ func _on_button_2_pressed():
 		GlobalPlayer.moneys -= 100
 		GlobalPlayer.skins[skinIndice]["locked"] = false
 		await update_locked()
-		dataService.save_game_data()
+		playerService.save_game_data()

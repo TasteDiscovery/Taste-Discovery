@@ -2,15 +2,26 @@ extends Node
 
 class_name MisionService
 var ingredientService = IngredientService.new()
-const FILE_NAME =  "mision.tres"
+
+const PATH =  "user://mision.cfg"
+const SECTION = "mision"
 
 func save_data():
-	var misionData = MisionData.new()
-	misionData.currentDish = GlobalMision.currentDish
-	misionData.finishGame = GlobalMision.finishGame
-	misionData.shoppingList = get_shoppingListIds()
+	var config = ConfigFile.new()
+	config.set_value(SECTION,"dish",GlobalMision.currentDish)
+	config.set_value(SECTION,"finish",GlobalMision.finishGame)
+	config.set_value(SECTION,"shoppingListIds",get_shoppingListIds())
+	config.save(PATH)
+
+func load_data():
+	var config = ConfigFile.new()
+	var err = config.load(PATH)
+	if err != OK: 
+		return
 	
-	ResourceSaver.save(misionData,FILE_NAME)
+	GlobalMision.currentDish = config.get_value(SECTION,"dish",GlobalMision.currentDish)
+	GlobalMision.finishGame = 	config.get_value(SECTION,"finish",GlobalMision.finishGame)
+	GlobalMision.shoppingList = load_shoppingList(config.get_value(SECTION,"shoppingListIds",get_shoppingListIds()))
 
 func get_shoppingListIds():
 	var shoppingListIds = []
@@ -23,13 +34,3 @@ func load_shoppingList(shoppingListIds):
 	for id in shoppingListIds:
 		shoppingList.append(ingredientService.get_by_id(id))
 	return shoppingList
-
-func load_data():
-	var misionData = ResourceLoader.load(FILE_NAME)
-	
-	if misionData == null: 
-		return
-	
-	GlobalMision.currentDish = misionData.currentDish
-	GlobalMision.finishGame = misionData.finishGame
-	GlobalMision.shoppingList = load_shoppingList(misionData.shoppingList)
