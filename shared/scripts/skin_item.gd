@@ -19,7 +19,7 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	if GlobalPlayer.moneys >= GlobalPlayer.skins[skinIndice]["price"]:
-		GlobalPlayer.moneys -= 100
+		GlobalPlayer.moneys -= GlobalPlayer.skins[skinIndice]["price"]
 		GlobalPlayer.skins[skinIndice]["locked"] = false
 		await update_locked()
 		playerService.save_data()
