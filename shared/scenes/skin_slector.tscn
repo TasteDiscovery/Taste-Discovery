@@ -189,6 +189,62 @@ offset_right = -300.0
 offset_bottom = -290.0
 skinIndice = 2
 
+[node name="skin4" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 350.0
+offset_top = 10.0
+offset_right = -200.0
+offset_bottom = -290.0
+skinIndice = 3
+
+[node name="skin5" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 450.0
+offset_top = 10.0
+offset_right = -100.0
+offset_bottom = -290.0
+skinIndice = 4
+
+[node name="skin6" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 50.0
+offset_top = 160.0
+offset_right = -500.0
+offset_bottom = -140.0
+skinIndice = 5
+
+[node name="skin7" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 150.0
+offset_top = 160.0
+offset_right = -400.0
+offset_bottom = -140.0
+skinIndice = 6
+
+[node name="skin8" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 250.0
+offset_top = 160.0
+offset_right = -300.0
+offset_bottom = -140.0
+skinIndice = 7
+
+[node name="skin9" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 350.0
+offset_top = 160.0
+offset_right = -200.0
+offset_bottom = -140.0
+skinIndice = 8
+
+[node name="skin10" parent="SkinSelector/Rows/Skins" instance=ExtResource("7_h1nfu")]
+layout_mode = 1
+offset_left = 450.0
+offset_top = 160.0
+offset_right = -100.0
+offset_bottom = -140.0
+skinIndice = 9
+
 [node name="ButtonContainer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7

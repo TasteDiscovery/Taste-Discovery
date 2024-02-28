@@ -2,8 +2,7 @@ extends Control
 
 func _ready():
 	$MoneyControl.update_value()
-	if GlobalSettings.enableMusic:
-		$AudioStreamPlayer.play()
+	$AudioStreamPlayer.play()
 	$Skin/Sprite2D.texture = load(GlobalPlayer.skinPreview)
 
 func _on_start_pressed():

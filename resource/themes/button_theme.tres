@@ -57,3 +57,4 @@ Button/styles/hover = SubResource("StyleBoxFlat_d61b4")
 Button/styles/normal = SubResource("StyleBoxFlat_jbg0b")
 Button/styles/pressed = SubResource("StyleBoxFlat_6j6ow")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_fwj8b")
+Label/font_sizes/font_size = 24

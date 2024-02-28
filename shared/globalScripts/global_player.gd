@@ -9,7 +9,14 @@ var skinPreview: String = "res://resource/assets/skins/PlayerOriginal.png"
 var moneys: int = 0
 
 var skins = [
-	{ "sprite": "res://resource/assets/skins/PlayerOriginal.png", "locked": false, "scene":"res://shared/skins/default_player.tscn"},
-	{ "sprite": "res://resource/assets/skins/FemalePlayerOriginal.png", "locked": false, "scene":"res://shared/skins/default_female_player.tscn"},
-	{ "sprite": "res://resource/assets/skins/Erick.png", "locked": true, "scene":"res://shared/skins/erick_player.tscn"},
+	{ "sprite": "res://resource/assets/skins/PlayerOriginal.png", "locked": false, "price": 0, "scene":"res://shared/skins/default_player.tscn"},
+	{ "sprite": "res://resource/assets/skins/FemalePlayerOriginal.png", "locked": false, "price": 0, "scene":"res://shared/skins/default_female_player.tscn"},
+	{ "sprite": "res://resource/assets/skins/Erick.png", "locked": true, "price": 150, "scene":"res://shared/skins/erick_player.tscn"},
+	{ "sprite": "res://resource/assets/skins/FemaleStreetWay.png", "locked": true, "price": 150, "scene":"res://shared/skins/female_streetway.tscn"},
+	{ "sprite": "res://resource/assets/skins/MaleSport.png", "locked": true, "price": 300, "scene":"res://shared/skins/male_sport.tscn"},
+	{ "sprite": "res://resource/assets/skins/FemaleSport.png", "locked": true, "price": 300, "scene":"res://shared/skins/female_sport.tscn"},
+	{ "sprite": "res://resource/assets/skins/FemalePrincess.png", "locked": true, "price": 600, "scene":"res://shared/skins/female_princess.tscn"},
+	{ "sprite": "res://resource/assets/skins/MaleKnight.png", "locked": true, "price": 600, "scene":"res://shared/skins/male_knight.tscn"},
+	{ "sprite": "res://resource/assets/skins/FemaleElegant.png", "locked": true, "price": 900, "scene":"res://shared/skins/female_elegant.tscn"},
+	{ "sprite": "res://resource/assets/skins/MaleElegant.png", "locked": true, "price": 900, "scene":"res://shared/skins/male_elegant.tscn"},
 ]

@@ -4,6 +4,7 @@ class_name PlayerBase
 
 @export var horizontal_camera_limits = Vector2(-10000000,10000000)
 @export var vertical_camera_limits = Vector2(-10000000,10000000)
+@export var camera_zoom = Vector2(1,1)
 
 const SPEED = 300.0
 
@@ -17,6 +18,7 @@ func _ready():
 	camera.limit_right = horizontal_camera_limits.y
 	camera.limit_top = vertical_camera_limits.x
 	camera.limit_bottom = vertical_camera_limits.y
+	camera.zoom = camera_zoom
 
 func _physics_process(delta):
 	if not GlobalPlayer.inDialog:

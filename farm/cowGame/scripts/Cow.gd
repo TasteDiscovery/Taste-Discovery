@@ -19,7 +19,8 @@ func order_food():
 	$Waiting.start()
 
 func _input(event):
-	if event.is_action_pressed("ui_accept") and enableselect:
+	var food = get_parent().food
+	if event.is_action_pressed("ui_accept") and enableselect and hungry and food > 0:
 		hungry = false
 		$AnimationPlayer.play("eat")
 		$ImageDialog.visible = false
@@ -28,8 +29,7 @@ func _input(event):
 		$Waiting.stop()
 
 func _on_player_detector_body_entered(body):
-	var food = get_parent().food
-	if body.get_name().contains("Player") and hungry and food > 0:
+	if body.get_name().contains("Player"):
 		enableselect = true
 
 func _on_player_detector_body_exited(body):
