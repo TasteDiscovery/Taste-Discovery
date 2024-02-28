@@ -253,7 +253,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m1x6"]
 size = Vector2(22, 27)
 
-[node name="MaleSport" type="CharacterBody2D"]
+[node name="MaleSportPlayer" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 7
 collision_mask = 7
