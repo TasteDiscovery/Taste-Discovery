@@ -37,3 +37,14 @@ func delete_data():
 		return
 	config.clear()
 	config.save(PATH)
+	restore_default()
+
+func restore_default():
+	var playerData = PlayerData.new()
+	GlobalPlayer.inDialog = playerData.inDialog
+	GlobalPlayer.inMision = playerData.inMision
+	GlobalPlayer.moneys = playerData.moneys
+	GlobalPlayer.playerName = playerData.playerName
+	GlobalPlayer.skin = playerData.skin
+	GlobalPlayer.skinPreview = playerData.skinPreview
+	GlobalPlayer.skins = playerData.skins

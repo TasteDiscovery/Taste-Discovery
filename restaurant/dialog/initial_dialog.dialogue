@@ -6,7 +6,14 @@ Narrador: Max es un chef, especialista en la preparación de comida nativa del P
 Narrador: Tú, te encargaras de encontrar y recoger los ingredientes necesarios para la preparación de su comida
 Narrador: Para ello tendras cumplir con varios desafios
 Narrador: Suerte Aventurero
-Mision 1: Habla con Max
+Mision 1: Busca a Max en el restaurante y habla con él
+set GlobalPlayer.inDialog = false
+set GlobalDialog.firstDialog = false
+=> END
+
+~ reminder
+set GlobalPlayer.inDialog = true
+Narrador: Primero debes hablar con Max
 set GlobalPlayer.inDialog = false
 set GlobalDialog.firstDialog = false
 => END

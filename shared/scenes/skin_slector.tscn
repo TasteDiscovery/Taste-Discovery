@@ -302,5 +302,6 @@ grow_horizontal = 0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ojq6d")
 volume_db = -10.0
+bus = &"Music"
 
 [connection signal="pressed" from="ButtonContainer/Button" to="." method="_on_button_pressed"]

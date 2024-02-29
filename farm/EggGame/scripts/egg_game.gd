@@ -12,6 +12,7 @@ var time: int = 0
 func start():
 	$CanvasLayer/Counter.visible = false
 	$CanvasLayer/ScoreBoard.visible = true
+	$CanvasLayer/PauseMenu.visible = true
 	$CanvasLayer/ScoreBoard.set_objetive(objetive)
 	for i in range(4):
 		generate_nest()

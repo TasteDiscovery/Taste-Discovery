@@ -21,10 +21,10 @@ func load_data():
 		return
 	
 	GlobalDialog.firstBossMetting = config.get_value(SECTION,"boss",GlobalDialog.firstBossMetting)
-	GlobalDialog.firstDialog = 	config.get_value(SECTION,"first",GlobalDialog.firstDialog)
-	GlobalDialog.firstFarmerMetting = 	config.get_value(SECTION,"farmer",GlobalDialog.firstFarmerMetting)
-	GlobalDialog.firstLumberJackMetting = 	config.get_value(SECTION,"lumberJack",GlobalDialog.firstLumberJackMetting)
-	GlobalDialog.firstSellerMetting = 	config.get_value(SECTION,"seller",GlobalDialog.firstSellerMetting)
+	GlobalDialog.firstDialog = config.get_value(SECTION,"first",GlobalDialog.firstDialog)
+	GlobalDialog.firstFarmerMetting = config.get_value(SECTION,"farmer",GlobalDialog.firstFarmerMetting)
+	GlobalDialog.firstLumberJackMetting = config.get_value(SECTION,"lumberJack",GlobalDialog.firstLumberJackMetting)
+	GlobalDialog.firstSellerMetting = config.get_value(SECTION,"seller",GlobalDialog.firstSellerMetting)
 
 func delete_data():
 	var config = ConfigFile.new()
@@ -33,3 +33,12 @@ func delete_data():
 		return
 	config.clear()
 	config.save(PATH)
+	restore_default()
+
+func restore_default():
+	var dialog = DialogData.new()
+	GlobalDialog.firstBossMetting = dialog.firstBossMetting
+	GlobalDialog.firstDialog = dialog.firstDialog
+	GlobalDialog.firstFarmerMetting = dialog.firstFarmerMetting
+	GlobalDialog.firstLumberJackMetting = dialog.firstLumberJackMetting
+	GlobalDialog.firstSellerMetting = dialog.firstSellerMetting

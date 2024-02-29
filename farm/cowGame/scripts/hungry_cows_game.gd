@@ -18,6 +18,7 @@ func _ready():
 
 func start():
 	$CanvasLayer/UI.visible = true
+	$CanvasLayer/PauseMenu.visible = true
 	$CanvasLayer/Scoreboard.update_time(time)
 	create_cows()
 	$Timer.start()

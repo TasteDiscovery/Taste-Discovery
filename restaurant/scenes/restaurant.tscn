@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bntaurbtyj3tc"]
+[gd_scene load_steps=19 format=3 uid="uid://bntaurbtyj3tc"]
 
 [ext_resource type="Script" path="res://restaurant/scripts/restaurant.gd" id="1_k0l3m"]
 [ext_resource type="Texture2D" uid="uid://behwcq28ks57m" path="res://resource/assets/tiles/floor.png" id="2_p1yt8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="10_ff6q0"]
 [ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="11_8dg1d"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="11_bymum"]
+[ext_resource type="Texture2D" uid="uid://crcaggcgucerb" path="res://resource/assets/ui/arrow.png" id="12_qm666"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e2i8s"]
 texture = ExtResource("2_p1yt8")
@@ -7528,6 +7529,12 @@ sources/3 = SubResource("TileSetAtlasSource_e2i8s")
 sources/4 = SubResource("TileSetAtlasSource_o1kro")
 sources/5 = SubResource("TileSetAtlasSource_1rrw8")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uthi8"]
+size = Vector2(97, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_juknh"]
+size = Vector2(97, 3)
+
 [node name="restaurant" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_k0l3m")
@@ -7557,11 +7564,12 @@ layer_3/tile_data = PackedInt32Array(131074, 524293, 17, 131081, 720901, 17, 131
 [node name="PlayerSpawner" parent="." instance=ExtResource("5_hax1e")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(464, 616)
+position = Vector2(464, 598)
 horizontal_camera_limits = Vector2(0, 1152)
 vertical_camera_limits = Vector2(0, 648)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-1, 16, 1153, 16, 1153, 648, 513, 648, 513, 672, 1216, 672, 1216, -43, -65, -44, -64, 672, 416, 672, 416, 648, 0, 648)
@@ -7571,8 +7579,8 @@ z_index = 1
 position = Vector2(940, 34)
 
 [node name="Portal" parent="." instance=ExtResource("8_hqh5p")]
-position = Vector2(468, 659)
-scale = Vector2(6.28, 1)
+position = Vector2(465, 662)
+scale = Vector2(8.24, 1)
 change_scene = "res://coast/scenes/coast.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -7586,3 +7594,36 @@ offset_left = 980.0
 offset_right = 1064.0
 
 [node name="MapMusic" parent="." instance=ExtResource("11_8dg1d")]
+
+[node name="Reminder" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reminder"]
+z_index = 1
+position = Vector2(464.5, 644.5)
+shape = SubResource("RectangleShape2D_uthi8")
+debug_color = Color(0, 0.643137, 0.298039, 0.419608)
+
+[node name="Door" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(648, 648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(-183.5, 2.5)
+shape = SubResource("RectangleShape2D_juknh")
+debug_color = Color(0.819608, 0.4, 0.0941176, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(425, 617)
+rotation = 1.5708
+texture = ExtResource("12_qm666")
+hframes = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(504, 617)
+rotation = 1.5708
+texture = ExtResource("12_qm666")
+hframes = 4
+
+[connection signal="body_entered" from="Reminder" to="." method="_on_reminder_body_entered"]

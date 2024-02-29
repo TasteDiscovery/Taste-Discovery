@@ -27,5 +27,16 @@ func load_data():
 
 func delete_data():
 	var config = ConfigFile.new()
-	if config.has_section(SECTION):
-		config.erase_section(SECTION)
+	var err = config.load(PATH)
+	if err != OK: 
+		return
+	config.clear()
+	config.save(PATH)
+	restore_default()
+
+func restore_default():
+	var settingData = SettingData.new()
+	GlobalSettings.enableMusic = settingData.enableMusic
+	GlobalSettings.enableSoundEffects = settingData.enableSoundEffects
+	GlobalSettings.volumeMusic = settingData.volumeMusic
+	GlobalSettings.volumeSfx = settingData.volumeSfx

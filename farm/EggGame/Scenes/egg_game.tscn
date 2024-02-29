@@ -113,30 +113,43 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -108.0
+offset_left = -187.0
+offset_right = -81.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="Panel" type="Panel" parent="CanvasLayer/ScoreBoard/ScoreControl"]
-layout_mode = 0
-offset_left = -48.0
-offset_right = 63.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/ScoreBoard/ScoreControl"]
-layout_mode = 0
-offset_left = -41.0
-offset_top = 7.0
-offset_right = 23.0
-offset_bottom = 30.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 69.0
+offset_bottom = 11.5
+grow_vertical = 2
 text = "Puntaje:"
+horizontal_alignment = 2
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/ScoreBoard/ScoreControl"]
-layout_mode = 0
-offset_left = 29.0
-offset_top = 8.0
-offset_right = 57.0
-offset_bottom = 31.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
 text = "000"
 
 [node name="Counter" parent="CanvasLayer" instance=ExtResource("4_4tpe5")]
@@ -195,6 +208,7 @@ offset_bottom = -116.5
 grow_vertical = 2
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_1cp3i")]
+visible = false
 inMinigame = true
 
 [node name="Stash" type="Area2D" parent="."]

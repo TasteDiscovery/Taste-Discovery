@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o61tq7fdx5x1"]
+[gd_scene load_steps=12 format=3 uid="uid://o61tq7fdx5x1"]
 
 [ext_resource type="Script" path="res://market/glassGame/scripts/GlassGame.gd" id="1_bd4pl"]
 [ext_resource type="PackedScene" uid="uid://bkgdhxy3breoj" path="res://market/glassGame/scenes/glasses.tscn" id="2_tpnki"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://market/glassGame/scripts/Scoreboard.gd" id="3_xf0pu"]
 [ext_resource type="PackedScene" uid="uid://dfpuqgbudul5e" path="res://shared/scenes/counter.tscn" id="4_gcbbs"]
 [ext_resource type="PackedScene" uid="uid://b3x5mugdjoywk" path="res://shared/scenes/score_screen.tscn" id="4_pwue4"]
+[ext_resource type="Texture2D" uid="uid://d37tl6lmmmfkw" path="res://resource/assets/object/ball.png" id="4_xp06w"]
 [ext_resource type="PackedScene" uid="uid://c1vbi6b01jidb" path="res://shared/scenes/pause_menu.tscn" id="6_sppf5"]
 [ext_resource type="PackedScene" uid="uid://bixtxyixju6yv" path="res://shared/effects/map_music.tscn" id="8_2qf2k"]
 [ext_resource type="PackedScene" uid="uid://djm7mvk00g3xv" path="res://shared/effects/positive_sound_effect.tscn" id="9_tep0e"]
@@ -35,8 +36,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -147.0
-offset_right = -43.0
+offset_left = -165.0
+offset_right = -96.0
 offset_bottom = 23.0
 grow_horizontal = 0
 
@@ -49,17 +50,10 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -11.0
-offset_right = 80.0
-offset_bottom = 12.0
-grow_vertical = 2
-text = "PUNTAJE:"
-horizontal_alignment = 2
+[node name="Label" type="Sprite2D" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
+position = Vector2(26, 21)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_xp06w")
 
 [node name="Score" type="Label" parent="CanvasLayer/Scoreboard/ScoreControl/Panel"]
 layout_mode = 1
@@ -115,6 +109,7 @@ text = "0"
 [node name="Counter" parent="CanvasLayer" instance=ExtResource("4_gcbbs")]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("6_sppf5")]
+visible = false
 offset_top = 0.0
 offset_bottom = -567.0
 inMinigame = true

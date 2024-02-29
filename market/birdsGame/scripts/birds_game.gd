@@ -8,6 +8,7 @@ var time = 0
 func start():
 	$CanvasLayer/Counter.visible = false
 	$CanvasLayer/ScoreBoard.visible = true
+	$CanvasLayer/PauseMenu.visible = true
 	$CanvasLayer/ScoreBoard.set_objetive_birds(objective)
 	start_time()
 	$Spawner.start()

@@ -20,7 +20,7 @@ func load_data():
 		return
 	
 	GlobalMision.currentDish = config.get_value(SECTION,"dish",GlobalMision.currentDish)
-	GlobalMision.finishGame = 	config.get_value(SECTION,"finish",GlobalMision.finishGame)
+	GlobalMision.finishGame = config.get_value(SECTION,"finish",GlobalMision.finishGame)
 	GlobalMision.shoppingList = load_shoppingList(config.get_value(SECTION,"shoppingListIds",get_shoppingListIds()))
 
 func delete_data():
@@ -30,6 +30,13 @@ func delete_data():
 		return
 	config.clear()
 	config.save(PATH)
+	restore_default()
+
+func restore_default():
+	var mision = MisionData.new()
+	GlobalMision.currentDish = mision.currentDish
+	GlobalMision.finishGame = mision.finishGame
+	GlobalMision.shoppingList = mision.shoppingList
 
 func get_shoppingListIds():
 	var shoppingListIds = []

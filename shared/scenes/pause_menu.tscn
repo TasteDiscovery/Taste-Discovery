@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1vbi6b01jidb"]
+[gd_scene load_steps=5 format=3 uid="uid://c1vbi6b01jidb"]
 
 [ext_resource type="Script" path="res://shared/scripts/pause_menu.gd" id="1_qgdg2"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="1_u7bcs"]
 [ext_resource type="PackedScene" uid="uid://b8oa1upccw513" path="res://shared/scenes/settings_menu.tscn" id="3_a6naj"]
+[ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="3_ixp2w"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_ixp2w")
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 layout_mode = 1

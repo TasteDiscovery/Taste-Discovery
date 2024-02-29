@@ -29,9 +29,9 @@ func start():
 	currentState = SHUFFLE
 
 func select_dificulty():
-	maxRound = 3
+	maxRound = 5
 	mixNumber = 5
-	glasses.glassNumber = 3
+	glasses.glassNumber = 5
 
 func _process(delta):
 	match currentState:

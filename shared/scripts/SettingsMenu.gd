@@ -20,6 +20,7 @@ func _on_volume_slider_value_changed(value):
 
 func on_confirmed():
 	dataService.delete_game_data()
+	owner.get_tree().reload_current_scene()
 
 func _on_delete_pressed():
 	$ConfirmWindon.visible = true
