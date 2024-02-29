@@ -29,3 +29,11 @@ func load_data():
 	GlobalPlayer.skin = 	config.get_value(SECTION,"skin",GlobalPlayer.skin)
 	GlobalPlayer.skinPreview = 	config.get_value(SECTION,"preview",GlobalPlayer.skinPreview)
 	GlobalPlayer.skins = 	config.get_value(SECTION,"skins",GlobalPlayer.skins)
+
+func delete_data():
+	var config = ConfigFile.new()
+	var err = config.load(PATH)
+	if err != OK: 
+		return
+	config.clear()
+	config.save(PATH)

@@ -19,3 +19,6 @@ func on_skin_selected(skinIndice):
 	localSkin = GlobalPlayer.skins[skinIndice]["scene"]
 	GlobalPlayer.skinPreview =  GlobalPlayer.skins[skinIndice]["sprite"]
 	$SkinPreview/Sprite2D.texture = load(GlobalPlayer.skinPreview)
+
+func update_money():
+	$MoneyControl.update_value()

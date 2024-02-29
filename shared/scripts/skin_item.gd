@@ -23,3 +23,4 @@ func _on_button_2_pressed():
 		GlobalPlayer.skins[skinIndice]["locked"] = false
 		await update_locked()
 		playerService.save_data()
+		owner.update_money()

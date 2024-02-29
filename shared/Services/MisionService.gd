@@ -23,6 +23,14 @@ func load_data():
 	GlobalMision.finishGame = 	config.get_value(SECTION,"finish",GlobalMision.finishGame)
 	GlobalMision.shoppingList = load_shoppingList(config.get_value(SECTION,"shoppingListIds",get_shoppingListIds()))
 
+func delete_data():
+	var config = ConfigFile.new()
+	var err = config.load(PATH)
+	if err != OK: 
+		return
+	config.clear()
+	config.save(PATH)
+
 func get_shoppingListIds():
 	var shoppingListIds = []
 	for ingredient in GlobalMision.shoppingList:

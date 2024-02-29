@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbhmm3b4w6unb"]
+
+[ext_resource type="Script" path="res://shared/scripts/confirm_windon.gd" id="1_lc7dx"]
+[ext_resource type="Theme" uid="uid://lrv305xmhug6" path="res://resource/themes/button_theme_secondary.tres" id="1_xr2ya"]
+[ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="2_eu54m"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="2_med47"]
+
+[node name="ConfirmWindon" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lc7dx")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = -78.5
+offset_right = 281.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_eu54m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -11.5
+offset_right = 144.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "¿Seguro de eliminar tu partida?"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="No" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_xr2ya")
+text = "    NO    "
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="Yes" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_med47")
+theme_override_font_sizes/font_size = 32
+text = "     SI     "
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]

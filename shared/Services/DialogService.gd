@@ -25,3 +25,11 @@ func load_data():
 	GlobalDialog.firstFarmerMetting = 	config.get_value(SECTION,"farmer",GlobalDialog.firstFarmerMetting)
 	GlobalDialog.firstLumberJackMetting = 	config.get_value(SECTION,"lumberJack",GlobalDialog.firstLumberJackMetting)
 	GlobalDialog.firstSellerMetting = 	config.get_value(SECTION,"seller",GlobalDialog.firstSellerMetting)
+
+func delete_data():
+	var config = ConfigFile.new()
+	var err = config.load(PATH)
+	if err != OK: 
+		return
+	config.clear()
+	config.save(PATH)

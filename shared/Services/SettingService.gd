@@ -24,3 +24,8 @@ func load_data():
 	GlobalSettings.enableSoundEffects = config.get_value(SECTION,"effect",GlobalSettings.enableSoundEffects)
 	GlobalSettings.volumeMusic = config.get_value(SECTION,"volumeMusic",GlobalSettings.volumeMusic)
 	GlobalSettings.volumeSfx = config.get_value(SECTION,"volumeEffects",GlobalSettings.volumeSfx)
+
+func delete_data():
+	var config = ConfigFile.new()
+	if config.has_section(SECTION):
+		config.erase_section(SECTION)
