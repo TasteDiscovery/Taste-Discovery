@@ -4,18 +4,22 @@ var playerService = PlayerService.new()
 var dialogService = DialogService.new()
 var misionService = MisionService.new()
 var settingService = SettingService.new()
+var gamesService = GamesService.new()
 var progress = 0
 
 func _ready():
 	await playerService.load_data()
-	increment(25)
+	increment(20)
 	await dialogService.load_data()
-	increment(25)
+	increment(20)
 	await misionService.load_data()
-	increment(25)
+	increment(20)
 	await settingService.load_data()
 	await  set_settings()
-	increment(25)
+	increment(20)
+	await gamesService.load_data()
+	increment(20)
+	
 
 func set_settings():
 	AudioServer.set_bus_mute(1,not GlobalSettings.enableMusic)
