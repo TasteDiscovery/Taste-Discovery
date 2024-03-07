@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://do4h3rvxft2go"]
+[gd_scene load_steps=3 format=3 uid="uid://do4h3rvxft2go"]
 
-[ext_resource type="Texture2D" uid="uid://b1ea66igrsp8" path="res://resource/assets/object/cow_feed.png" id="1_4k3gc"]
+[ext_resource type="Script" path="res://farm/common/scripts/image_dialog.gd" id="1_cygrn"]
+[ext_resource type="Texture2D" uid="uid://b1ea66igrsp8" path="res://resource/assets/object/cow_feed.png" id="2_8q1lf"]
 
 [node name="ImageDialog" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cygrn")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -18,4 +20,4 @@ offset_bottom = 40.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(20, 20)
 scale = Vector2(0.075, 0.075)
-texture = ExtResource("1_4k3gc")
+texture = ExtResource("2_8q1lf")

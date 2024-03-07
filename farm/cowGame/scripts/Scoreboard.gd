@@ -11,3 +11,9 @@ func update_deliver(deliver):
 
 func update_cow_feed(feed):
 	$FeedControl/FeedLabel.text = str(feed)
+
+func update_water(water):
+	$WaterControl/FeedLabel.text = str(water)
+
+func update_eggs(eggs):
+	$EggControl/FeedLabel.text = str(eggs)

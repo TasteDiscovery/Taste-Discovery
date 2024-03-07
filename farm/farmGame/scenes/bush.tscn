@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://c23152acqrx5o"]
+
+[ext_resource type="Texture2D" uid="uid://cngfxua1qaix6" path="res://resource/assets/deco/bush.png" id="1_ciy6b"]
+[ext_resource type="Script" path="res://farm/farmGame/scripts/bush.gd" id="1_yqyek"]
+[ext_resource type="PackedScene" uid="uid://do4h3rvxft2go" path="res://farm/common/scenes/image_dialog.tscn" id="2_c6s1r"]
+[ext_resource type="Texture2D" uid="uid://dw7ljv7applt8" path="res://resource/assets/object/water_drop_icon.png" id="4_4icsj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i23ug"]
+size = Vector2(38.5, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehu6u"]
+size = Vector2(66, 49)
+
+[node name="Bush" type="CharacterBody2D"]
+script = ExtResource("1_yqyek")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_ciy6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.75, 17)
+shape = SubResource("RectangleShape2D_i23ug")
+
+[node name="ImageDialog" parent="." instance=ExtResource("2_c6s1r")]
+visible = false
+offset_left = 18.0
+offset_top = -51.0
+offset_right = 18.0
+offset_bottom = -51.0
+texture = ExtResource("4_4icsj")
+spriteScale = Vector2(0.1, 0.1)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_ehu6u")
+debug_color = Color(0.376471, 0.611765, 0.133333, 0.419608)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Waiting" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="Waiting" to="." method="_on_waiting_timeout"]

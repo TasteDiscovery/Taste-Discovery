@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://meck3xwwld1p"]
+[gd_scene load_steps=4 format=3 uid="uid://meck3xwwld1p"]
 
+[ext_resource type="Script" path="res://farm/common/scripts/reload_item_center.gd" id="1_s0p8e"]
 [ext_resource type="Texture2D" uid="uid://b1ea66igrsp8" path="res://resource/assets/object/cow_feed.png" id="1_vcw3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrio"]
 size = Vector2(61, 71)
 
 [node name="CowFeedCenter" type="Area2D"]
+script = ExtResource("1_s0p8e")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -31.0
+offset_top = -35.0
+offset_right = 30.0
+offset_bottom = 36.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
