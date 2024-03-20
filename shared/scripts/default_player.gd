@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name PlayerBase
 
+signal moving()
+
 @export var horizontal_camera_limits = Vector2(-10000000,10000000)
 @export var vertical_camera_limits = Vector2(-10000000,10000000)
 @export var camera_zoom = Vector2(1,1)
@@ -9,6 +11,7 @@ class_name PlayerBase
 const SPEED = 300.0
 
 var joystick: Joystick
+var direction: Vector2
 
 @onready var animation = $AnimatedSprite2D
 @onready var camera = $Camera
@@ -28,25 +31,12 @@ func _physics_process(delta):
 
 func move():
 	if joystick != null and is_instance_valid(joystick):
-		move_joystick()
+		direction = joystick.direction
 	else:
-		move_keys()
-
-func move_joystick():
-	var direction = joystick.direction
-	if direction.x:
-		velocity.x = direction.x * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		direction = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	
-	if direction.y:
-		velocity.y = direction.y * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-
-func move_keys():
-	var moveDirection = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
-	velocity = moveDirection * SPEED
+	velocity = direction * SPEED
+	if velocity != Vector2.ZERO: moving.emit()
 
 func update_animation():
 	if velocity.length() == 0:

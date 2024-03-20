@@ -7,7 +7,7 @@ extends Area2D
 @onready var playerScene = load(GlobalPlayer.skin)
 var player: PlayerBase
 
-func create_player(joystick:Joystick):
+func create_player(joystick:Joystick)->Node2D:
 	player = playerScene.instantiate()
 	player.position = global_position
 	player.z_index = z_index
@@ -17,6 +17,7 @@ func create_player(joystick:Joystick):
 		get_parent().add_child(player)
 	else:
 		add_child(player)
+	return player
 
 func set_limit_player_camera():
 	player.camera_zoom = camera_zoom

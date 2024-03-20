@@ -21,7 +21,8 @@ var farmGames = [
 
 var forestGames = [
 	"res://forest/scenes/find_the_apple_game_intro.tscn",
-	"res://forest/fruits_game/scenes/fruit_game_intro.tscn"
+	"res://forest/fruits_game/scenes/fruit_game_intro.tscn",
+	"res://forest/cougar_game/scenes/Cougar_game_intro.tscn"
 ]
 
 func select_market_game():
