@@ -10,7 +10,8 @@ var previewForestGame = ""
 
 var marketGames = [
 	"res://market/glassGame/scenes/glass_game_intro.tscn",
-	"res://market/birdsGame/scenes/birds_game_intro.tscn"
+	"res://market/birdsGame/scenes/birds_game_intro.tscn",
+	"res://market/shoppingGame/scenes/shopping_game_intro.tscn"
 ]
 
 var farmGames = [

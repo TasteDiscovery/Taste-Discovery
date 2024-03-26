@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d18bpfd4y13ws"]
+
+[ext_resource type="Script" path="res://market/shoppingGame/scripts/fruit.gd" id="1_wdnih"]
+[ext_resource type="Texture2D" uid="uid://dsc0uu4qk70iv" path="res://resource/assets/object/vegetable & fruit.png" id="2_yvln8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5i8w"]
+
+[node name="Fruit" type="CharacterBody2D"]
+scale = Vector2(6, 6)
+input_pickable = true
+script = ExtResource("1_wdnih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v5i8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yvln8")
+hframes = 4
+vframes = 9
+frame = 7
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

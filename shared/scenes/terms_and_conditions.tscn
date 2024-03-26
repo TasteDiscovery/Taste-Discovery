@@ -1,0 +1,148 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmkqbbawo0tby"]
+
+[ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="1_k4hsh"]
+[ext_resource type="Theme" uid="uid://lrv305xmhug6" path="res://resource/themes/button_theme_secondary.tres" id="2_pnu3u"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_bgwlx"]
+
+[node name="TermsAndConditions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [48.0, 1122.0]
+metadata/_edit_horizontal_guides_ = [100.0, 618.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_k4hsh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.0
+offset_top = 30.0
+offset_right = 234.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "TÉRMINOS Y CONDICIONES"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1130.0
+offset_bottom = 618.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Titulo" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Términos y Condiciones para el Videojuego Terapéutico \"Taste Discovery\"
+
+"
+
+[node name="Intro" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 0)
+layout_mode = 2
+text = "Introducción
+
+Estos Términos y Condiciones (en adelante, los \"Términos\") regulan el acceso y uso del videojuego terapéutico \"Taste Discovery\" (en adelante, el \"Videojuego\") desarrollado por Kevin Stif Sánchez Urbina y Johnny Miguel Sebastian Roque Neciosup (en adelante, los \"Desarrolladores\"). Al acceder y usar el Videojuego, usted (en adelante, el \"Usuario\") acepta estos Términos.
+
+"
+autowrap_mode = 3
+
+[node name="AccessAndUse" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 0)
+layout_mode = 2
+text = "1. Acceso y Uso del Videojuego
+
+- El Videojuego es una herramienta terapéutica diseñada para ayudar a niños con TDAH a mejorar su atención, concentración y memoria.
+- El Videojuego está disponible para su descarga en itch.io.
+- No es necesario registrarse para usar el Videojuego.
+- El Videojuego no recopila ninguna información del Usuario.
+- El Videojuego está diseñado para ser utilizado bajo la supervisión de un psicólogo, padre, madre o apoderado.
+- El Vidojuego se ha creado como parte de un proyecto de investigación, por lo que podra ser modificado
+- Se recomienda que el uso del Videojuego no exceda los 20 minutos al día.
+
+"
+autowrap_mode = 3
+
+[node name="Property" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 0)
+layout_mode = 2
+text = "2. Propiedad Intelectual
+
+- El Videojuego está protegido por derechos de autor y otras leyes de propiedad intelectual.
+- El Usuario no puede copiar, modificar, distribuir o reproducir el Videojuego sin la autorización expresa de los Desarrolladores.
+
+"
+autowrap_mode = 3
+
+[node name="Responsibility" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 0)
+layout_mode = 2
+text = "3. Responsabilidad
+
+- El Desarrollador no se hace responsable de los daños o perjuicios que puedan derivarse del uso del Videojuego.
+- El Usuario es responsable de la supervisión del niño mientras usa el Videojuego.
+- El Usuario debe consultar con un profesional de la salud mental si tiene alguna duda sobre la idoneidad del Videojuego para el caso particular del niño.
+
+"
+autowrap_mode = 3
+
+[node name="Acept" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 0)
+layout_mode = 2
+text = "4. Aceptación de los Términos
+
+- Al acceder y usar el Videojuego, el Usuario acepta estos Términos.
+
+- Fecha de entrada en vigor: 26 de marzo de 2024
+
+Contacto:
+
+- Si tiene alguna pregunta sobre estos Términos, puede ponerse en contacto con el Desarrollador a través de la siguiente dirección de correo electrónico: kevin.jhoan.2012@gmail.com.
+
+"
+autowrap_mode = 3
+
+[node name="Aditional" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1074, 0)
+layout_mode = 2
+text = "5. Información adicional:
+
+- El Videojuego fue desarrollado como parte de un proyecto de investigación.
+- Los resultados del uso del Videojuego pueden ser utilizados para fines de investigación, respetando el anonimato del usuario.
+- Se recomienda que el Usuario lea detenidamente estos Términos antes de acceder y usar el Videojuego."
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="Reject" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_pnu3u")
+theme_override_font_sizes/font_size = 32
+text = "Rechazar"
+
+[node name="Acept" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_bgwlx")
+theme_override_font_sizes/font_size = 32
+text = "Aceptar"

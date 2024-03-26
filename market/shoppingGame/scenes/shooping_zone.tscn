@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvuxxb45pqoeq"]
+
+[ext_resource type="Script" path="res://market/shoppingGame/scripts/shooping_zone.gd" id="1_vt5jd"]
+
+[node name="ShoopingZone" type="Node2D"]
+script = ExtResource("1_vt5jd")

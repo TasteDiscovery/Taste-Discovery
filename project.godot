@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="TastesHunter"
+config/name="TastesDiscovery"
 run/main_scene="res://shared/scenes/screen_loader.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.jpeg"
 
 [autoload]
 
