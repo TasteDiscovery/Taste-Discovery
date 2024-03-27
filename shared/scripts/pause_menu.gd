@@ -27,10 +27,6 @@ func _on_button_2_pressed():
 	set_config()
 	get_tree().change_scene_to_file("res://shared/scenes/main_menu.tscn")
 
-func _on_button_4_pressed():
-	set_config()
-	get_tree().quit()
-
 func _on_save_button_pressed():
 	set_config()
 	dataService.save_game_data()

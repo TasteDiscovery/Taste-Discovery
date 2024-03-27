@@ -12,6 +12,7 @@ func save_data():
 	config.set_value(SECTION,"effect",GlobalSettings.enableSoundEffects)
 	config.set_value(SECTION,"volumeMusic",GlobalSettings.volumeMusic)
 	config.set_value(SECTION,"volumeEffects",GlobalSettings.volumeSfx)
+	config.set_value(SECTION,"TermsAndConditions",GlobalSettings.acceptTermsAndConditions)
 	config.save(PATH)
 
 func load_data():
@@ -24,6 +25,7 @@ func load_data():
 	GlobalSettings.enableSoundEffects = config.get_value(SECTION,"effect",GlobalSettings.enableSoundEffects)
 	GlobalSettings.volumeMusic = config.get_value(SECTION,"volumeMusic",GlobalSettings.volumeMusic)
 	GlobalSettings.volumeSfx = config.get_value(SECTION,"volumeEffects",GlobalSettings.volumeSfx)
+	GlobalSettings.acceptTermsAndConditions = config.get_value(SECTION,"TermsAndConditions",GlobalSettings.acceptTermsAndConditions)
 
 func delete_data():
 	var config = ConfigFile.new()
@@ -40,3 +42,4 @@ func restore_default():
 	GlobalSettings.enableSoundEffects = settingData.enableSoundEffects
 	GlobalSettings.volumeMusic = settingData.volumeMusic
 	GlobalSettings.volumeSfx = settingData.volumeSfx
+	GlobalSettings.acceptTermsAndConditions = settingData.acceptTermsAndConditions

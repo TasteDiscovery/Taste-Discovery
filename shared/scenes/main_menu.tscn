@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhnushyfpj2pj"]
+[gd_scene load_steps=10 format=3 uid="uid://dhnushyfpj2pj"]
 
 [ext_resource type="Script" path="res://shared/scripts/control.gd" id="1_okofb"]
 [ext_resource type="Texture2D" uid="uid://ctxybsf0lvkvf" path="res://resource/assets/backgrounds/menu_bg.jpeg" id="2_j2wub"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccvywkm13x3bx" path="res://resource/assets/ui/setting_icon.png" id="5_c1l1o"]
 [ext_resource type="AudioStream" uid="uid://cst4jqbow5fxc" path="res://resource/media/music/POL-king-of-coins-short.wav" id="6_ofkqq"]
 [ext_resource type="PackedScene" uid="uid://b8oa1upccw513" path="res://shared/scenes/settings_menu.tscn" id="7_6tcvn"]
+[ext_resource type="PackedScene" uid="uid://dmkqbbawo0tby" path="res://shared/scenes/terms_and_conditions.tscn" id="9_114mq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -120,6 +121,10 @@ bus = &"Music"
 visible = false
 layout_mode = 1
 
+[node name="TermsAndConditions" parent="." instance=ExtResource("9_114mq")]
+layout_mode = 1
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Skin" to="." method="_on_skin_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="accepted" from="TermsAndConditions" to="." method="_on_terms_and_conditions_accepted"]

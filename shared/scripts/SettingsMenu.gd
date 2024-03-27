@@ -24,3 +24,6 @@ func on_confirmed():
 
 func _on_delete_pressed():
 	$ConfirmWindon.visible = true
+
+func _on_credits_pressed():
+	$Credits.visible = true

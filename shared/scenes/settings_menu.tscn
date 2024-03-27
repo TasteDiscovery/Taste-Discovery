@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8oa1upccw513"]
+[gd_scene load_steps=11 format=3 uid="uid://b8oa1upccw513"]
 
 [ext_resource type="Script" path="res://shared/scripts/SettingsMenu.gd" id="1_vipy6"]
 [ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="2_005f2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://lrv305xmhug6" path="res://resource/themes/button_theme_secondary.tres" id="6_68hpo"]
 [ext_resource type="Texture2D" uid="uid://kdjwokwykllq" path="res://resource/assets/ui/delete_icon.png" id="7_np2ub"]
 [ext_resource type="PackedScene" uid="uid://cbhmm3b4w6unb" path="res://shared/scenes/confirm_windon.tscn" id="9_c2bqp"]
+[ext_resource type="PackedScene" uid="uid://ddt1tkci36egx" path="res://shared/scenes/credits.tscn" id="10_i3k5c"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -110,6 +111,16 @@ theme = ExtResource("2_xwbwh")
 layout_mode = 2
 bus_name = "Sfx"
 
+[node name="Credits" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+
+[node name="Credits" type="Button" parent="VBoxContainer/Credits"]
+layout_mode = 2
+theme = ExtResource("2_xwbwh")
+theme_override_font_sizes/font_size = 32
+text = "CREDITOS"
+
 [node name="Button" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 4
@@ -140,6 +151,11 @@ icon = ExtResource("7_np2ub")
 visible = false
 layout_mode = 1
 
+[node name="Credits" parent="." instance=ExtResource("10_i3k5c")]
+visible = false
+layout_mode = 1
+
 [connection signal="value_changed" from="VBoxContainer/EffectsVolumeConatiner/PanelConatiner/Volume_slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Credits/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

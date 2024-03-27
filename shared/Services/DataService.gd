@@ -6,6 +6,7 @@ var playerService = PlayerService.new()
 var dialogService = DialogService.new()
 var misionService = MisionService.new()
 var gamesService = GamesService.new()
+var settingService = SettingService.new()
 
 func save_game_data():
 	playerService.save_data()
@@ -17,3 +18,4 @@ func delete_game_data():
 	playerService.delete_data()
 	dialogService.delete_data()
 	misionService.delete_data()
+	settingService.delete_data()

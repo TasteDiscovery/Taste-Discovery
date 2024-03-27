@@ -32,7 +32,6 @@ theme = ExtResource("1_u7bcs")
 text = "||"
 
 [node name="Menu" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -123,17 +122,6 @@ theme = ExtResource("1_u7bcs")
 theme_override_font_sizes/font_size = 32
 text = "CONFIGURACION"
 
-[node name="Quit" type="MarginContainer" parent="Menu/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Button4" type="Button" parent="Menu/VBoxContainer/Quit"]
-layout_mode = 2
-theme = ExtResource("1_u7bcs")
-theme_override_font_sizes/font_size = 32
-text = " SALIR "
-
 [node name="SettingsMenu" parent="." instance=ExtResource("3_a6naj")]
 visible = false
 layout_mode = 1
@@ -147,5 +135,4 @@ offset_bottom = 566.0
 [connection signal="pressed" from="Menu/VBoxContainer/Save/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Menu/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Settings/SettingButton" to="." method="_on_setting_button_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Quit/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="closed" from="SettingsMenu" to="." method="_on_settings_menu_closed"]

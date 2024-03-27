@@ -6,3 +6,4 @@ class_name SettingData
 @export var volumeSfx = 0
 @export var enableMusic = true
 @export var enableSoundEffects = true
+@export var acceptTermsAndConditions = false

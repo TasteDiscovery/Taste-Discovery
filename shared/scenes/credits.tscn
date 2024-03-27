@@ -1,0 +1,156 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddt1tkci36egx"]
+
+[ext_resource type="Script" path="res://shared/scripts/credits.gd" id="1_lnkdy"]
+[ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="2_e0asb"]
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_3qm5g"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lnkdy")
+metadata/_edit_vertical_guides_ = [78.0, 1122.0]
+metadata/_edit_horizontal_guides_ = [130.0, 588.0]
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_e0asb")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1122.0
+offset_bottom = 618.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.0
+offset_top = 30.0
+offset_right = 234.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 36
+text = "Creditos"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 130.0
+offset_right = 1100.0
+offset_bottom = 588.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Titulo" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Agradecimientos a las personas que contribuyeron con la creación del juego
+"
+
+[node name="Intro" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1014, 0)
+layout_mode = 2
+text = "Introducción
+
+A continuación se agradece y se otorga los creditos respectivos a las perssonas que participaron en la creación del juego o brindaron recursos audiovisuales
+"
+autowrap_mode = 3
+
+[node name="Developers" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1014, 0)
+layout_mode = 2
+text = "1. Desarrolladores
+
+- Johnny Miguel Sebastian Roque Neciosup
+- Kevin Stif Sánchez Urbina
+
+"
+autowrap_mode = 3
+
+[node name="ActivitiesDesigner" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1014, 0)
+layout_mode = 2
+text = "2. Diseñadores de niveles y actividades
+
+- Psicologo 1
+- Psicologo 2
+
+"
+autowrap_mode = 3
+
+[node name="VisualResources" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1014, 0)
+layout_mode = 2
+text = "3. Recursos Visuales
+
+3.1 Creación de Personajes:
+Authors: bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike)
+
+- body/bodies/male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Evert, Eliza Wyatt (ElizaWy), TheraHedwig, MuffinElZangano, Durrani, Johannes Sj?lund (wulax), Stephen Challener (Redshrike). License(s): CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+    - https://opengameart.org/content/lpc-male-jumping-animation-by-durrani
+    - https://opengameart.org/content/lpc-runcycle-and-diagonal-walkcycle
+    - https://opengameart.org/content/lpc-revised-character-basics
+
+- head/heads/human_male/universal/light.png: by bluecarrot16, Benjamin K. Smith (BenCreating), Stephen Challener (Redshrike). License(s): OGA-BY 3.0, CC-BY-SA 3.0, GPL 3.0. 
+    - https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles
+    - https://opengameart.org/content/lpc-character-bases
+"
+autowrap_mode = 3
+
+[node name="Acept" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1014, 0)
+layout_mode = 2
+text = "3.2 Objetos, animales escenarios y decoraciones
+
+- Rocky Roads By Essssam
+  sitio web: https://essssam.itch.io/
+
+- Cutter, Fatter Cows By Chuklefish
+  foro: https://community.playstarbound.com/threads/cuter-fatter-cows.114101/
+
+- MinifolksForestAnimals BY LYASeek
+ sitio web: https://lyaseek.itch.io/miniffanimals
+
+- Pixel-FoodFruitVegetables BY ZeschPix
+ sitio web: https://zeschpix.itch.io/pixel-foodfruitvegetables
+ 
+- Pack farm tileset  BY Pano26
+ Deviant Art: https://www.deviantart.com/pano26/gallery
+ twiter: https://twitter.com/PKMreivenger
+
+- tileset Vx Ace street market By Ombrouge
+Deviant Art: https://www.deviantart.com/ombrouge/gallery
+
+"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="Accept" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_3qm5g")
+theme_override_font_sizes/font_size = 32
+text = "Aceptar"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

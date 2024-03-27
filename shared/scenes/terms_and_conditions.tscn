@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmkqbbawo0tby"]
 
+[ext_resource type="Script" path="res://shared/scripts/terms_and_conditions.gd" id="1_4rlus"]
 [ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="1_k4hsh"]
-[ext_resource type="Theme" uid="uid://lrv305xmhug6" path="res://resource/themes/button_theme_secondary.tres" id="2_pnu3u"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_bgwlx"]
 
 [node name="TermsAndConditions" type="Control"]
@@ -11,8 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_vertical_guides_ = [48.0, 1122.0]
-metadata/_edit_horizontal_guides_ = [100.0, 618.0]
+script = ExtResource("1_4rlus")
+metadata/_edit_vertical_guides_ = [78.0, 1122.0]
+metadata/_edit_horizontal_guides_ = [130.0, 588.0]
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -22,6 +23,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_k4hsh")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 1122.0
+offset_bottom = 618.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -38,10 +46,10 @@ text = "TÉRMINOS Y CONDICIONES"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 100.0
-offset_right = 1130.0
-offset_bottom = 618.0
+offset_left = 78.0
+offset_top = 130.0
+offset_right = 1100.0
+offset_bottom = 588.0
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
@@ -55,7 +63,7 @@ text = "Términos y Condiciones para el Videojuego Terapéutico \"Taste Discover
 "
 
 [node name="Intro" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1074, 0)
+custom_minimum_size = Vector2(1014, 0)
 layout_mode = 2
 text = "Introducción
 
@@ -65,7 +73,7 @@ Estos Términos y Condiciones (en adelante, los \"Términos\") regulan el acceso
 autowrap_mode = 3
 
 [node name="AccessAndUse" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1074, 0)
+custom_minimum_size = Vector2(1014, 0)
 layout_mode = 2
 text = "1. Acceso y Uso del Videojuego
 
@@ -81,7 +89,7 @@ text = "1. Acceso y Uso del Videojuego
 autowrap_mode = 3
 
 [node name="Property" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1074, 0)
+custom_minimum_size = Vector2(1014, 0)
 layout_mode = 2
 text = "2. Propiedad Intelectual
 
@@ -92,7 +100,7 @@ text = "2. Propiedad Intelectual
 autowrap_mode = 3
 
 [node name="Responsibility" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1074, 0)
+custom_minimum_size = Vector2(1014, 0)
 layout_mode = 2
 text = "3. Responsabilidad
 
@@ -104,7 +112,7 @@ text = "3. Responsabilidad
 autowrap_mode = 3
 
 [node name="Acept" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1074, 0)
+custom_minimum_size = Vector2(1014, 0)
 layout_mode = 2
 text = "4. Aceptación de los Términos
 
@@ -120,7 +128,7 @@ Contacto:
 autowrap_mode = 3
 
 [node name="Aditional" type="Label" parent="ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1074, 0)
+custom_minimum_size = Vector2(1014, 0)
 layout_mode = 2
 text = "5. Información adicional:
 
@@ -135,14 +143,10 @@ size_flags_horizontal = 8
 theme_override_constants/separation = 32
 alignment = 2
 
-[node name="Reject" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_pnu3u")
-theme_override_font_sizes/font_size = 32
-text = "Rechazar"
-
-[node name="Acept" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Accept" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_bgwlx")
 theme_override_font_sizes/font_size = 32
 text = "Aceptar"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
