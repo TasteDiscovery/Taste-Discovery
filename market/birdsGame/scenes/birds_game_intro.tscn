@@ -58,12 +58,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera atrapar a las aves rojas de pico verde
+text = "En este juego deberá atrapar a las aves rojas de pico verde
 
-- Apareceran aves de colores de izquierda a derecha
-- Solo debera atrapar a las aves rojas de pico verde
-- En la esquina superior izquierda esta el contador de aves correctas atrapadas
-- Podra atrapar a las aves presionando sobre ellas
+- Aparecerán aves de colores de izquierda a derecha
+- Solo deberá atrapar a las aves rojas de pico verde
+- Podrá atrapar a las aves presionando sobre ellas
 - Para ganar, más de la mitad de las aves seleccionadas deben ser correctas
 "
 

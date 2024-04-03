@@ -58,15 +58,15 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera recolectar las frutas solicitadas, sin dejar que el puma
+text = "En este juego deberá recolectar las frutas solicitadas, sin dejar que el puma
 te atrape
 
-- Debera ir a las 4 zonas de aparicion de frutas
-- Solo debera recolectar la fruta que se señala en el cuadro superior izquierdo
-- En la esquina superior izquierda esta el contador de frutas
-- Para ganar, mas de la mitad de las frutas recolectadas deberan  ser correctas
--¡Cuidado! si escuchas al puma, deberas quedarte quieto, de lo contrario te
-atrapara y perderas"
+- Deberá ir a las 4 zonas de aparición de frutas
+- Solo deberá recolectar la fruta que se señala en el cuadro superior izquierdo
+- Para ganar, más de la mitad de las frutas recolectadas deberá ser correctas
+- ¡Cuidado! si escucha al puma, deberá quedarse quieto, de lo contrario te
+atrapara y perderás
+"
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 1

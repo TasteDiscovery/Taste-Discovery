@@ -58,14 +58,14 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera seleccionar los huevos en buen estado
+text = "En este juego deberá seleccionar los huevos en buen estado
 
-- Los nidos avanzaran en orden en la pantalla
-- La flecha señala el huevo que debera guardar o desechar
-- Solo debera guardar los huevos de color piel
-- Debera desechar los huevos que esten rotos o de color verde
-- Para realizar la tarea debera utilizar los botones de la parte inferior
-- Para debera obtener mas del 50% de Precisión en el juego "
+- La flecha señala el huevo que deberá guardar o desechar
+- Solo deberá guardar los huevos en buen estado
+- Deberá desechar los huevos que estén rotos o de color verde
+- Para realizar la tarea deberá utilizar los botones de la parte inferior
+- Para deberá obtener más del 50% de precisión en el juego
+"
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 1

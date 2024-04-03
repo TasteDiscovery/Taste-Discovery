@@ -48,9 +48,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -516.0
-offset_top = -128.0
+offset_top = -146.5
 offset_right = 516.0
-offset_bottom = 128.0
+offset_bottom = 146.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -58,14 +58,14 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera seleccionar las frutas y verduras que se le indiquen
+text = "En este juego deberá seleccionar las frutas y verduras que se le indiquen
 
-- Al inicio se le mostrará 4 frutas o verduras que debera recolectar
-- Luego debera esperar 10 segundos antes de iniciar con la recolección
-- Debera seleccionar las 4 frutas o verduras, que se le indicaron al inicio
-- Para ganar una ronda debera acertar las 4 frutas o verduras en cualquier
+- Al inicio se le mostrará 4 frutas o verduras que debe recolectar
+- Luego deberá esperar 10 segundos antes de iniciar con la recolección
+- Deberá seleccionar las 4 frutas o verduras, que se le indicaron al inicio
+- Para ganar una ronda deberá acertar las 4 frutas o verduras en cualquier
  orden
-- Para ganar el juego debera acertar en 2 al menos 2 rondas
+- Para ganar el juego deberá acertar en 2 al menos 2 rondas
 "
 
 [node name="Button" type="Button" parent="Panel"]

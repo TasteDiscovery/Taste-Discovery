@@ -58,13 +58,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera recolectar las manzanas  que se indiquen
+text = "En este juego deberá recolectar las manzanas que se indiquen
 
-- Debera ir a las 4 zonas de aparicion de manzanas del mapa
-- Solo debera recolectar las manzanas que se señalan en el cuadro
+- Deberá ir a las 4 zonas de aparición de manzanas del mapa
+- Solo deberá recolectar las manzanas que se señalan en el cuadro
   superior izquierdo
-- En la esquina superior izquierda esta el contador de manzanas
-- Para ganar debera recolectar las manzanas con mas del 50% de presición
+- En la esquina superior izquierda está el contador de manzanas
+- Para ganar deberá recolectar las manzanas con más del 50% de precisión
 "
 
 [node name="Button" type="Button" parent="Panel"]

@@ -58,13 +58,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera encontrar la pelota escondida abajo de un vaso
+text = "En este juego deberá encontrar la pelota escondida abajo de un vaso
 
 - Al inicio se le mostrará el vaso que contiene la pelota
-- Luego los vasos empezarán a cambiar de posicion
-- Finalmente tendra que seleccionar el vaso que contiene la elota
-- +1 punto si acierta
-- Debera acertar mas de la mitad de rondas para ganar
+- Luego los vasos empezarán a cambiar de posición
+- Finalmente tendrá que seleccionar el vaso que contiene la pelota
+- Deberá acertar más de la mitad de las rondas para ganar
+
 "
 
 [node name="Button" type="Button" parent="Panel"]

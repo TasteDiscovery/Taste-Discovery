@@ -58,16 +58,14 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera atender la granja
+text = "En este juego deberá atender la granja
 
-- Tendra que atender a las vacas, los arbustos y los nidos
+- Tendrá que atender a las vacas, los arbustos y los nidos
 - Cada vaca o arbusto consume 1 de pienso o agua respectivamente
 - Cada nido provee un huevo
-- puede llevar maximo 3 unidades de pienso o agua, y 3 huevos
-- Puede recargar agua o pienso, y entregar los huevo en las zonas marcadas
-- Ante una solicitud aperecera un cuadro arriba del objeto, planta o animal
-  y se reproducira un sonido
-- Para ganar debera atender al menos al 50% de las solicitudes
+- puede llevar máximo 3 unidades de pienso o agua, y 3 huevos
+- Puede recargar agua o pienso, y entregar los huevos en las zonas marcadas
+- Para ganar deberá atender al menos al 50% de las solicitudes
 "
 
 [node name="Button" type="Button" parent="Panel"]

@@ -58,14 +58,12 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "En este juego debera recolectar las frutas solicitadas
+text = "En este juego deberá recolectar las frutas solicitadas
 
-- Debera ir a las 4 zonas de aparicion de frutas
-- Solo debera recolectar la fruta que se señala en el cuadro superior izquierdo
-- En la esquina superior izquierda esta el contador de frutas
-- Para ganar, mas de la mitad de las frutas recolectadas deberan 
-   ser correctas
-"
+- Deberá ir a las 4 zonas de aparición de frutas
+- Solo deberá recolectar la fruta que se señala en el cuadro superior izquierdo
+- Para ganar, más de la mitad de las frutas recolectadas deberán 
+   ser correctas"
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 1
