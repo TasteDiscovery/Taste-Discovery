@@ -26,12 +26,12 @@ Max: Necesito que recolectes lo siguiente:
 Max: {{GlobalMision.get_ingredients_dialog()}}, para preparar {{GlobalMision.get_dish_dialog()}}
 Max: Los podras encontrar en la granja, bosque o mercado
 Max: Entendiste:
-- Sí:
+- Sí
 	Max: Excelente, suerte
 	set GlobalMision.asing_shoping_list()
 	set GlobalPlayer.inDialog = false
 	=> END
-- Nó:
+- Nó
 	=> assing_mision
 
 ~ mision_status

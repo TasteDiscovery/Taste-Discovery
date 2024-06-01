@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhnushyfpj2pj"]
+[gd_scene load_steps=11 format=3 uid="uid://dhnushyfpj2pj"]
 
 [ext_resource type="Script" path="res://shared/scripts/control.gd" id="1_okofb"]
 [ext_resource type="Texture2D" uid="uid://ctxybsf0lvkvf" path="res://resource/assets/backgrounds/menu_bg.jpeg" id="2_j2wub"]
 [ext_resource type="Texture2D" uid="uid://brkdkfixklm1b" path="res://resource/assets/skins/PlayerOriginal.png" id="3_ffx1c"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_n062c"]
-[ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="5_04aih"]
 [ext_resource type="Texture2D" uid="uid://ccvywkm13x3bx" path="res://resource/assets/ui/setting_icon.png" id="5_c1l1o"]
+[ext_resource type="Texture2D" uid="uid://dnnnsdipsm623" path="res://resource/assets/ui/edit.png" id="6_o1tlt"]
 [ext_resource type="AudioStream" uid="uid://cst4jqbow5fxc" path="res://resource/media/music/POL-king-of-coins-short.wav" id="6_ofkqq"]
 [ext_resource type="PackedScene" uid="uid://b8oa1upccw513" path="res://shared/scenes/settings_menu.tscn" id="7_6tcvn"]
+[ext_resource type="PackedScene" uid="uid://8kd2tm10b6n1" path="res://shared/scenes/name_manager.tscn" id="9_7scq0"]
 [ext_resource type="PackedScene" uid="uid://dmkqbbawo0tby" path="res://shared/scenes/terms_and_conditions.tscn" id="9_114mq"]
 
 [node name="MainMenu" type="Control"]
@@ -30,16 +31,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_j2wub")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -275.0
-offset_top = 50.0
-offset_right = 275.0
-offset_bottom = 138.0
+offset_left = -292.5
+offset_right = 292.5
+offset_bottom = 88.0
 grow_horizontal = 2
+theme_override_constants/margin_top = 64
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -47,7 +48,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 64
-text = "TASTE DISCOVERY"
+text = "TASTES DISCOVERY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -101,16 +102,52 @@ theme_override_font_sizes/font_size = 32
 icon = ExtResource("5_c1l1o")
 icon_alignment = 1
 
-[node name="MoneyControl" parent="." instance=ExtResource("5_04aih")]
+[node name="NameView" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -128.0
+offset_left = -362.0
 offset_top = 25.0
-offset_right = -50.0
-offset_bottom = 65.0
+offset_right = -29.0
+offset_bottom = 77.0
 grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="NameView"]
+layout_mode = 1
+offset_right = 282.0
+offset_bottom = 51.0
+
+[node name="MarginContainer" type="MarginContainer" parent="NameView/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="Name" type="Label" parent="NameView/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Jugador"
+horizontal_alignment = 1
+
+[node name="EditName" type="Button" parent="NameView"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -1.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("3_n062c")
+text = "           "
+icon = ExtResource("6_o1tlt")
+icon_alignment = 1
+
+[node name="NameManager" parent="." instance=ExtResource("9_7scq0")]
+visible = false
+layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ofkqq")
@@ -127,4 +164,6 @@ layout_mode = 1
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Skin" to="." method="_on_skin_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="NameView/EditName" to="." method="_on_edit_name_pressed"]
+[connection signal="player_renamed" from="NameManager" to="." method="_on_name_manager_player_renamed"]
 [connection signal="accepted" from="TermsAndConditions" to="." method="_on_terms_and_conditions_accepted"]

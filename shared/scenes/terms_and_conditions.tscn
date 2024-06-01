@@ -137,16 +137,20 @@ text = "5. Información adicional:
 - Se recomienda que el Usuario lea detenidamente estos Términos antes de acceder y usar el Videojuego."
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 32
 alignment = 2
 
-[node name="Accept" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Accept" type="Button" parent="ScrollContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_bgwlx")
 theme_override_font_sizes/font_size = 32
 text = "Aceptar"
 
-[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/MarginContainer/HBoxContainer/Accept" to="." method="_on_accept_pressed"]

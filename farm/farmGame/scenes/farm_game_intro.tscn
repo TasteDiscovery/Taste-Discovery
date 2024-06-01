@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://j15leexchj84"]
 
-[ext_resource type="Script" path="res://farm/cowGame/scripts/hungry_cows_game_intro.gd" id="1_bnkfd"]
+[ext_resource type="Script" path="res://farm/farmGame/scripts/farm_game_intro.gd" id="1_aaxxk"]
 [ext_resource type="Texture2D" uid="uid://c3wbe2x7k182j" path="res://resource/assets/backgrounds/farm_game_bg.png" id="2_eu3ca"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_khhas"]
 
 [node name="FarmGameIntro" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_bnkfd")
+script = ExtResource("1_aaxxk")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -38,7 +38,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-text = "Instrucciónes"
+text = "Instrucciónes (Atiende la Granja)"
 
 [node name="Body" type="VBoxContainer" parent="Panel"]
 layout_mode = 1

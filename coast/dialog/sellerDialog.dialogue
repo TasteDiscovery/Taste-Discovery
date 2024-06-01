@@ -2,8 +2,16 @@
 set GlobalPlayer.inDialog = true 
 if GlobalDialog.firstSellerMetting
 	=> first_meeting
+elif GlobalMision.shoppingList.is_empty()
+	=> empty_shopping_list
 else
 	=> greeting
+
+~ empty_shopping_list
+{{GlobalPlayer.playerName}}: Ya tengo todos los ingredientes
+{{GlobalPlayer.playerName}}: Debería entregarselos a Marx
+set GlobalPlayer.inDialog = false 
+=> END
 
 ~ first_meeting
 Estefany: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
@@ -11,7 +19,7 @@ Estefany: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
 Estefany: Mucho gusto {{GlobalPlayer.playerName}}
 Estefany: Aqui, en mi tienda, podras encontrar los siguientes ingredientes
 Estefany: {{GlobalMision.get_ingredients_by_place_dialog("Market")}}
-Estefany: Sin embargo deberas ganarlos participando en mis desafios
+Estefany: Sin embargo deberas ganarlos participando en mis desafíos
 set GlobalDialog.firstSellerMetting = false
 => mision
 
@@ -29,15 +37,17 @@ else
 	=> ingredients_not_found
 
 ~ start_game
-Estefany: De acuerdo, recuerda que debes ganar mi desafio para obtener un ingrediente
+Estefany: De acuerdo, recuerda que debes ganar mi desafío para obtener un ingrediente
 Estefany: Listo:
-- Si:
+- Si
 	Estefany: Suerte
 	set GlobalPlayer.inDialog = false 
 	set GlobalGames.enableMarketGame = true
-- No:
+	=> END
+- No
 	Estefany: Entiendo, sera para proxima ocación, suerte en tu busqueda
 	set GlobalPlayer.inDialog = false 
+	=> END
 
 ~ ingredients_not_found
 Estefany: Lamentablemente,no tengo los ingredientes que buscas

@@ -2,8 +2,17 @@
 set GlobalPlayer.inDialog = true 
 if GlobalDialog.firstFarmerMetting
 	=> first_meeting
+	
+elif GlobalMision.shoppingList.is_empty()
+	=> empty_shopping_list
 else
 	=> greeting
+
+~ empty_shopping_list
+{{GlobalPlayer.playerName}}: Ya tengo todos los ingredientes
+{{GlobalPlayer.playerName}}: Debería entregarselos a Marx
+set GlobalPlayer.inDialog = false 
+=> END
 
 ~ first_meeting
 Marco: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
@@ -11,7 +20,7 @@ Marco: Hola, eres nuevo por aqui cierto, ¿Cómo te llamas?.
 Marco: Mucho gusto {{GlobalPlayer.playerName}}
 Marco: Aqui, en mi granja, podras encontrar los siguientes ingredientes
 Marco: {{GlobalMision.get_ingredients_by_place_dialog("Farm")}}
-Marco: Sin embargo deberas ganarlos participando en mis desafios
+Marco: Sin embargo deberas ganarlos participando en mis desafíos
 set GlobalDialog.firstFarmerMetting = false
 => mision
 
@@ -29,15 +38,17 @@ else
 	=> ingredients_not_found
 
 ~ start_game
-Marco: De acuerdo, recuerda que debes ganar mi desafio para obtener un ingrediente
+Marco: De acuerdo, recuerda que debes ganar mi desafío para obtener un ingrediente
 Marco: Listo:
-- Si:
+- Si
 	Marco: Suerte
 	set GlobalPlayer.inDialog = false 
 	set GlobalGames.enableFarmGame = true
-- No:
+	=> END
+- No
 	Marco: Entiendo, sera para proxima ocación, suerte en tu busqueda
 	set GlobalPlayer.inDialog = false 
+	=> END
 
 ~ ingredients_not_found
 Marco: Lamentablemente,no tengo los ingredientes que buscas

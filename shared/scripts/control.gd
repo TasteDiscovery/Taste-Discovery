@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$MoneyControl.update_value()
+	$NameView/PanelContainer/MarginContainer/Name.text = GlobalPlayer.playerName
 	$AudioStreamPlayer.play()
 	$Skin/Sprite2D.texture = load(GlobalPlayer.skinPreview)
 	if GlobalSettings.acceptTermsAndConditions:
@@ -20,3 +20,9 @@ func _on_terms_and_conditions_accepted():
 	GlobalSettings.acceptTermsAndConditions = true
 	$SettingsMenu.settingService.save_data()
 	$TermsAndConditions.visible = false
+
+func _on_edit_name_pressed():
+	$NameManager.visible = true
+
+func _on_name_manager_player_renamed():
+	$NameView/PanelContainer/MarginContainer/Name.text = GlobalPlayer.playerName

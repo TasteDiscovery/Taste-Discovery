@@ -1366,6 +1366,8 @@ inMinigame = true
 [node name="CowFeedCenter" parent="." instance=ExtResource("2_u1opx")]
 z_index = 1
 position = Vector2(1121, 300)
+texture = ExtResource("4_r3c42")
+spriteScale = Vector2(0.2, 0.2)
 
 [node name="PlayerSpawner" parent="." instance=ExtResource("10_ip7a8")]
 z_index = 2

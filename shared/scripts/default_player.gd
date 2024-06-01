@@ -26,6 +26,8 @@ func _ready():
 func _physics_process(delta):
 	if not GlobalPlayer.inDialog:
 		move()
+	else:
+		velocity = Vector2.ZERO
 	update_animation()
 	move_and_slide()
 

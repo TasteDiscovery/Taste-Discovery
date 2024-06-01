@@ -2,7 +2,7 @@ extends Node
 class_name IngredientService
 
 var ingredients = [
-	Ingredient.new(0,"limon", "Costa", "Forest"),
+	Ingredient.new(0,"limón", "Costa", "Forest"),
 	Ingredient.new(1,"pescado", "Costa", "Market"),
 	Ingredient.new(2,"lechuga", "Costa", "Farm"),
 	Ingredient.new(3,"papa", "Costa", "Farm"),

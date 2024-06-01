@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://8kd2tm10b6n1"]
+
+[ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="1_dxsag"]
+[ext_resource type="Script" path="res://shared/scripts/name_manager.gd" id="1_g24nm"]
+[ext_resource type="StyleBox" uid="uid://ctjrxdnqe5mbx" path="res://resource/slyles/default_form_bg.tres" id="3_g0hlc"]
+[ext_resource type="Theme" uid="uid://lrv305xmhug6" path="res://resource/themes/button_theme_secondary.tres" id="4_q44dc"]
+
+[node name="NameManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g24nm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameEdit" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -125.0
+offset_right = 250.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="NameEdit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_g0hlc")
+
+[node name="MarginContainer" type="MarginContainer" parent="NameEdit"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="NameEdit/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Elije tu Nombre"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="NameEdit"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="LineEdit" type="LineEdit" parent="NameEdit/MarginContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Escribe tu nombre"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NameEdit"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -80.0
+offset_right = 165.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="No" type="Button" parent="NameEdit/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_q44dc")
+text = " Cancelar "
+
+[node name="MarginContainer" type="MarginContainer" parent="NameEdit/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="Yes" type="Button" parent="NameEdit/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_dxsag")
+theme_override_font_sizes/font_size = 32
+text = " Guardar "
+
+[connection signal="pressed" from="NameEdit/HBoxContainer/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="NameEdit/HBoxContainer/Yes" to="." method="_on_yes_pressed"]

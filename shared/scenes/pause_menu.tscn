@@ -38,7 +38,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1104.0
-offset_bottom = 567.0
+offset_bottom = 568.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -128,8 +128,8 @@ visible = false
 layout_mode = 1
 offset_left = -1104.0
 offset_top = 1.0
-offset_right = -1.0
-offset_bottom = 566.0
+offset_bottom = 568.0
+visibleDeleteButton = false
 
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Continue/Button" to="." method="_on_button_pressed"]

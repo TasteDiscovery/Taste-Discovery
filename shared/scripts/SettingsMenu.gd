@@ -2,8 +2,12 @@ extends Control
 
 signal closed()
 
+@export var visibleDeleteButton: bool = true
 var settingService = SettingService.new()
 var dataService = DataService.new()
+
+func _ready():
+	$Delete.visible = visibleDeleteButton
 
 func _on_save_pressed():
 	GlobalSettings.enableMusic = $VBoxContainer/MusicContainer/PanelConatiner/Mute.button_pressed

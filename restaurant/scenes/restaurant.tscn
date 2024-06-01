@@ -7587,11 +7587,11 @@ change_scene = "res://coast/scenes/coast.tscn"
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("9_qtexw")]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_ff6q0")]
-
 [node name="MoneyControl" parent="CanvasLayer" instance=ExtResource("11_bymum")]
 offset_left = 980.0
 offset_right = 1064.0
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("10_ff6q0")]
 
 [node name="MapMusic" parent="." instance=ExtResource("11_8dg1d")]
 

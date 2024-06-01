@@ -4,7 +4,7 @@ Narrador: Bienvenido {{GlobalPlayer.playerName}} a Taste Discovery
 Narrador: Eres el nuevo aventurero que ayudará a Max
 Narrador: Max es un chef, especialista en la preparación de comida nativa del Perú
 Narrador: Tú, te encargaras de encontrar y recoger los ingredientes necesarios para la preparación de su comida
-Narrador: Para ello tendras cumplir con varios desafios
+Narrador: Para ello tendrás que cumplir con varios desafíos
 Narrador: Suerte Aventurero
 Mision 1: Busca a Max en el restaurante y habla con él
 set GlobalPlayer.inDialog = false
