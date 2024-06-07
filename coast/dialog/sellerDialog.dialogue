@@ -38,9 +38,8 @@ else
 
 ~ start_game
 Estefany: De acuerdo, recuerda que debes ganar mi desafío para obtener un ingrediente
-Estefany: Listo:
+Estefany: ¿Listo?:
 - Si
-	Estefany: Suerte
 	set GlobalPlayer.inDialog = false 
 	set GlobalGames.enableMarketGame = true
 	=> END

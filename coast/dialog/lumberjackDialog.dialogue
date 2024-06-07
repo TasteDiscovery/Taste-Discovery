@@ -38,9 +38,8 @@ else
 
 ~ start_game
 Alison: De acuerdo, recuerda que debes ganar mi desafío para obtener un ingrediente
-Alison: Listo:
+Alison: ¿Listo?:
 - Si
-	Alison: Suerte
 	set GlobalPlayer.inDialog = false 
 	set GlobalGames.enableForestGame = true
 	=> END

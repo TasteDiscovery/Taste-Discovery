@@ -39,9 +39,8 @@ else
 
 ~ start_game
 Marco: De acuerdo, recuerda que debes ganar mi desafío para obtener un ingrediente
-Marco: Listo:
+Marco: ¿Listo?:
 - Si
-	Marco: Suerte
 	set GlobalPlayer.inDialog = false 
 	set GlobalGames.enableFarmGame = true
 	=> END
