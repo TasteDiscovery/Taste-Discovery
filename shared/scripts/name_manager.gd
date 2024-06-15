@@ -8,7 +8,9 @@ func _on_no_pressed():
 	visible = false
 
 func _on_yes_pressed():
-	GlobalPlayer.playerName = $NameEdit/MarginContainer2/LineEdit.text
+	var newPlayerName = $NameEdit/MarginContainer2/LineEdit.text
+	if newPlayerName == "": return;
+	GlobalPlayer.playerName = newPlayerName
 	await playerService.save_data()
 	player_renamed.emit()
 	visible = false

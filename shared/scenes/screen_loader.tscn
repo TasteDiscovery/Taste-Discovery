@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d23b1of8dd0mw" path="res://resource/assets/ui/healthbar_bg.png" id="1_8cy3i"]
 [ext_resource type="Script" path="res://shared/scripts/screen_loader.gd" id="1_k3kdk"]
-[ext_resource type="Texture2D" uid="uid://ctxybsf0lvkvf" path="res://resource/assets/backgrounds/menu_bg.jpeg" id="2_1y8o4"]
+[ext_resource type="Texture2D" uid="uid://b3r57haeynjbi" path="res://resource/assets/backgrounds/menu.png" id="2_eilej"]
 [ext_resource type="Texture2D" uid="uid://dwayy7hiysm80" path="res://resource/assets/ui/healthbar_content.png" id="3_ncjk2"]
 
 [node name="ScreenLoader" type="Control"]
@@ -21,7 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_1y8o4")
+texture = ExtResource("2_eilej")
+expand_mode = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 1

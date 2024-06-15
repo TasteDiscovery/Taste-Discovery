@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhnushyfpj2pj"]
+[gd_scene load_steps=12 format=3 uid="uid://dhnushyfpj2pj"]
 
 [ext_resource type="Script" path="res://shared/scripts/control.gd" id="1_okofb"]
-[ext_resource type="Texture2D" uid="uid://ctxybsf0lvkvf" path="res://resource/assets/backgrounds/menu_bg.jpeg" id="2_j2wub"]
+[ext_resource type="Texture2D" uid="uid://b3r57haeynjbi" path="res://resource/assets/backgrounds/menu.png" id="2_qk6xj"]
+[ext_resource type="Texture2D" uid="uid://cvnhppkab8m24" path="res://resource/assets/backgrounds/logo.svg" id="3_ad6rh"]
 [ext_resource type="Texture2D" uid="uid://brkdkfixklm1b" path="res://resource/assets/skins/PlayerOriginal.png" id="3_ffx1c"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="3_n062c"]
 [ext_resource type="Texture2D" uid="uid://ccvywkm13x3bx" path="res://resource/assets/ui/setting_icon.png" id="5_c1l1o"]
@@ -29,7 +30,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_j2wub")
+texture = ExtResource("2_qk6xj")
+expand_mode = 2
 
 [node name="VBoxContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -40,9 +42,10 @@ offset_left = -292.5
 offset_right = 292.5
 offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_constants/margin_top = 64
+theme_override_constants/margin_top = 128
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -51,6 +54,11 @@ theme_override_font_sizes/font_size = 64
 text = "TASTES DISCOVERY"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ad6rh")
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 1

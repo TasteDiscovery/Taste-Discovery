@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://jia8uyua1ipf"]
 
-[ext_resource type="Texture2D" uid="uid://efds0pe5dnsq" path="res://resource/assets/backgrounds/skin_selector_bg.jpeg" id="1_fqcaj"]
 [ext_resource type="Script" path="res://shared/scripts/skin_slector.gd" id="1_q2tim"]
+[ext_resource type="Texture2D" uid="uid://b3r57haeynjbi" path="res://resource/assets/backgrounds/menu.png" id="2_65xb2"]
 [ext_resource type="Theme" uid="uid://ccdfqfq2wd0rn" path="res://resource/themes/button_theme.tres" id="5_mycul"]
 [ext_resource type="PackedScene" uid="uid://dnpvpqlcw1u4t" path="res://shared/scenes/money_control.tscn" id="6_2d82e"]
 [ext_resource type="AudioStream" uid="uid://cst4jqbow5fxc" path="res://resource/media/music/POL-king-of-coins-short.wav" id="6_ojq6d"]
@@ -62,11 +62,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -188.0
-offset_bottom = 188.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_fqcaj")
+texture = ExtResource("2_65xb2")
+expand_mode = 2
 
 [node name="SkinPreview" type="Control" parent="."]
 layout_mode = 1
